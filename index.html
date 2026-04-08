@@ -671,11 +671,11 @@
       margin-bottom: 30px;
     }
     .cv-avatar {
-      width: 72px; height: 72px; border-radius: 50%;
+      width: 110px; height: 110px; border-radius: 50%;
       background: linear-gradient(135deg, var(--green), var(--blue));
       display: flex; align-items: center; justify-content: center;
       font-size: 1.8rem; flex-shrink: 0;
-      box-shadow: 0 0 24px rgba(0,210,150,0.25);
+      box-shadow: 0 0 32px rgba(0,210,150,0.3);
       overflow: hidden; padding: 0;
     }
     .cv-avatar img {
@@ -1105,6 +1105,7 @@
       <div class="doc-card-body">
         <p class="doc-card-desc">Document officiel au format .xlsx fourni par l'Éducation Nationale. Recense toutes les réalisations professionnelles avec les blocs de compétences B1 à B4 cochés. Doit être accessible en ligne le jour de l'épreuve.</p>
         <a href="Tableau_synthese.xlsx" class="doc-card-btn" target="_blank" rel="noopener">↗ Voir Tableau_synthese.xlsx</a>
+        <a href="Tableau_synthese.pdf" class="doc-card-btn-sec" target="_blank" rel="noopener">↗ Voir Tableau_synthese.pdf</a>
       </div>
     </div>
 
@@ -1216,7 +1217,7 @@
       </tr>
     </thead>
     <tbody>
-      <!-- Groupe : Réalisations en cours de formation -->
+      <!-- ═══════════ RÉALISATIONS EN COURS DE FORMATION ═══════════ -->
       <tr>
         <td colspan="8" style="background:rgba(0,210,150,0.07); color:var(--green); font-family:'JetBrains Mono',monospace; font-size:0.65rem; letter-spacing:0.12em; padding:10px 14px; border-top:1px solid var(--border);">
           RÉALISATIONS EN COURS DE FORMATION
@@ -1226,7 +1227,7 @@
         <td style="border-right:1px solid var(--border);">Infrastructure Proxmox — Épreuve E6<br><span style="font-family:'JetBrains Mono',monospace; font-size:0.6rem; color:var(--text-dim);">Projet scolaire · BTS SIO · UTEC</span></td>
         <td style="text-align:center; border-right:1px solid var(--border); color:var(--text-dim); font-size:0.68rem;">01/09/25<br>au<br>01/04/26</td>
         <td style="text-align:center; border-right:1px solid var(--border); color:var(--green);">✓</td>
-        <td style="text-align:center; border-right:1px solid var(--border); color:var(--green);">✓</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--text-dim);">—</td>
         <td style="text-align:center; border-right:1px solid var(--border); color:var(--text-dim);">—</td>
         <td style="text-align:center; border-right:1px solid var(--border); color:var(--green);">✓</td>
         <td style="text-align:center; border-right:1px solid var(--border); color:var(--green);">✓</td>
@@ -1234,7 +1235,7 @@
       </tr>
       <tr>
         <td style="border-right:1px solid var(--border);">Mise en place d'une caméra de surveillance WiFi (E6 — Fiche 1)<br><span style="font-family:'JetBrains Mono',monospace; font-size:0.6rem; color:var(--text-dim);">Épreuve E6 · Baie D BTS SIO</span></td>
-        <td style="text-align:center; border-right:1px solid var(--border); color:var(--text-dim); font-size:0.68rem;">Avr. 2026</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--text-dim); font-size:0.68rem;">15/04/26</td>
         <td style="text-align:center; border-right:1px solid var(--border); color:var(--green);">✓</td>
         <td style="text-align:center; border-right:1px solid var(--border); color:var(--green);">✓</td>
         <td style="text-align:center; border-right:1px solid var(--border); color:var(--text-dim);">—</td>
@@ -1243,65 +1244,17 @@
         <td style="text-align:center; color:var(--text-dim);">—</td>
       </tr>
       <tr>
-        <td style="border-right:1px solid var(--border);">Déploiement site web sur réseau local (E6 — Fiche 2)<br><span style="font-family:'JetBrains Mono',monospace; font-size:0.6rem; color:var(--text-dim);">Épreuve E6 · Baie D BTS SIO</span></td>
-        <td style="text-align:center; border-right:1px solid var(--border); color:var(--text-dim); font-size:0.68rem;">Avr. 2026</td>
+        <td style="border-right:1px solid var(--border);">Déploiement d'un site web sur réseau local (E6 — Fiche 2)<br><span style="font-family:'JetBrains Mono',monospace; font-size:0.6rem; color:var(--text-dim);">Épreuve E6 · Baie D BTS SIO</span></td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--text-dim); font-size:0.68rem;">15/04/26</td>
         <td style="text-align:center; border-right:1px solid var(--border); color:var(--green);">✓</td>
         <td style="text-align:center; border-right:1px solid var(--border); color:var(--green);">✓</td>
-        <td style="text-align:center; border-right:1px solid var(--border); color:var(--text-dim);">—</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--orange);">✓</td>
         <td style="text-align:center; border-right:1px solid var(--border); color:var(--text-dim);">—</td>
         <td style="text-align:center; border-right:1px solid var(--border); color:var(--green);">✓</td>
         <td style="text-align:center; color:var(--text-dim);">—</td>
       </tr>
-      <!-- Groupe : Réalisations en milieu professionnel — 1ère année -->
       <tr>
-        <td colspan="8" style="background:rgba(0,144,255,0.07); color:var(--blue); font-family:'JetBrains Mono',monospace; font-size:0.65rem; letter-spacing:0.12em; padding:10px 14px; border-top:1px solid var(--border);">
-          RÉALISATIONS EN MILIEU PROFESSIONNEL — PREMIÈRE ANNÉE
-        </td>
-      </tr>
-      <tr>
-        <td style="border-right:1px solid var(--border);">Refonte interface support Freshdesk → Gespage (Cartadis)<br><span style="font-family:'JetBrains Mono',monospace; font-size:0.6rem; color:var(--text-dim);">Alternance · Cartadis · Fontenay-sous-Bois</span></td>
-        <td style="text-align:center; border-right:1px solid var(--border); color:var(--text-dim); font-size:0.68rem;">01/09/24<br>au<br>30/06/25</td>
-        <td style="text-align:center; border-right:1px solid var(--border); color:var(--green);">✓</td>
-        <td style="text-align:center; border-right:1px solid var(--border); color:var(--green);">✓</td>
-        <td style="text-align:center; border-right:1px solid var(--border); color:var(--green);">✓</td>
-        <td style="text-align:center; border-right:1px solid var(--border); color:var(--green);">✓</td>
-        <td style="text-align:center; border-right:1px solid var(--border); color:var(--green);">✓</td>
-        <td style="text-align:center; color:var(--green);">✓</td>
-      </tr>
-      <!-- Groupe : Réalisations en milieu professionnel — 2ème année -->
-      <tr>
-        <td colspan="8" style="background:rgba(255,123,53,0.07); color:var(--orange); font-family:'JetBrains Mono',monospace; font-size:0.65rem; letter-spacing:0.12em; padding:10px 14px; border-top:1px solid var(--border);">
-          RÉALISATIONS EN MILIEU PROFESSIONNEL — SECONDE ANNÉE
-        </td>
-      </tr>
-      <tr>
-        <td style="border-right:1px solid var(--border);">Logiciel SSH — Automatisation bornes de lavage<br><span style="font-family:'JetBrains Mono',monospace; font-size:0.6rem; color:var(--text-dim);">Alternance · Cartadis · Fontenay-sous-Bois</span></td>
-        <td style="text-align:center; border-right:1px solid var(--border); color:var(--text-dim); font-size:0.68rem;">01/09/25<br>au<br>01/04/26</td>
-        <td style="text-align:center; border-right:1px solid var(--border); color:var(--text-dim);">—</td>
-        <td style="text-align:center; border-right:1px solid var(--border); color:var(--green);">✓</td>
-        <td style="text-align:center; border-right:1px solid var(--border); color:var(--text-dim);">—</td>
-        <td style="text-align:center; border-right:1px solid var(--border); color:var(--green);">✓</td>
-        <td style="text-align:center; border-right:1px solid var(--border); color:var(--green);">✓</td>
-        <td style="text-align:center; color:var(--green);">✓</td>
-      </tr>
-      <!-- Certifications -->
-      <tr>
-        <td colspan="8" style="background:rgba(0,210,150,0.04); color:var(--text-dim); font-family:'JetBrains Mono',monospace; font-size:0.65rem; letter-spacing:0.12em; padding:10px 14px; border-top:1px solid var(--border);">
-          CERTIFICATIONS
-        </td>
-      </tr>
-      <tr>
-        <td style="border-right:1px solid var(--border);">Certification PIX<br><span style="font-family:'JetBrains Mono',monospace; font-size:0.6rem; color:var(--text-dim);">Formation BTS SIO</span></td>
-        <td style="text-align:center; border-right:1px solid var(--border); color:var(--text-dim); font-size:0.68rem;">2025</td>
-        <td style="text-align:center; border-right:1px solid var(--border); color:var(--green);">✓</td>
-        <td style="text-align:center; border-right:1px solid var(--border); color:var(--text-dim);">—</td>
-        <td style="text-align:center; border-right:1px solid var(--border); color:var(--text-dim);">—</td>
-        <td style="text-align:center; border-right:1px solid var(--border); color:var(--text-dim);">—</td>
-        <td style="text-align:center; border-right:1px solid var(--border); color:var(--text-dim);">—</td>
-        <td style="text-align:center; color:var(--green);">✓</td>
-      </tr>
-      <tr>
-        <td style="border-right:1px solid var(--border);">Certification RGPD — L'Atelier CNIL<br><span style="font-family:'JetBrains Mono',monospace; font-size:0.6rem; color:var(--text-dim);">Formation BTS SIO</span></td>
+        <td style="border-right:1px solid var(--border);">Certification RGPD — L'Atelier CNIL<br><span style="font-family:'JetBrains Mono',monospace; font-size:0.6rem; color:var(--text-dim);">Formation BTS SIO · CNIL</span></td>
         <td style="text-align:center; border-right:1px solid var(--border); color:var(--text-dim); font-size:0.68rem;">2025</td>
         <td style="text-align:center; border-right:1px solid var(--border); color:var(--green);">✓</td>
         <td style="text-align:center; border-right:1px solid var(--border); color:var(--text-dim);">—</td>
@@ -1318,6 +1271,157 @@
         <td style="text-align:center; border-right:1px solid var(--border); color:var(--text-dim);">—</td>
         <td style="text-align:center; border-right:1px solid var(--border); color:var(--text-dim);">—</td>
         <td style="text-align:center; border-right:1px solid var(--border); color:var(--green);">✓</td>
+        <td style="text-align:center; color:var(--green);">✓</td>
+      </tr>
+      <tr>
+        <td style="border-right:1px solid var(--border);">Création d'une veille technologique — Cloud Hybride & IA<br><span style="font-family:'JetBrains Mono',monospace; font-size:0.6rem; color:var(--text-dim);">Formation BTS SIO · UTEC</span></td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--text-dim); font-size:0.68rem;">2024–2026</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--text-dim);">—</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--text-dim);">—</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--text-dim);">—</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--text-dim);">—</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--text-dim);">—</td>
+        <td style="text-align:center; color:var(--green);">✓</td>
+      </tr>
+
+      <!-- ═══════════ RÉALISATIONS EN MILIEU PROFESSIONNEL — 1ÈRE ANNÉE ═══════════ -->
+      <tr>
+        <td colspan="8" style="background:rgba(0,144,255,0.07); color:var(--blue); font-family:'JetBrains Mono',monospace; font-size:0.65rem; letter-spacing:0.12em; padding:10px 14px; border-top:1px solid var(--border);">
+          RÉALISATIONS EN MILIEU PROFESSIONNEL — PREMIÈRE ANNÉE
+        </td>
+      </tr>
+      <tr>
+        <td style="border-right:1px solid var(--border);">Refonte interface support Freshdesk → Gespage<br><span style="font-family:'JetBrains Mono',monospace; font-size:0.6rem; color:var(--text-dim);">Alternance · Cartadis · Fontenay-sous-Bois</span></td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--text-dim); font-size:0.68rem;">01/09/24<br>au<br>30/06/25</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--green);">✓</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--green);">✓</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--orange);">✓</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--green);">✓</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--green);">✓</td>
+        <td style="text-align:center; color:var(--green);">✓</td>
+      </tr>
+      <tr>
+        <td style="border-right:1px solid var(--border);">Gestion du ticketing (support helpdesk N1/N2)<br><span style="font-family:'JetBrains Mono',monospace; font-size:0.6rem; color:var(--text-dim);">Alternance · Cartadis</span></td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--text-dim); font-size:0.68rem;">01/09/24<br>au<br>30/06/25</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--green);">✓</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--green);">✓</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--text-dim);">—</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--text-dim);">—</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--green);">✓</td>
+        <td style="text-align:center; color:var(--text-dim);">—</td>
+      </tr>
+      <tr>
+        <td style="border-right:1px solid var(--border);">Dépannage à distance des clients<br><span style="font-family:'JetBrains Mono',monospace; font-size:0.6rem; color:var(--text-dim);">Alternance · Cartadis</span></td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--text-dim); font-size:0.68rem;">01/09/24<br>au<br>30/06/25</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--text-dim);">—</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--green);">✓</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--text-dim);">—</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--text-dim);">—</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--green);">✓</td>
+        <td style="text-align:center; color:var(--text-dim);">—</td>
+      </tr>
+      <tr>
+        <td style="border-right:1px solid var(--border);">Prise de contrôle à distance d'une borne (SSH / TeamViewer)<br><span style="font-family:'JetBrains Mono',monospace; font-size:0.6rem; color:var(--text-dim);">Alternance · Cartadis</span></td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--text-dim); font-size:0.68rem;">01/09/24<br>au<br>30/06/25</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--green);">✓</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--green);">✓</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--text-dim);">—</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--text-dim);">—</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--green);">✓</td>
+        <td style="text-align:center; color:var(--text-dim);">—</td>
+      </tr>
+      <tr>
+        <td style="border-right:1px solid var(--border);">Démantèlement de bornes de lavage<br><span style="font-family:'JetBrains Mono',monospace; font-size:0.6rem; color:var(--text-dim);">Alternance · Cartadis</span></td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--text-dim); font-size:0.68rem;">01/09/24<br>au<br>30/06/25</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--green);">✓</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--text-dim);">—</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--text-dim);">—</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--text-dim);">—</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--text-dim);">—</td>
+        <td style="text-align:center; color:var(--text-dim);">—</td>
+      </tr>
+      <tr>
+        <td style="border-right:1px solid var(--border);">Apprentissage des pièces pour les monnayeurs<br><span style="font-family:'JetBrains Mono',monospace; font-size:0.6rem; color:var(--text-dim);">Alternance · Cartadis</span></td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--text-dim); font-size:0.68rem;">01/09/24<br>au<br>30/06/25</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--green);">✓</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--green);">✓</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--text-dim);">—</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--text-dim);">—</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--text-dim);">—</td>
+        <td style="text-align:center; color:var(--green);">✓</td>
+      </tr>
+
+      <!-- ═══════════ RÉALISATIONS EN MILIEU PROFESSIONNEL — 2ÈME ANNÉE ═══════════ -->
+      <tr>
+        <td colspan="8" style="background:rgba(255,123,53,0.07); color:var(--orange); font-family:'JetBrains Mono',monospace; font-size:0.65rem; letter-spacing:0.12em; padding:10px 14px; border-top:1px solid var(--border);">
+          RÉALISATIONS EN MILIEU PROFESSIONNEL — SECONDE ANNÉE
+        </td>
+      </tr>
+      <tr>
+        <td style="border-right:1px solid var(--border);">Logiciel SSH — Automatisation bornes de lavage<br><span style="font-family:'JetBrains Mono',monospace; font-size:0.6rem; color:var(--text-dim);">Alternance · Cartadis · Fontenay-sous-Bois</span></td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--text-dim); font-size:0.68rem;">01/09/25<br>au<br>01/04/26</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--text-dim);">—</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--green);">✓</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--text-dim);">—</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--green);">✓</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--green);">✓</td>
+        <td style="text-align:center; color:var(--green);">✓</td>
+      </tr>
+      <tr>
+        <td style="border-right:1px solid var(--border);">Mise en place d'un VPN pour accès sécurisé à distance<br><span style="font-family:'JetBrains Mono',monospace; font-size:0.6rem; color:var(--text-dim);">Alternance · Cartadis</span></td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--text-dim); font-size:0.68rem;">01/09/25<br>au<br>01/04/26</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--green);">✓</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--green);">✓</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--text-dim);">—</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--green);">✓</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--green);">✓</td>
+        <td style="text-align:center; color:var(--text-dim);">—</td>
+      </tr>
+      <tr>
+        <td style="border-right:1px solid var(--border);">Création de documentation technique pour l'équipe<br><span style="font-family:'JetBrains Mono',monospace; font-size:0.6rem; color:var(--text-dim);">Alternance · Cartadis</span></td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--text-dim); font-size:0.68rem;">01/09/25<br>au<br>01/04/26</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--green);">✓</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--text-dim);">—</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--text-dim);">—</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--green);">✓</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--text-dim);">—</td>
+        <td style="text-align:center; color:var(--green);">✓</td>
+      </tr>
+      <tr>
+        <td style="border-right:1px solid var(--border);">Programmation d'un modem de communication<br><span style="font-family:'JetBrains Mono',monospace; font-size:0.6rem; color:var(--text-dim);">Alternance · Cartadis</span></td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--text-dim); font-size:0.68rem;">01/09/25<br>au<br>01/04/26</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--green);">✓</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--green);">✓</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--text-dim);">—</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--green);">✓</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--green);">✓</td>
+        <td style="text-align:center; color:var(--text-dim);">—</td>
+      </tr>
+      <tr>
+        <td style="border-right:1px solid var(--border);">Mise en place d'un nouveau module de communication bancaire<br><span style="font-family:'JetBrains Mono',monospace; font-size:0.6rem; color:var(--text-dim);">Alternance · Cartadis</span></td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--text-dim); font-size:0.68rem;">01/09/25<br>au<br>01/04/26</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--green);">✓</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--green);">✓</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--text-dim);">—</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--green);">✓</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--green);">✓</td>
+        <td style="text-align:center; color:var(--text-dim);">—</td>
+      </tr>
+
+      <!-- ═══════════ CERTIFICATION PIX ═══════════ -->
+      <tr>
+        <td colspan="8" style="background:rgba(0,210,150,0.04); color:var(--text-dim); font-family:'JetBrains Mono',monospace; font-size:0.65rem; letter-spacing:0.12em; padding:10px 14px; border-top:1px solid var(--border);">
+          CERTIFICATION PIX
+        </td>
+      </tr>
+      <tr>
+        <td style="border-right:1px solid var(--border);">Certification PIX<br><span style="font-family:'JetBrains Mono',monospace; font-size:0.6rem; color:var(--text-dim);">Formation BTS SIO · Éducation Nationale</span></td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--text-dim); font-size:0.68rem;">2025</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--green);">✓</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--text-dim);">—</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--text-dim);">—</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--text-dim);">—</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--text-dim);">—</td>
         <td style="text-align:center; color:var(--green);">✓</td>
       </tr>
     </tbody>
