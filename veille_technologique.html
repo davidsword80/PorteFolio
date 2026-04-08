@@ -378,7 +378,7 @@
       </div>
       <div class="veille-stats">
         <div class="stat-box">
-          <div class="stat-num">8</div>
+          <div class="stat-num">12</div>
           <div class="stat-lbl">Articles<br>sélectionnés</div>
         </div>
         <div class="stat-box">
@@ -497,7 +497,7 @@
   <!-- ARTICLES TIMELINE -->
   <section class="articles-section">
     <p class="section-eyebrow">02 — Articles sélectionnés</p>
-    <h2 class="section-title" style="margin-bottom:24px;">Fil de veille — Octobre 2025 → Mars 2026</h2>
+    <h2 class="section-title" style="margin-bottom:24px;">Fil de veille — Octobre 2024 → Mars 2026</h2>
 
     <!-- FILTRES -->
     <div class="filters">
@@ -516,32 +516,64 @@
         <div class="month-sep-line"></div>
       </div>
 
-      <div class="article-entry reveal" data-cat="infra">
+      <div class="article-entry reveal rd1" data-cat="reglementaire">
         <div class="article-card">
           <div class="article-card-inner">
-            <div class="article-card-accent accent-green"></div>
+            <div class="article-card-accent accent-red"></div>
             <div class="article-card-body">
               <div class="article-source-badge">
-                <span class="article-source-name">LeMagIT</span>
+                <span class="article-source-name">ANSSI / cyber.gouv.fr</span>
                 <div class="article-source-sep"></div>
-                <span class="article-category">Infrastructure</span>
+                <span class="article-category">Réglementaire NIS2</span>
               </div>
               <div class="article-card-head">
-                <h3 class="article-title">Les tendances du cloud IaaS en 2026 : retour vers le cloud privé et hybride</h3>
-                <span class="article-date">Mars 2026</span>
+                <h3 class="article-title">NIS 2 : l'ANSSI publie le référentiel ReCyF et renforce sa dynamique d'accompagnement</h3>
+                <span class="article-date">17 mars 2026</span>
               </div>
-              <p class="article-desc">Le rapport Flexera 2025 révèle que 70 % des entreprises adoptent désormais des stratégies de cloud hybride. Face aux hausses de prix des hyperscalers et aux tensions géopolitiques, les entreprises repensent leur approche et rapatrient certaines charges de travail.</p>
+              <p class="article-desc">L'ANSSI dévoile le Référentiel Cyber France (ReCyF), document de travail listant les mesures pour atteindre les 20 objectifs de sécurité de NIS 2. Il couvre gouvernance, gestion des accès, sécurisation des SI, gestion des incidents, avec un principe de proportionnalité adapté à la maturité de chaque entité.</p>
               <div class="article-resume">
                 <div class="article-resume-label">// Mon analyse</div>
-                <p class="article-resume-text">Cet article confirme que le cloud hybride n'est plus un choix de niche mais <strong>la stratégie dominante</strong>. Ce qui m'intéresse particulièrement pour le SISR : la montée en puissance des outils de sécurité unifiés entre cloud et on-premise. Les entreprises renforcent la gestion des identités (IAM) pour couvrir les deux environnements, ce qui est directement lié à nos compétences sur Active Directory et Azure AD.</p>
+                <p class="article-resume-text">Ce référentiel est directement lié au cloud hybride : il impose aux entités essentielles de sécuriser leurs <strong>accès distants aux SI</strong> et de cloisonner leur architecture. En environnement hybride, cela signifie sécuriser les tunnels VPN, les passerelles cloud et les accès Azure AD. En tant que futur technicien SISR dans une collectivité ou un hôpital, je serai probablement concerné par NIS2 dès mon premier poste.</p>
               </div>
               <div class="article-footer">
                 <div class="article-tags">
-                  <span class="stag stag-g">Cloud hybride</span>
-                  <span class="stag stag-b">IaaS</span>
-                  <span class="stag stag-b">FinOps</span>
+                  <span class="stag stag-o">NIS2</span>
+                  <span class="stag stag-o">ANSSI</span>
+                  <span class="stag stag-o">ReCyF</span>
                 </div>
-                <a href="https://www.lemagit.fr/actualites/366637507/Les-tendances-du-cloud-IaaS-en-2026" target="_blank" class="article-link">Lire l'article →</a>
+                <a href="https://cyber.gouv.fr/actualites/nis-2-lanssi-poursuit-et-renforce-sa-dynamique-daccompagnement/" target="_blank" class="article-link">Lire l'article →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="article-entry reveal rd2" data-cat="reglementaire">
+        <div class="article-card">
+          <div class="article-card-inner">
+            <div class="article-card-accent accent-red"></div>
+            <div class="article-card-body">
+              <div class="article-source-badge">
+                <span class="article-source-name">Solutions Numériques</span>
+                <div class="article-source-sep"></div>
+                <span class="article-category">Cybersécurité</span>
+              </div>
+              <div class="article-card-head">
+                <h3 class="article-title">NIS 2 : avec ReCyF, l'ANSSI impose déjà le tempo de la conformité</h3>
+                <span class="article-date">19 mars 2026</span>
+              </div>
+              <p class="article-desc">L'ANSSI n'attend pas la transposition législative pour agir. En publiant ReCyF, elle donne un cadre opérationnel immédiat aux organisations. Le DG Vincent Strubel est clair : il ne faut pas attendre pour le mettre en œuvre. La transposition française est désormais attendue pour juillet 2026 via le projet de loi Résilience.</p>
+              <div class="article-resume">
+                <div class="article-resume-label">// Mon analyse</div>
+                <p class="article-resume-text">Ce qui est frappant : la France accuse un retard sur la transposition de NIS2 (devait être faite avant octobre 2024), mais l'ANSSI pousse les organisations à agir maintenant. Pour le cloud hybride, cela confirme que la <strong>sécurisation des SI distribués</strong> est urgente. Les entreprises ne peuvent plus attendre un texte de loi pour sécuriser leurs environnements on-premise/cloud.</p>
+              </div>
+              <div class="article-footer">
+                <div class="article-tags">
+                  <span class="stag stag-o">NIS2</span>
+                  <span class="stag stag-o">Conformité</span>
+                  <span class="stag stag-g">Cloud hybride</span>
+                </div>
+                <a href="https://www.solutions-numeriques.com/nis-2-avec-recyf-lanssi-impose-deja-le-tempo-de-la-conformite/" target="_blank" class="article-link">Lire l'article →</a>
               </div>
             </div>
           </div>
@@ -554,7 +586,7 @@
         <div class="month-sep-line"></div>
       </div>
 
-      <div class="article-entry reveal" data-cat="outils">
+      <div class="article-entry reveal rd1" data-cat="outils">
         <div class="article-card">
           <div class="article-card-inner">
             <div class="article-card-accent accent-blue"></div>
@@ -586,6 +618,38 @@
         </div>
       </div>
 
+      <div class="article-entry reveal rd2" data-cat="infra">
+        <div class="article-card">
+          <div class="article-card-inner">
+            <div class="article-card-accent accent-green"></div>
+            <div class="article-card-body">
+              <div class="article-source-badge">
+                <span class="article-source-name">Journal du Net</span>
+                <div class="article-source-sep"></div>
+                <span class="article-category">Infrastructure & IA</span>
+              </div>
+              <div class="article-card-head">
+                <h3 class="article-title">2026 : l'année de vérité pour l'IT française — cloud hybride et orchestration au cœur des priorités</h3>
+                <span class="article-date">Jan. 2026</span>
+              </div>
+              <p class="article-desc">Le cloud hybride s'impose comme l'architecture naturelle des SI modernes. Les entreprises françaises accélèrent l'adoption d'outils cloud-agnostiques et de technologies de conteneurisation pour maîtriser leurs infrastructures et limiter les risques de dépendance fournisseur.</p>
+              <div class="article-resume">
+                <div class="article-resume-label">// Mon analyse</div>
+                <p class="article-resume-text">Ce que j'identifie comme tendance clé : l'adoption des <strong>outils cloud-agnostiques</strong> (Kubernetes, Terraform). Cela rejoint mes compétences SISR sur la virtualisation : ne plus être lié à un seul hyperviseur ou cloud provider est aujourd'hui une exigence professionnelle. Les collectivités et les hôpitaux où je pourrais travailler ont besoin de cette indépendance vis-à-vis des grands fournisseurs américains.</p>
+              </div>
+              <div class="article-footer">
+                <div class="article-tags">
+                  <span class="stag stag-g">Cloud hybride</span>
+                  <span class="stag stag-b">Conteneurisation</span>
+                  <span class="stag stag-o">NIS2</span>
+                </div>
+                <a href="https://www.journaldunet.com/business/1546607-2026-l-annee-de-verite-pour-l-it-francaise/" target="_blank" class="article-link">Lire l'article →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <!-- DÉCEMBRE 2025 -->
       <div class="month-sep">
         <span class="month-sep-label">Décembre 2025</span>
@@ -598,14 +662,31 @@
             <div class="article-card-accent accent-green"></div>
             <div class="article-card-body">
               <div class="article-source-badge">
-                <span class="article-source-name">Solutions Numériques</span>
+                <span class="article-source-name">LeMagIT</span>
                 <div class="article-source-sep"></div>
-                <span class="article-category">Avis d'expert</span>
+                <span class="article-category">Infrastructure</span>
               </div>
               <div class="article-card-head">
-                <h3 class="article-title">Trois tendances qui redéfiniront les infrastructures cloud des entreprises en 2026</h3>
-                <span class="article-date">19 déc. 2025</span>
+                <h3 class="article-title">Les tendances du cloud IaaS en 2026 : retour vers le cloud privé et hybride</h3>
+                <span class="article-date">22 jan. 2026</span>
               </div>
+              <p class="article-desc">Le rapport Flexera 2025 révèle que 70 % des entreprises adoptent désormais des stratégies de cloud hybride. Face aux hausses de prix des hyperscalers et aux tensions géopolitiques, les entreprises repensent leur approche et rapatrient certaines charges de travail. En 2026, il y aura plus de clouds souverains et privés.</p>
+              <div class="article-resume">
+                <div class="article-resume-label">// Mon analyse</div>
+                <p class="article-resume-text">Cet article confirme que le cloud hybride n'est plus un choix de niche mais <strong>la stratégie dominante</strong>. La montée en puissance des outils de sécurité unifiés entre cloud et on-premise est directement liée à nos compétences sur Active Directory et Azure AD. Les micro-clouds Edge fonctionnant en open source réduisent les coûts : un argument clé pour les collectivités qui me concernent.</p>
+              </div>
+              <div class="article-footer">
+                <div class="article-tags">
+                  <span class="stag stag-g">Cloud hybride</span>
+                  <span class="stag stag-b">IaaS</span>
+                  <span class="stag stag-b">FinOps</span>
+                </div>
+                <a href="https://www.lemagit.fr/actualites/366637507/Les-tendances-du-cloud-IaaS-en-2026" target="_blank" class="article-link">Lire l'article →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
               <p class="article-desc">Samuel Tourbot (Alcatel-Lucent Enterprise) identifie trois évolutions majeures : la généralisation du cloud hybride comme architecture par défaut, l'essor des plateformes cloud dédiées à l'IA générative, et l'exigence croissante de GreenOps (sobriété énergétique).</p>
               <div class="article-resume">
                 <div class="article-resume-label">// Mon analyse</div>
@@ -630,26 +711,26 @@
             <div class="article-card-accent accent-orange"></div>
             <div class="article-card-body">
               <div class="article-source-badge">
-                <span class="article-source-name">InformatiqueNews</span>
+                <span class="article-source-name">Le Monde Informatique</span>
                 <div class="article-source-sep"></div>
-                <span class="article-category">Émission spéciale</span>
+                <span class="article-category">Infrastructure hybride</span>
               </div>
               <div class="article-card-head">
-                <h3 class="article-title">VMware post-Broadcom : les entreprises cherchent des alternatives hybrides (Nutanix en tête)</h3>
+                <h3 class="article-title">Nutanix : gestion des environnements cloud hybrides — leur complexité n'est pas une fatalité</h3>
                 <span class="article-date">Déc. 2025</span>
               </div>
-              <p class="article-desc">Suite au rachat de VMware par Broadcom et aux hausses tarifaires qui ont suivi, les entreprises planifient des migrations massives. Nutanix s'impose comme alternative cloud hybride privé, couvrant virtualisation, Kubernetes et IA.</p>
+              <p class="article-desc">Nutanix Cloud Clusters (NC2) permet une mobilité transparente des applications entre clouds privés et publics (Azure, AWS, OVHcloud) sans modification de code. Une réponse aux migrations post-VMware/Broadcom qui touchent des milliers d'entreprises françaises.</p>
               <div class="article-resume">
                 <div class="article-resume-label">// Mon analyse</div>
-                <p class="article-resume-text">Ce sujet est <strong>très concret pour le SISR</strong> : beaucoup d'entreprises en stage ou en alternance utilisent VMware ESXi. Les migrations vers Proxmox ou Nutanix sont en cours. Cela confirme l'importance de maîtriser plusieurs hyperviseurs et pas seulement VMware. J'ai expérimenté Proxmox lors de mon projet de virtualisation.</p>
+                <p class="article-resume-text">Ce qui m'intéresse : Nutanix unifie la gestion multi-cloud avec <strong>un seul plan de contrôle</strong>. La complexité entre Azure, AWS et on-premise (terminologies différentes, compétences spécifiques) est un défi concret que j'anticipe dans ma carrière SISR. Nutanix et Proxmox deviennent des alternatives crédibles à VMware : je les ai d'ailleurs expérimentés lors de mes projets de virtualisation.</p>
               </div>
               <div class="article-footer">
                 <div class="article-tags">
-                  <span class="stag stag-o">VMware</span>
-                  <span class="stag stag-b">Nutanix</span>
-                  <span class="stag stag-g">Proxmox</span>
+                  <span class="stag stag-o">Nutanix</span>
+                  <span class="stag stag-g">Multicloud</span>
+                  <span class="stag stag-b">Migration VMware</span>
                 </div>
-                <a href="https://www.informatiquenews.fr/emission-speciale-quelles-perspectives-et-tendances-pour-lit-en-2026-109375" target="_blank" class="article-link">Lire l'article →</a>
+                <a href="https://www.lemondeinformatique.fr/publi_info/lire-gestion-des-environnements-cloud-hybrides-leur-complexite-n-est-pas-une-fatalite-824.html" target="_blank" class="article-link">Lire l'article →</a>
               </div>
             </div>
           </div>
@@ -673,7 +754,7 @@
                 <span class="article-category">Réglementaire</span>
               </div>
               <div class="article-card-head">
-                <h3 class="article-title">SecNumCloud v3.2 : nouvelles exigences pour les prestataires cloud qualifiés</h3>
+                <h3 class="article-title">SecNumCloud : le référentiel de l'ANSSI pour les prestataires cloud de confiance en France</h3>
                 <span class="article-date">Nov. 2025</span>
               </div>
               <p class="article-desc">L'ANSSI publie la version 3.2 de son référentiel SecNumCloud, qui définit les exigences de sécurité pour qu'un service cloud soit qualifié "cloud de confiance" en France. Les modifications portent notamment sur l'immunité aux lois extra-européennes et la gestion des incidents.</p>
@@ -687,7 +768,7 @@
                   <span class="stag stag-o">ANSSI</span>
                   <span class="stag stag-o">Souveraineté</span>
                 </div>
-                <a href="https://cyber.gouv.fr/publications/secnumcloud" target="_blank" class="article-link">Lire l'article →</a>
+                <a href="https://cyber.gouv.fr/accompagner-les-offreurs-cloud" target="_blank" class="article-link">Lire l'article →</a>
               </div>
             </div>
           </div>
@@ -700,26 +781,26 @@
             <div class="article-card-accent accent-red"></div>
             <div class="article-card-body">
               <div class="article-source-badge">
-                <span class="article-source-name">LeMagIT</span>
+                <span class="article-source-name">Journal du Net</span>
                 <div class="article-source-sep"></div>
-                <span class="article-category">Sécurité Cloud</span>
+                <span class="article-category">Cybersécurité</span>
               </div>
               <div class="article-card-head">
-                <h3 class="article-title">Sécurité cloud hybride : 40 % des entreprises victimes d'une attaque significative en 2025</h3>
-                <span class="article-date">Nov. 2025</span>
+                <h3 class="article-title">2025 : année charnière pour la cybersécurité des entreprises françaises — Active Directory et ransomwares ciblés</h3>
+                <span class="article-date">Déc. 2024</span>
               </div>
-              <p class="article-desc">Le baromètre CESIN 2025 révèle que 40 % des entreprises ont subi au moins une cyberattaque significative. Dans les environnements hybrides, le phishing boosté par l'IA et les mouvements latéraux entre on-premise et cloud sont les vecteurs les plus fréquents.</p>
+              <p class="article-desc">L'identité est le nouveau champ de bataille cyber. 75 % des tentatives d'accès initial n'utilisent pas de logiciels malveillants mais des identifiants volés. La modernisation d'Active Directory et le Zero Trust deviennent des priorités absolues, surtout dans les environnements hybrides.</p>
               <div class="article-resume">
                 <div class="article-resume-label">// Mon analyse</div>
-                <p class="article-resume-text">Ce chiffre est alarmant mais instructif. En environnement hybride, la surface d'attaque est plus grande car les connexions VPN/ExpressRoute entre le cloud et le SI on-premise créent de nouveaux vecteurs. La sécurisation de ces <strong>interconnexions</strong> (pare-feu, ACL, Zero Trust) est un enjeu clé que j'ai travaillé lors de mon projet d'audit sécurité.</p>
+                <p class="article-resume-text">Ce chiffre de 75 % d'attaques sans malware est révélateur : les attaquants se connectent avec des <strong>identifiants légitimes</strong> plutôt que d'exploiter des failles techniques. En environnement hybride cloud/on-premise, la cohérence entre Active Directory local et Azure AD est critique. C'est exactement un sujet que j'ai travaillé en cours et en stage : synchronisation des identités via Azure AD Connect et MFA.</p>
               </div>
               <div class="article-footer">
                 <div class="article-tags">
-                  <span class="stag stag-o">CESIN</span>
-                  <span class="stag stag-o">Cyberattaque</span>
-                  <span class="stag stag-b">Zero Trust</span>
+                  <span class="stag stag-o">Active Directory</span>
+                  <span class="stag stag-o">Zero Trust</span>
+                  <span class="stag stag-b">Azure AD</span>
                 </div>
-                <a href="https://www.lemagit.fr" target="_blank" class="article-link">Lire l'article →</a>
+                <a href="https://www.journaldunet.com/cybersecurite/1537575-2025-annee-charniere-pour-la-cybersecurite-des-entreprises-francaises/" target="_blank" class="article-link">Lire l'article →</a>
               </div>
             </div>
           </div>
@@ -746,7 +827,7 @@
                 <h3 class="article-title">Azure Arc : gérer ses serveurs Linux et Windows on-premise depuis le portail Azure</h3>
                 <span class="article-date">Oct. 2025</span>
               </div>
-              <p class="article-desc">Microsoft documente les nouveautés d'Azure Arc, notamment la prise en charge étendue des clusters Kubernetes on-premise et la nouvelle fonctionnalité de mise à jour automatique des agents Arc sur les serveurs Windows Server 2019/2022.</p>
+              <p class="article-desc">Microsoft documente les fonctionnalités d'Azure Arc, permettant de gérer des serveurs on-premise et des clusters Kubernetes depuis le portail Azure. Les Azure Policies s'appliquent uniformément aux ressources cloud et physiques locales.</p>
               <div class="article-resume">
                 <div class="article-resume-label">// Mon analyse</div>
                 <p class="article-resume-text">Azure Arc est l'outil que j'ai expérimenté lors de mon alternance pour superviser des serveurs on-premise depuis Azure. Ce qui m'a frappé : on peut appliquer des <strong>Azure Policies</strong> (règles de conformité) sur des serveurs physiques locaux exactement comme sur des VMs Azure. C'est une révolution pour l'administration hybride car tout se pilote depuis une seule console.</p>
@@ -789,7 +870,77 @@
                   <span class="stag stag-o">RGPD</span>
                   <span class="stag stag-o">Cloud Act</span>
                 </div>
-                <a href="https://www.cnil.fr/fr/cloud-et-vie-privee" target="_blank" class="article-link">Lire l'article →</a>
+                <a href="https://www.cnil.fr/fr/securite-cloud-informatique-en-nuage" target="_blank" class="article-link">Lire l'article →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FÉVRIER — OCTOBRE 2024 -->
+      <div class="month-sep">
+        <span class="month-sep-label">Février — Octobre 2024</span>
+        <div class="month-sep-line"></div>
+      </div>
+
+      <div class="article-entry reveal rd1" data-cat="reglementaire">
+        <div class="article-card">
+          <div class="article-card-inner">
+            <div class="article-card-accent accent-red"></div>
+            <div class="article-card-body">
+              <div class="article-source-badge">
+                <span class="article-source-name">Journal du Net</span>
+                <div class="article-source-sep"></div>
+                <span class="article-category">Réglementaire NIS2</span>
+              </div>
+              <div class="article-card-head">
+                <h3 class="article-title">NIS 2 : comment les entreprises françaises doivent-elles se préparer à la directive européenne ?</h3>
+                <span class="article-date">Oct. 2024</span>
+              </div>
+              <p class="article-desc">La France accuse un retard dans la transposition de NIS 2 (devait être effective le 17 octobre 2024). Des pays voisins (Belgique, République Tchèque) l'ont déjà adoptée. Les entreprises franco-européennes doivent s'y conformer pour maintenir leurs échanges commerciaux avec ces pays.</p>
+              <div class="article-resume">
+                <div class="article-resume-label">// Mon analyse</div>
+                <p class="article-resume-text">Le retard français de NIS2 est un signal important : la réglementation cyber prend du retard face aux réalités politiques. Mais les entreprises ne peuvent pas attendre — NIS2 impose de sécuriser les <strong>accès distants et les infrastructures cloud hybrides</strong>. Pour le SISR, c'est une opportunité : les compétences en sécurisation des SI hybrides vont devenir une exigence légale, pas seulement une bonne pratique.</p>
+              </div>
+              <div class="article-footer">
+                <div class="article-tags">
+                  <span class="stag stag-o">NIS2</span>
+                  <span class="stag stag-o">Réglementation UE</span>
+                  <span class="stag stag-g">Cybersécurité</span>
+                </div>
+                <a href="https://www.journaldunet.com/cybersecurite/1535029-nis-2-n-entrera-pas-en-vigueur-le-17-octobre-en-france-mais-vous-devrez-peut-etre-la-respecter-avant-sa-mise-en-place-effective/" target="_blank" class="article-link">Lire l'article →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="article-entry reveal rd2" data-cat="infra">
+        <div class="article-card">
+          <div class="article-card-inner">
+            <div class="article-card-accent accent-green"></div>
+            <div class="article-card-body">
+              <div class="article-source-badge">
+                <span class="article-source-name">Journal du Net</span>
+                <div class="article-source-sep"></div>
+                <span class="article-category">Infrastructure & IA</span>
+              </div>
+              <div class="article-card-head">
+                <h3 class="article-title">2026 : l'infrastructure intelligente, moteur d'une nouvelle ère numérique pour les entreprises françaises</h3>
+                <span class="article-date">8 jan. 2026</span>
+              </div>
+              <p class="article-desc">La cyber-résilience devient stratégique en 2026 avec une demande de détection quasi-instantanée des brèches et restauration des données intégrée à l'infrastructure. Les stratégies cloud évoluent vers des plateformes unifiées décidant où chaque charge de travail s'exécute mieux, tout en assurant la souveraineté des données.</p>
+              <div class="article-resume">
+                <div class="article-resume-label">// Mon analyse</div>
+                <p class="article-resume-text">La notion d'<strong>infrastructure intelligente de la donnée</strong> est une évolution clé : on ne parle plus seulement de "stocker dans le cloud" mais de décider intelligemment où chaque donnée doit résider (performance, coût, conformité, souveraineté). C'est la définition même du cloud hybride mature. La cryptographie post-quantique mentionnée dans l'article est aussi un enjeu à surveiller pour la sécurisation des VPN hybrides.</p>
+              </div>
+              <div class="article-footer">
+                <div class="article-tags">
+                  <span class="stag stag-g">Cloud hybride</span>
+                  <span class="stag stag-b">Cyber-résilience</span>
+                  <span class="stag stag-g">Souveraineté</span>
+                </div>
+                <a href="https://www.journaldunet.com/intelligence-artificielle/1547063-2026-l-infrastructure-intelligente-moteur-d-une-nouvelle-ere-numerique/" target="_blank" class="article-link">Lire l'article →</a>
               </div>
             </div>
           </div>
@@ -798,8 +949,6 @@
 
     </div><!-- /timeline -->
   </section>
-
-  <!-- SYNTHESE -->
   <section class="synthese-section reveal">
     <p class="section-eyebrow">03 — Synthèse</p>
     <h2 class="section-title">Ce que j'ai retenu de cette veille</h2>
