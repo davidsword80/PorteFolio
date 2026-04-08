@@ -429,7 +429,7 @@
     .status-wip { background: var(--orange); box-shadow: 0 0 6px var(--orange); }
 
     /* CONTACT */
-    .contact-section { background: var(--bg2); }
+    .contact-section { background: var(--bg2); padding: 100px; font-family: 'Syne', sans-serif; }
     .contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:start; }
     .contact-left p { font-size:0.88rem; color:var(--text-mid); line-height:1.9; margin-bottom:36px; }
     .contact-links { display:flex; flex-direction:column; gap:14px; }
@@ -673,6 +673,10 @@
       display: flex; align-items: center; justify-content: center;
       font-size: 1.8rem; flex-shrink: 0;
       box-shadow: 0 0 24px rgba(0,210,150,0.25);
+      overflow: hidden; padding: 0;
+    }
+    .cv-avatar img {
+      width: 100%; height: 100%; object-fit: cover; border-radius: 50%;
     }
     .cv-name-block {}
     .cv-name { font-size: 1.3rem; font-weight: 800; color: var(--white); letter-spacing: -0.01em; }
@@ -771,6 +775,157 @@
     }
     .btn-veille:hover { background: var(--green2); gap: 14px; box-shadow: 0 0 28px rgba(0,210,150,0.4); }
 
+    /* CERTIFICATIONS */
+    .certif-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .certif-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+      position: relative;
+    }
+    .certif-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, transparent, var(--green), transparent);
+      opacity: 0; transition: opacity 0.3s;
+    }
+    .certif-card:hover { transform: translateY(-4px); border-color: rgba(0,210,150,0.3); box-shadow: 0 20px 60px rgba(0,0,0,0.4); }
+    .certif-card:hover::before { opacity: 1; }
+    .certif-card-cisco::before { background: linear-gradient(90deg, transparent, var(--blue), transparent); }
+    .certif-card-header {
+      display: flex; align-items: center; gap: 14px;
+      padding: 22px 22px 16px;
+      border-bottom: 1px solid var(--border);
+    }
+    .certif-icon { font-size: 1.6rem; flex-shrink: 0; }
+    .certif-meta { flex: 1; }
+    .certif-label {
+      font-family: 'JetBrains Mono', monospace; font-size: 0.58rem;
+      letter-spacing: 0.14em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 3px;
+    }
+    .certif-title { font-size: 0.95rem; font-weight: 700; color: var(--white); }
+    .certif-badge {
+      font-family: 'JetBrains Mono', monospace; font-size: 0.58rem;
+      letter-spacing: 0.1em; padding: 4px 10px; border-radius: 2px;
+      white-space: nowrap; font-weight: 700; flex-shrink: 0;
+    }
+    .certif-badge-green { color: var(--green); background: rgba(0,210,150,0.1); border: 1px solid rgba(0,210,150,0.25); }
+    .certif-badge-blue  { color: var(--blue);  background: rgba(0,144,255,0.1); border: 1px solid rgba(0,144,255,0.25); }
+    .certif-badge-orange{ color: var(--orange); background: rgba(255,123,53,0.1); border: 1px solid rgba(255,123,53,0.25); }
+    .certif-card-body { padding: 20px 22px; }
+    .certif-desc { font-size: 0.78rem; color: var(--text-mid); line-height: 1.75; margin-bottom: 16px; }
+    .certif-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .certif-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: 'JetBrains Mono', monospace; font-size: 0.65rem;
+      letter-spacing: 0.08em; color: var(--bg); background: var(--green);
+      padding: 10px 18px; border-radius: 3px; text-decoration: none;
+      font-weight: 700; transition: background 0.25s, box-shadow 0.25s;
+      box-shadow: 0 0 14px rgba(0,210,150,0.18);
+    }
+    .certif-btn:hover { background: var(--green2); box-shadow: 0 0 22px rgba(0,210,150,0.35); }
+
+    /* MODAL POPUP */
+    .modal-overlay {
+      position: fixed; inset: 0; z-index: 9999;
+      background: rgba(5,8,14,0.88);
+      backdrop-filter: blur(10px);
+      display: flex; align-items: center; justify-content: center;
+      padding: 40px 20px;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .modal-overlay.active { opacity: 1; pointer-events: all; }
+    .modal-box {
+      background: var(--bg2);
+      border: 1px solid rgba(0,210,150,0.25);
+      border-radius: 12px;
+      max-width: 780px; width: 100%;
+      max-height: 85vh;
+      overflow-y: auto;
+      box-shadow: 0 40px 120px rgba(0,0,0,0.7);
+      transform: translateY(30px) scale(0.97);
+      transition: transform 0.35s ease;
+      position: relative;
+    }
+    .modal-overlay.active .modal-box { transform: translateY(0) scale(1); }
+    .modal-header {
+      display: flex; align-items: flex-start; justify-content: space-between;
+      padding: 28px 30px 20px;
+      border-bottom: 1px solid var(--border);
+      gap: 16px;
+    }
+    .modal-title { font-size: 1.25rem; font-weight: 800; color: var(--white); letter-spacing: -0.02em; margin-bottom: 6px; }
+    .modal-subtitle { font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; color: var(--green); }
+    .modal-close {
+      background: none; border: 1px solid var(--border); color: var(--text-mid);
+      width: 36px; height: 36px; border-radius: 6px; cursor: pointer;
+      font-size: 1rem; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .modal-close:hover { border-color: rgba(255,77,109,0.4); color: #ff4d6d; }
+    .modal-body { padding: 28px 30px; }
+    .modal-section-title {
+      font-family: 'JetBrains Mono', monospace; font-size: 0.62rem;
+      letter-spacing: 0.18em; text-transform: uppercase; color: var(--green);
+      margin-bottom: 12px; display: flex; align-items: center; gap: 10px;
+    }
+    .modal-section-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+    .modal-text { font-size: 0.82rem; color: var(--text-mid); line-height: 1.85; margin-bottom: 22px; }
+    .modal-imgs {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+      gap: 14px; margin-bottom: 24px;
+    }
+    .modal-img-placeholder {
+      height: 160px; border-radius: 6px; border: 1px dashed var(--border);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 8px; font-size: 2rem;
+      background: var(--bg3);
+    }
+    .modal-img-placeholder span { font-family: 'JetBrains Mono', monospace; font-size: 0.62rem; color: var(--text-dim); }
+    .modal-steps { display: flex; flex-direction: column; gap: 12px; margin-bottom: 22px; }
+    .modal-step {
+      display: flex; gap: 14px; align-items: flex-start;
+      background: var(--bg); border: 1px solid var(--border);
+      border-radius: 6px; padding: 14px 16px;
+    }
+    .modal-step-num {
+      font-family: 'JetBrains Mono', monospace; font-size: 0.68rem;
+      color: var(--green); background: rgba(0,210,150,0.1);
+      border: 1px solid rgba(0,210,150,0.2); width: 28px; height: 28px;
+      border-radius: 4px; display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; font-weight: 700;
+    }
+    .modal-step-text { font-size: 0.78rem; color: var(--text-mid); line-height: 1.7; padding-top: 4px; }
+    .modal-step-text strong { color: var(--white); }
+    .modal-tags { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 24px; }
+    .modal-results {
+      background: linear-gradient(135deg, rgba(0,210,150,0.05), rgba(0,144,255,0.03));
+      border: 1px solid rgba(0,210,150,0.15); border-radius: 8px; padding: 18px 20px;
+    }
+    .modal-results-title { font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; color: var(--green); letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 10px; }
+    .modal-result-item { display: flex; gap: 10px; align-items: flex-start; font-size: 0.78rem; color: var(--text-mid); margin-bottom: 6px; line-height: 1.6; }
+    .modal-result-item::before { content: '✓'; color: var(--green); font-family: 'JetBrains Mono', monospace; flex-shrink: 0; }
+
+    /* "Lire plus" button */
+    .btn-readmore {
+      display: inline-flex; align-items: center; gap: 7px;
+      font-family: 'JetBrains Mono', monospace; font-size: 0.65rem;
+      letter-spacing: 0.08em; color: var(--green);
+      background: rgba(0,210,150,0.06); border: 1px solid rgba(0,210,150,0.2);
+      padding: 9px 16px; border-radius: 3px; cursor: pointer;
+      transition: background 0.25s, border-color 0.25s, gap 0.25s;
+      margin-top: 14px;
+    }
+    .btn-readmore:hover { background: rgba(0,210,150,0.12); border-color: rgba(0,210,150,0.4); gap: 10px; }
+
     /* RESPONSIVE HINTS */
     @media(max-width:1200px){
       .hero-terminal { display:none; }
@@ -781,6 +936,7 @@
       .cr-grid { grid-template-columns: 1fr; }
       .veille-cta-row { flex-direction: column; align-items: flex-start; }
       .veille-stats-mini { display: none; }
+      .certif-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -798,6 +954,7 @@
     <li><a href="#about">profil</a></li>
     <li><a href="#competences">compétences</a></li>
     <li><a href="#projets">projets</a></li>
+    <li><a href="#projets-perso">perso</a></li>
     <li><a href="#epreuves">épreuves</a></li>
     <li><a href="#documents">documents</a></li>
     <li><a href="#veille">veille</a></li>
@@ -838,7 +995,7 @@
       <div class="t-line t-out">{</div>
       <div class="t-line t-out">&nbsp;&nbsp;<span class="t-key">"nom"</span>: <span class="t-str">"David Amado"</span>,</div>
       <div class="t-line t-out">&nbsp;&nbsp;<span class="t-key">"formation"</span>: <span class="t-str">"BTS SIO SISR"</span>,</div>
-      <div class="t-line t-out">&nbsp;&nbsp;<span class="t-key">"établissement"</span>: <span class="t-str">"Lycée Henri Matisse"</span>,</div>
+      <div class="t-line t-out">&nbsp;&nbsp;<span class="t-key">"établissement"</span>: <span class="t-str">"UTEC Marne-la-Vallé"</span>,</div>
       <div class="t-line t-out">&nbsp;&nbsp;<span class="t-key">"alternance"</span>: <span class="t-val">true</span>,</div>
       <div class="t-line t-out">&nbsp;&nbsp;<span class="t-key">"skills"</span>: [</div>
       <div class="t-line t-out">&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-str">"Cisco IOS"</span>, <span class="t-str">"Linux"</span>, <span class="t-str">"Windows Server"</span>,</div>
@@ -900,27 +1057,260 @@
         <div class="card-icon">🎓</div>
         <div class="card-title">BTS SIO SISR — 2024–2026</div>
         <div class="card-desc">Formation en 2 ans aux solutions d'infrastructure systèmes et réseaux. Épreuves E4, E5, E6 incluses.</div>
-        <span class="card-tag">Lycée Henri Matisse, Bordeaux</span>
+        <span class="card-tag">UTEC Marne-la-Vallée, Émerainville</span>
       </div>
       <div class="about-card reveal reveal-d2">
         <div class="card-icon">💼</div>
-        <div class="card-title">Alternance — TechSol Informatique</div>
-        <div class="card-desc">Technicien support N2, administration Active Directory, déploiement postes, supervision réseau.</div>
+        <div class="card-title">Technicien HELPDESK — CARTADIS</div>
+        <div class="card-desc">Technicien support,</div>
         <span class="card-tag">Sept. 2024 → Présent</span>
-      </div>
-      <div class="about-card reveal reveal-d3">
-        <div class="card-icon">🏅</div>
-        <div class="card-title">Certifications visées</div>
-        <div class="card-desc">CCNA Introduction to Networks (Cisco NetAcad), CompTIA Network+ en cours de préparation.</div>
-        <span class="card-tag">Cisco NetAcad · CompTIA</span>
       </div>
       <div class="about-card reveal reveal-d4">
         <div class="card-icon">📍</div>
         <div class="card-title">Localisation & Mobilité</div>
-        <div class="card-desc">Basé à Bordeaux. Mobilité possible sur l'ensemble de la région Nouvelle-Aquitaine.</div>
-        <span class="card-tag">Bordeaux, France</span>
+        <div class="card-desc">Permis en cours</div>
+        <span class="card-tag">Le Plessis-Trévise, France</span>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     SECTION DOCUMENTS OBLIGATOIRES
+════════════════════════════════════════════════════════════ -->
+<section id="documents" class="documents-section" style="padding:100px;">
+  <div class="section-header reveal">
+    <p class="section-eyebrow">06 — Documents obligatoires</p>
+    <h2 class="section-title">Pièces requises pour les épreuves</h2>
+  </div>
+
+  <div class="doc-grid">
+
+    <!-- TABLEAU SYNTHESE .xlsx -->
+    <div class="doc-card reveal reveal-d1">
+      <div class="doc-card-header">
+        <div class="doc-card-icon">📊</div>
+        <div class="doc-card-meta">
+          <div class="doc-card-label">Éducation Nationale · Format imposé</div>
+          <div class="doc-card-title">Tableau de synthèse des compétences</div>
+        </div>
+        <span class="doc-required">OBLIGATOIRE</span>
+      </div>
+      <div class="doc-card-body">
+        <p class="doc-card-desc">Document officiel au format .xlsx fourni par l'Éducation Nationale. Recense toutes les réalisations professionnelles avec les blocs de compétences B1 à B4 cochés. Doit être accessible en ligne le jour de l'épreuve.</p>
+        <a href="Tableau_synthese.xlsx" class="doc-card-btn" target="_blank" rel="noopener">↗ Voir Tableau_synthese.xlsx</a>
+      </div>
+    </div>
+
+    <!-- CV PDF -->
+    <div class="doc-card reveal reveal-d2">
+      <div class="doc-card-header">
+        <div class="doc-card-icon">📄</div>
+        <div class="doc-card-meta">
+          <div class="doc-card-label">Identité professionnelle · PDF</div>
+          <div class="doc-card-title">Curriculum Vitae</div>
+        </div>
+        <span class="doc-required">OBLIGATOIRE</span>
+      </div>
+      <div class="doc-card-body">
+        <p class="doc-card-desc">CV à jour avec expériences, formations, certifications et lien LinkedIn. Accessible en téléchargement direct depuis le portfolio pour le jury le jour de l'épreuve E4/E5/E6.</p>
+        <a href="CV_david.pdf" class="doc-card-btn" target="_blank" rel="noopener">↗ Voir CV_david.pdf</a>
+        <a href="https://www.linkedin.com/in/david-amado-962856279" target="_blank" class="doc-card-btn-sec">💼 LinkedIn →</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     SECTION CV / IDENTITÉ PROFESSIONNELLE
+════════════════════════════════════════════════════════════ -->
+<section class="cv-section" style="padding:100px; background:var(--bg2);">
+  <div class="section-header reveal">
+    <p class="section-eyebrow">06b — Identité professionnelle</p>
+    <h2 class="section-title">CV & Profil en ligne</h2>
+  </div>
+  <div class="cv-grid reveal">
+    <div class="cv-left">
+      <div class="cv-identity">
+        <div class="cv-avatar"><img src="profil.png" alt="Profil"/></div>
+        <div class="cv-name-block">
+          <div class="cv-name">David Amado</div>
+          <div class="cv-role">Technicien SISR · BTS SIO 2026</div>
+        </div>
+      </div>
+      <p class="cv-desc">Étudiant en BTS SIO option SISR, en alternance chez Cartadis à Fontenay-sous-Bois.
+      <br>Passionné d'informatique depuis toujours, j'ai commencé à apprendre le développement en autodidacte
+          dès mon plus jeune âge, et c'est dans cette continuité que j'étudie désormais pour obtenir le diplôme
+          de  Licence pro informatique.</p>
+
+      <div class="cv-links">         
+        <div class="cv-link">
+          <span class="cv-link-icon">✉️</span>
+          amadodavid17@gmail.com
+        </div>
+        <div class="contact-link">
+          <span class="contact-link-icon">📱</span>
+          +33 6 21 69 70 70
+        </div>        
+        <a href="https://www.linkedin.com/in/david-amado-962856279" target="_blank" class="contact-link">
+          <span class="contact-link-icon">💼</span>
+          Linkedin
+        </a>
+        <a href="https://github.com/davidsword80" target="_blank" class="contact-link">
+          <span class="contact-link-icon">🐙</span>
+          Github
+        </a>  
+        <a href="CV_david.pdf" class="cv-link" target="_blank" rel="noopener">
+          <span class="cv-link-icon">📄</span>
+          Voir mon CV — CV_david.pdf
+        </a>
+        <a href="lettre_de_motivation.pdf" class="contact-link" target="_blank" rel="noopener">
+          <span class="contact-link-icon">📄</span>
+          Voir ma lettre de motivation — lettre_de_motivation.pdf
+        </a>         
+      </div>
+    </div>
+    <div class="cv-right">
+      <div class="cv-block">
+        <div class="cv-block-title">Expériences</div>
+        <div class="cv-exp">
+          <div class="cv-exp-item">
+            <div class="cv-exp-dot"></div>
+            <div>
+              <div class="cv-exp-title">Technicien HELPDESK</div>
+              <div class="cv-exp-where">CARTADIS · Fontenay-sous-Bois</div>
+              <div class="cv-exp-date">Sept. 2024 → Aujourd'hui</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cv-block">
+        <div class="cv-block-title">Formation</div>
+        <div class="cv-exp">
+          <div class="cv-exp-item">
+            <div class="cv-exp-dot"></div>
+            <div>
+              <div class="cv-exp-title">BTS SIO — Option SISR</div>
+              <div class="cv-exp-where">UTEC Marne-la-Vallée, Émerainville</div>
+              <div class="cv-exp-date">2024 – 2026</div>
+            </div>
+          </div>
+          <div class="cv-exp-item">
+            <div class="cv-exp-dot"></div>
+            <div>
+              <div class="cv-exp-title">Baccalauréat STI2D</div>
+              <div class="cv-exp-where">Lycée Polyvalent Samuel De Champlain, Chennevières-sur-Marne</div>
+              <div class="cv-exp-date">2024</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cv-block">
+        <div class="cv-block-title">Compétences techniques</div>
+        <div class="cv-skills-grid">
+          <div class="cv-skill-item"><div class="cv-skill-dot"></div>Windows Server 2022</div>
+          <div class="cv-skill-item"><div class="cv-skill-dot"></div>Active Directory / GPO</div>
+          <div class="cv-skill-item"><div class="cv-skill-dot"></div>Cisco IOS / OSPF / VLAN</div>
+          <div class="cv-skill-item"><div class="cv-skill-dot"></div>pfSense / iptables</div>
+          <div class="cv-skill-item"><div class="cv-skill-dot"></div>Proxmox VE / VMware ESXi</div>
+          <div class="cv-skill-item"><div class="cv-skill-dot"></div>Bash / PowerShell</div>
+          <div class="cv-skill-item"><div class="cv-skill-dot"></div>Zabbix / Nagios</div>
+          <div class="cv-skill-item"><div class="cv-skill-dot"></div>Ansible / Terraform</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ══════════════════════════════════════════════════════════
+     SECTION CERTIFICATIONS
+════════════════════════════════════════════════════════════ -->
+<section class="certif-section" style="padding:100px; background:var(--bg);">
+  <div class="section-header reveal">
+    <p class="section-eyebrow">06c — Certifications</p>
+    <h2 class="section-title">Certifications obtenues</h2>
+  </div>
+  <p style="font-size:0.82rem;color:var(--text-mid);line-height:1.8;margin-bottom:48px;max-width:700px;" class="reveal">
+    Certifications professionnelles et académiques obtenues dans le cadre de ma formation BTS SIO et de mon développement personnel.
+  </p>
+
+  <div class="certif-grid reveal">
+
+    <!-- PIX -->
+    <div class="certif-card">
+      <div class="certif-card-header">
+        <div class="certif-icon">🎓</div>
+        <div class="certif-meta">
+          <div class="certif-label">Certification numérique</div>
+          <div class="certif-title">Certification PIX</div>
+        </div>
+        <span class="certif-badge certif-badge-green">OBTENUE</span>
+      </div>
+      <div class="certif-card-body">
+        <p class="certif-desc">Certification officielle des compétences numériques validée par la plateforme PIX. Évalue les compétences informatiques sur 5 domaines : information & données, communication & collaboration, création de contenu, protection & sécurité, environnement numérique.</p>
+        <div class="certif-tags">
+          <span class="tag tag-green">Compétences numériques</span>
+          <span class="tag tag-blue">PIX</span>
+          <span class="tag tag-green">Officiel Éducation Nationale</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- RGPD CNIL -->
+    <div class="certif-card">
+      <div class="certif-card-header">
+        <div class="certif-icon">🔐</div>
+        <div class="certif-meta">
+          <div class="certif-label">Protection des données · CNIL</div>
+          <div class="certif-title">Certification RGPD</div>
+        </div>
+        <span class="certif-badge certif-badge-orange">OBTENUE</span>
+      </div>
+      <div class="certif-card-body">
+        <p class="certif-desc">Certification délivrée par la CNIL attestant de la maîtrise du Règlement Général sur la Protection des Données (RGPD). Couvre les droits des personnes, les obligations des organisations, la gestion des données personnelles et les mesures de conformité.</p>
+        <div class="certif-tags">
+          <span class="tag tag-orange">RGPD</span>
+          <span class="tag tag-orange">CNIL</span>
+          <span class="tag tag-blue">Protection des données</span>
+          <span class="tag tag-green">Conformité</span>
+        </div>
+        <div style="margin-top:18px;">
+          <a href="Certification_RGPD.pdf" class="certif-btn" target="_blank" rel="noopener">↗ Voir la certification RGPD</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- CISCO -->
+    <div class="certif-card certif-card-cisco">
+      <div class="certif-card-header">
+        <div class="certif-icon">🌐</div>
+        <div class="certif-meta">
+          <div class="certif-label">Réseau & Infrastructure · Credly</div>
+          <div class="certif-title">Certification Cisco</div>
+        </div>
+        <span class="certif-badge certif-badge-blue">OBTENUE</span>
+      </div>
+      <div class="certif-card-body">
+        <p class="certif-desc">Certification Cisco attestant des compétences en administration réseau, configuration des équipements Cisco (routeurs, switchs), protocoles de routage et technologies réseau fondamentales.</p>
+        <div class="certif-tags">
+          <span class="tag tag-blue">Cisco</span>
+          <span class="tag tag-green">Réseau</span>
+          <span class="tag tag-blue">Routing & Switching</span>
+          <span class="tag tag-orange">Credly</span>
+        </div>
+        <div style="margin-top:18px; display:flex; align-items:center; gap:24px; flex-wrap:wrap;">
+          <a href="certification_cisco.pdf" class="certif-btn" target="_blank" rel="noopener">↗ Voir la certification Cisco</a>
+        </div>
+        <div style="margin-top:20px; display:flex; justify-content:flex-start;">
+          <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="016f8e24-f9fd-416a-9856-4418bef2515f" data-share-badge-host="https://www.credly.com"></div>
+          <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -1022,6 +1412,7 @@
           <span class="tag tag-orange">VPN IPSec</span>
           <span class="tag tag-green">HSRP</span>
         </div>
+        <button class="btn-readmore" onclick="openModal('modal-infra')">Lire plus →</button>
       </div>
     </div>
     <div class="projet-card reveal reveal-d2">
@@ -1041,6 +1432,7 @@
           <span class="tag tag-orange">PowerShell</span>
           <span class="tag tag-green">DNS / DHCP</span>
         </div>
+        <button class="btn-readmore" onclick="openModal('modal-ad')">Lire plus →</button>
       </div>
     </div>
     <div class="projet-card reveal reveal-d3">
@@ -1061,6 +1453,7 @@
           <span class="tag tag-blue">Zabbix</span>
           <span class="tag tag-green">Bash</span>
         </div>
+        <button class="btn-readmore" onclick="openModal('modal-audit')">Lire plus →</button>
       </div>
     </div>
     <div class="projet-card reveal reveal-d4">
@@ -1080,8 +1473,69 @@
           <span class="tag tag-blue">ZFS</span>
           <span class="tag tag-orange">PBS</span>
         </div>
+        <button class="btn-readmore" onclick="openModal('modal-proxmox')">Lire plus →</button>
       </div>
     </div>
+  </div>
+</section>
+
+
+<!-- PROJETS PERSONNELS -->
+<section id="projets-perso" class="projets-section" style="background:var(--bg2);">
+  <div class="section-header reveal">
+    <p class="section-eyebrow">03b — Projets personnels</p>
+    <h2 class="section-title">Créations & Développements perso</h2>
+  </div>
+  <p style="font-size:0.82rem;color:var(--text-mid);line-height:1.8;margin-bottom:36px;max-width:700px;" class="reveal">
+    En dehors de mes études, je développe des projets personnels qui me permettent d'explorer le développement web, les extensions navigateur et la gestion de bases de données.
+  </p>
+  <div class="projets-grid">
+
+    <!-- PROJET : Solo Leveling Arise DB -->
+    <div class="projet-card reveal reveal-d1">
+      <div class="projet-card-img" style="background: linear-gradient(135deg, #0a0020 0%, #1a0040 50%, #2a0060 100%);">
+        <div class="projet-card-img-grid"></div>
+        <span style="font-size:2.8rem;z-index:2;">⚔️</span>
+      </div>
+      <div class="projet-card-body">
+        <div class="projet-card-header">
+          <h3 class="projet-title">Solo Leveling Arise — Database</h3>
+          <span class="projet-badge" style="color:var(--blue);background:rgba(0,144,255,0.1);border-color:rgba(0,144,255,0.2);">Projet perso</span>
+        </div>
+        <p class="projet-desc">Site web servant de base de données pour le jeu mobile <strong style="color:var(--white)">Solo Leveling: Arise</strong>. Répertorie l'ensemble des personnages et armes du jeu avec leurs statistiques, niveaux et caractéristiques. Interface pensée pour les joueurs souhaitant consulter rapidement les informations de jeu.</p>
+        <div class="projet-stack">
+          <span class="tag tag-green">HTML / CSS</span>
+          <span class="tag tag-blue">JavaScript</span>
+          <span class="tag tag-blue">Base de données</span>
+          <span class="tag tag-orange">Design UI</span>
+        </div>
+        <button class="btn-readmore" onclick="openModal('modal-sla')">Lire plus →</button>
+      </div>
+    </div>
+
+    <!-- PROJET : Extension Chrome Price Tracker -->
+    <div class="projet-card reveal reveal-d2">
+      <div class="projet-card-img" style="background: linear-gradient(135deg, #001a10 0%, #003020 50%, #004535 100%);">
+        <div class="projet-card-img-grid"></div>
+        <span style="font-size:2.8rem;z-index:2;">🧩</span>
+      </div>
+      <div class="projet-card-body">
+        <div class="projet-card-header">
+          <h3 class="projet-title">Extension Chrome — Price Tracker</h3>
+          <span class="projet-badge" style="color:var(--blue);background:rgba(0,144,255,0.1);border-color:rgba(0,144,255,0.2);">Projet perso</span>
+        </div>
+        <p class="projet-desc">Extension Google Chrome permettant de scraper des articles web en récupérant automatiquement leur <strong style="color:var(--white)">nom, prix et image</strong>. Les données sont stockées dans une base de données puis affichées dans un <strong style="color:var(--white)">dashboard</strong> dédié pour suivre l'évolution des prix et comparer les produits.</p>
+        <div class="projet-stack">
+          <span class="tag tag-green">Chrome Extension API</span>
+          <span class="tag tag-blue">JavaScript</span>
+          <span class="tag tag-orange">Web Scraping</span>
+          <span class="tag tag-green">Dashboard</span>
+          <span class="tag tag-blue">Base de données</span>
+        </div>
+        <button class="btn-readmore" onclick="openModal('modal-chrome')">Lire plus →</button>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -1206,156 +1660,6 @@
 </section>
 
 <!-- ══════════════════════════════════════════════════════════
-     SECTION DOCUMENTS OBLIGATOIRES
-════════════════════════════════════════════════════════════ -->
-<section id="documents" class="documents-section" style="padding:100px;">
-  <div class="section-header reveal">
-    <p class="section-eyebrow">06 — Documents obligatoires</p>
-    <h2 class="section-title">Pièces requises pour les épreuves</h2>
-  </div>
-
-  <div class="doc-grid">
-
-    <!-- TABLEAU SYNTHESE .xlsx -->
-    <div class="doc-card reveal reveal-d1">
-      <div class="doc-card-header">
-        <div class="doc-card-icon">📊</div>
-        <div class="doc-card-meta">
-          <div class="doc-card-label">Éducation Nationale · Format imposé</div>
-          <div class="doc-card-title">Tableau de synthèse des compétences</div>
-        </div>
-        <span class="doc-required">OBLIGATOIRE</span>
-      </div>
-      <div class="doc-card-body">
-        <p class="doc-card-desc">Document officiel au format .xlsx fourni par l'Éducation Nationale. Recense toutes les réalisations professionnelles avec les blocs de compétences B1 à B4 cochés. Doit être accessible en ligne le jour de l'épreuve.</p>
-        <a href="synthese.xlsx" class="doc-card-btn" download>⬇ Télécharger synthese.xlsx</a>
-      </div>
-    </div>
-
-    <!-- CV PDF -->
-    <div class="doc-card reveal reveal-d2">
-      <div class="doc-card-header">
-        <div class="doc-card-icon">📄</div>
-        <div class="doc-card-meta">
-          <div class="doc-card-label">Identité professionnelle · PDF</div>
-          <div class="doc-card-title">Curriculum Vitae</div>
-        </div>
-        <span class="doc-required">OBLIGATOIRE</span>
-      </div>
-      <div class="doc-card-body">
-        <p class="doc-card-desc">CV à jour avec expériences, formations, certifications et lien LinkedIn. Accessible en téléchargement direct depuis le portfolio pour le jury le jour de l'épreuve E4/E5/E6.</p>
-        <a href="CV_david.pdf" class="doc-card-btn" download>⬇ Télécharger CV_david.pdf</a>
-        <a href="https://linkedin.com/in/votre-profil-linkedin" target="_blank" class="doc-card-btn-sec">💼 LinkedIn →</a>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ══════════════════════════════════════════════════════════
-     SECTION CV / IDENTITÉ PROFESSIONNELLE
-════════════════════════════════════════════════════════════ -->
-<section class="cv-section" style="padding:100px; background:var(--bg2);">
-  <div class="section-header reveal">
-    <p class="section-eyebrow">06b — Identité professionnelle</p>
-    <h2 class="section-title">CV & Profil en ligne</h2>
-  </div>
-  <div class="cv-grid reveal">
-    <div class="cv-left">
-      <div class="cv-identity">
-        <div class="cv-avatar">👨‍💻</div>
-        <div class="cv-name-block">
-          <div class="cv-name">David Amado</div>
-          <div class="cv-role">Technicien SISR · BTS SIO 2026</div>
-        </div>
-      </div>
-      <p class="cv-desc">Étudiant en BTS SIO option SISR, en alternance chez TechSol Informatique à Bordeaux. Passionné par l'administration des infrastructures, la virtualisation et la cybersécurité. À la recherche d'un premier poste en tant que technicien systèmes & réseaux.</p>
-      <div class="cv-links">
-        <a href="CV_david.pdf" class="cv-link highlight" download>
-          <span class="cv-link-icon">📄</span>
-          Télécharger mon CV — CV_david.pdf
-        </a>
-        <a href="https://linkedin.com/in/votre-profil-linkedin" target="_blank" class="cv-link linkedin-link">
-          <span class="cv-link-icon">💼</span>
-          linkedin.com/in/votre-profil-linkedin
-        </a>
-        <a href="mailto:alexandre.dupont@email.fr" class="cv-link">
-          <span class="cv-link-icon">✉️</span>
-          alexandre.dupont@email.fr
-        </a>
-        <a href="tel:+33612345678" class="cv-link">
-          <span class="cv-link-icon">📱</span>
-          +33 6 12 34 56 78
-        </a>
-        <a href="https://github.com/alexdupont-sisr" target="_blank" class="cv-link">
-          <span class="cv-link-icon">🐙</span>
-          github.com/alexdupont-sisr
-        </a>
-      </div>
-    </div>
-    <div class="cv-right">
-      <div class="cv-block">
-        <div class="cv-block-title">Expériences</div>
-        <div class="cv-exp">
-          <div class="cv-exp-item">
-            <div class="cv-exp-dot"></div>
-            <div>
-              <div class="cv-exp-title">Technicien Support N2 — Alternance</div>
-              <div class="cv-exp-where">TechSol Informatique · Bordeaux</div>
-              <div class="cv-exp-date">Sept. 2024 → Aujourd'hui</div>
-              <div class="cv-exp-desc">Administration Active Directory, déploiement postes, gestion des tickets, supervision réseau Zabbix, mise en place Azure AD Connect.</div>
-            </div>
-          </div>
-          <div class="cv-exp-item">
-            <div class="cv-exp-dot"></div>
-            <div>
-              <div class="cv-exp-title">Stage Technicien Informatique</div>
-              <div class="cv-exp-where">Mairie de Bordeaux · DSI</div>
-              <div class="cv-exp-date">Avril – Juin 2024 · 8 semaines</div>
-              <div class="cv-exp-desc">Inventaire du parc avec GLPI, configuration switchs Cisco, support utilisateurs, mise à jour des GPO Active Directory.</div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="cv-block">
-        <div class="cv-block-title">Formation</div>
-        <div class="cv-exp">
-          <div class="cv-exp-item">
-            <div class="cv-exp-dot"></div>
-            <div>
-              <div class="cv-exp-title">BTS SIO — Option SISR</div>
-              <div class="cv-exp-where">Lycée Henri Matisse · Bordeaux</div>
-              <div class="cv-exp-date">2024 – 2026</div>
-            </div>
-          </div>
-          <div class="cv-exp-item">
-            <div class="cv-exp-dot"></div>
-            <div>
-              <div class="cv-exp-title">Baccalauréat STI2D — Mention Bien</div>
-              <div class="cv-exp-where">Lycée Gustave Eiffel · Bordeaux</div>
-              <div class="cv-exp-date">2024</div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="cv-block">
-        <div class="cv-block-title">Compétences techniques</div>
-        <div class="cv-skills-grid">
-          <div class="cv-skill-item"><div class="cv-skill-dot"></div>Windows Server 2022</div>
-          <div class="cv-skill-item"><div class="cv-skill-dot"></div>Active Directory / GPO</div>
-          <div class="cv-skill-item"><div class="cv-skill-dot"></div>Cisco IOS / OSPF / VLAN</div>
-          <div class="cv-skill-item"><div class="cv-skill-dot"></div>pfSense / iptables</div>
-          <div class="cv-skill-item"><div class="cv-skill-dot"></div>Proxmox VE / VMware ESXi</div>
-          <div class="cv-skill-item"><div class="cv-skill-dot"></div>Bash / PowerShell</div>
-          <div class="cv-skill-item"><div class="cv-skill-dot"></div>Zabbix / Nagios</div>
-          <div class="cv-skill-item"><div class="cv-skill-dot"></div>Ansible / Terraform</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════════════════════════════
      SECTION FICHES RÉALISATIONS PROFESSIONNELLES
 ════════════════════════════════════════════════════════════ -->
 <section class="fiches-section" style="padding:100px;">
@@ -1432,7 +1736,7 @@
           <tr><td>Intitulé</td><td>Conception et déploiement d'une infrastructure WAN reliant 3 sites avec routage OSPF, segmentation VLAN et VPN IPSec site-à-site</td></tr>
           <tr><td>Contexte</td><td>Projet réalisé en cours de BTS SIO (bloc B2.2) simulant un déploiement réseau pour une PME disposant de 3 sites géographiques (siège + 2 agences).</td></tr>
           <tr><td>Période</td><td>Janvier – Février 2025 (4 semaines)</td></tr>
-          <tr><td>Lieu</td><td>Lycée Henri Matisse — Salle réseau (GNS3 + équipements réels Cisco)</td></tr>
+          <tr><td>Lieu</td><td>UTEC Marne-la-Vallée, Émerainville</td></tr>
           <tr><td>Environnement technique</td><td>Cisco IOS (routeurs 2911, switchs 2960), GNS3, protocole OSPF aire 0, VLAN 802.1Q, VPN IPSec, HSRP pour la redondance</td></tr>
           <tr><td>Ma mission</td><td>Conception du plan d'adressage IP, configuration des VLAN et trunk 802.1Q, mise en place du routage OSPF inter-sites, configuration du tunnel VPN IPSec entre le siège et les agences, activation HSRP pour la redondance de passerelle sur le site principal.</td></tr>
           <tr><td>Résultats obtenus</td><td>Connectivité totale entre les 3 sites, segmentation effective par VLAN (RH, Prod, IT, VoIP), bascule HSRP testée et validée en moins de 3 secondes, tunnel VPN IPSec chiffré AES-256 opérationnel.</td></tr>
@@ -1666,60 +1970,57 @@
 
 <!-- CONTACT -->
 <section id="contact" class="contact-section">
+  <div class="section-header reveal">
+    <p class="section-eyebrow">10 — Contact</p>
+    <h2 class="section-title">Me rejoindre</h2>
+  </div>
   <div class="contact-grid">
     <div class="contact-left reveal">
-      <div class="section-header">
-        <p class="section-eyebrow">10 — Contact</p>
-        <h2 class="section-title">Me rejoindre</h2>
-      </div>
       <p>Disponible pour toute opportunité de stage, d'alternance ou de premier emploi dans les domaines de l'administration systèmes, réseau ou de la cybersécurité.</p>
       <div class="contact-links">
-        <a href="/cdn-cgi/l/email-protection#5c3d3039243d32382e397238292c3332281c39313d3530723a2e" class="contact-link">
+        <div class="contact-link">
           <span class="contact-link-icon">✉️</span>
-          <span class="__cf_email__" data-cfemail="17767b726f76797365723973626778796357727a767e7b397165">[email&#160;protected]</span>
-        </a>
-        <a href="tel:+33612345678" class="contact-link">
+          amadodavid17@gmail.com
+        </div>
+        <div class="contact-link">
           <span class="contact-link-icon">📱</span>
-          +33 6 12 34 56 78
-        </a>
-        <a href="https://linkedin.com/in/votre-profil-linkedin" target="_blank" class="contact-link">
+          +33 6 21 69 70 70
+        </div>        
+        <a href="https://www.linkedin.com/in/david-amado-962856279" target="_blank" class="contact-link">
           <span class="contact-link-icon">💼</span>
-          linkedin.com/in/votre-profil-linkedin
+          Linkedin
         </a>
-        <a href="https://github.com/alexdupont-sisr" target="_blank" class="contact-link">
+        <a href="https://github.com/davidsword80" target="_blank" class="contact-link">
           <span class="contact-link-icon">🐙</span>
-          github.com/alexdupont-sisr
-        </a>
-        <a href="CV_david.pdf" class="contact-link" download>
-          <span class="contact-link-icon">📄</span>
-          Télécharger mon CV — CV_david.pdf
-        </a>
+          Github
+        </a>       
       </div>
     </div>
     <div class="contact-form reveal reveal-d2">
       <div class="form-row">
         <div class="form-group">
           <label class="form-label">Prénom</label>
-          <input type="text" class="form-input" placeholder="Jean"/>
+          <input type="text" id="cf-prenom" class="form-input"/>
         </div>
         <div class="form-group">
           <label class="form-label">Nom</label>
-          <input type="text" class="form-input" placeholder="Martin"/>
+          <input type="text" id="cf-nom" class="form-input"/>
         </div>
       </div>
       <div class="form-group">
         <label class="form-label">Entreprise / Organisation</label>
-        <input type="text" class="form-input" placeholder="TechCorp SAS"/>
+        <input type="text" id="cf-entreprise" class="form-input"/>
       </div>
       <div class="form-group">
         <label class="form-label">Email</label>
-        <input type="email" class="form-input" placeholder="recrutement@techcorp.fr"/>
+        <input type="email" id="cf-email" class="form-input"/>
       </div>
       <div class="form-group">
         <label class="form-label">Message</label>
-        <textarea class="form-input" placeholder="Bonjour, je souhaite vous proposer..."></textarea>
+        <textarea id="cf-message" class="form-input" ></textarea>
       </div>
-      <button class="form-btn">Envoyer le message →</button>
+      <div id="cf-status" style="display:none; font-family:'JetBrains Mono',monospace; font-size:0.75rem; padding:12px 16px; border-radius:4px; margin-bottom:4px;"></div>
+      <button class="form-btn" id="cf-btn" onclick="sendContact()">Envoyer le message →</button>
     </div>
   </div>
 </section>
@@ -1731,7 +2032,282 @@
   <a href="#home" class="footer-back">↑ retour en haut</a>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<!-- ═══════════════════════════════════════════════
+     MODALS PROJETS & RÉALISATIONS
+═══════════════════════════════════════════════ -->
+
+<!-- Modal Infra réseau -->
+<div class="modal-overlay" id="modal-infra" onclick="closeModalOutside(event, 'modal-infra')">
+  <div class="modal-box">
+    <div class="modal-header">
+      <div>
+        <div class="modal-title">Infrastructure réseau multi-site</div>
+        <div class="modal-subtitle">E4 — SITech · Cisco IOS / OSPF / VPN IPSec</div>
+      </div>
+      <button class="modal-close" onclick="closeModal('modal-infra')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-section-title">Contexte & Objectifs</div>
+      <p class="modal-text">Dans le cadre de l'épreuve E4, j'ai conçu et déployé une infrastructure WAN complète reliant <strong style="color:var(--white)">3 sites géographiques distincts</strong> pour une entreprise fictive. L'objectif était de garantir une connectivité sécurisée, redondante et performante entre le siège social et deux agences distantes, avec une segmentation stricte du réseau par rôle métier.</p>
+      <div class="modal-section-title">Visuels du projet</div>
+      <div class="modal-imgs">
+        <div class="modal-img-placeholder">🌐<span>Topologie réseau — Packet Tracer</span></div>
+        <div class="modal-img-placeholder">🔀<span>Table de routage OSPF</span></div>
+        <div class="modal-img-placeholder">🔐<span>Tunnel VPN IPSec — config</span></div>
+      </div>
+      <div class="modal-section-title">Étapes de réalisation</div>
+      <div class="modal-steps">
+        <div class="modal-step"><div class="modal-step-num">1</div><div class="modal-step-text"><strong>Conception de la topologie</strong> — Schéma réseau Packet Tracer avec 3 routeurs Cisco, 6 switchs Layer 2/3 et segmentation par VLAN (Administration, Production, Serveurs, DMZ).</div></div>
+        <div class="modal-step"><div class="modal-step-num">2</div><div class="modal-step-text"><strong>Routage dynamique OSPF</strong> — Configuration d'OSPF multi-area (Area 0 backbone + Areas 1 et 2), redistribution des routes statiques, authentification MD5 des voisins OSPF.</div></div>
+        <div class="modal-step"><div class="modal-step-num">3</div><div class="modal-step-text"><strong>Tunnel VPN IPSec site-à-site</strong> — Mise en place du tunnel chiffré AES-256 entre les 3 sites pour sécuriser les flux inter-sites sur internet.</div></div>
+        <div class="modal-step"><div class="modal-step-num">4</div><div class="modal-step-text"><strong>Redondance HSRP</strong> — Configuration du protocole HSRP sur les switchs L3 pour assurer la haute disponibilité de la passerelle par défaut en cas de panne.</div></div>
+        <div class="modal-step"><div class="modal-step-num">5</div><div class="modal-step-text"><strong>ACL & Sécurisation</strong> — Listes de contrôle d'accès pour filtrer les flux inter-VLAN, interdire les accès non autorisés et protéger les équipements.</div></div>
+      </div>
+      <div class="modal-section-title">Technologies utilisées</div>
+      <div class="modal-tags">
+        <span class="tag tag-green">Cisco IOS</span><span class="tag tag-blue">OSPF Multi-Area</span><span class="tag tag-blue">VLAN / 802.1Q</span><span class="tag tag-orange">VPN IPSec AES-256</span><span class="tag tag-green">HSRP</span><span class="tag tag-blue">ACL étendues</span><span class="tag tag-orange">Packet Tracer</span>
+      </div>
+      <div class="modal-results">
+        <div class="modal-results-title">Résultats & Compétences validées</div>
+        <div class="modal-result-item">Infrastructure opérationnelle avec 0 point de défaillance unique (SPOF éliminé)</div>
+        <div class="modal-result-item">Temps de convergence OSPF inférieur à 10 secondes en cas de panne de lien</div>
+        <div class="modal-result-item">Compétences B2.2 (gestion infrastructures) et B2.3 (sécurisation) validées</div>
+        <div class="modal-result-item">Documentation technique complète (schéma, plan d'adressage, configurations)</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Active Directory -->
+<div class="modal-overlay" id="modal-ad" onclick="closeModalOutside(event, 'modal-ad')">
+  <div class="modal-box">
+    <div class="modal-header">
+      <div>
+        <div class="modal-title">Déploiement Active Directory</div>
+        <div class="modal-subtitle">E5 — Entreprise · Windows Server 2022 / GPO / PowerShell</div>
+      </div>
+      <button class="modal-close" onclick="closeModal('modal-ad')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-section-title">Contexte & Objectifs</div>
+      <p class="modal-text">Mission réalisée en entreprise chez Cartadis : déploiement d'un <strong style="color:var(--white)">domaine Active Directory complet</strong> pour centraliser l'authentification, la gestion des postes et les droits d'accès de l'ensemble des collaborateurs. L'objectif était d'automatiser le provisioning des comptes et d'uniformiser la configuration des postes de travail via les GPO.</p>
+      <div class="modal-section-title">Visuels du projet</div>
+      <div class="modal-imgs">
+        <div class="modal-img-placeholder">🖥️<span>Structure des OUs — AD</span></div>
+        <div class="modal-img-placeholder">📋<span>Éditeur GPO — stratégies</span></div>
+        <div class="modal-img-placeholder">⚡<span>Script PowerShell — provisioning</span></div>
+      </div>
+      <div class="modal-section-title">Étapes de réalisation</div>
+      <div class="modal-steps">
+        <div class="modal-step"><div class="modal-step-num">1</div><div class="modal-step-text"><strong>Installation & promotion DC</strong> — Installation de Windows Server 2022, promotion en contrôleur de domaine avec DNS intégré, configuration de la zone de recherche directe/inverse.</div></div>
+        <div class="modal-step"><div class="modal-step-num">2</div><div class="modal-step-text"><strong>Structuration des OUs</strong> — Création de l'arborescence organisationnelle (Directions, Services, Postes, Serveurs) reflétant la hiérarchie de l'entreprise.</div></div>
+        <div class="modal-step"><div class="modal-step-num">3</div><div class="modal-step-text"><strong>Déploiement des GPO</strong> — Stratégies de groupe pour sécuriser les postes (écran de veille, pare-feu, restrictions logicielles), déployer des imprimantes et mapper les lecteurs réseau.</div></div>
+        <div class="modal-step"><div class="modal-step-num">4</div><div class="modal-step-text"><strong>Serveur de fichiers DFS</strong> — Mise en place d'un espace de noms DFS avec réplication entre deux serveurs pour la haute disponibilité des partages.</div></div>
+        <div class="modal-step"><div class="modal-step-num">5</div><div class="modal-step-text"><strong>Automatisation PowerShell</strong> — Script de provisioning automatique des comptes utilisateurs depuis un fichier CSV, avec création des boîtes mail et attribution des groupes.</div></div>
+      </div>
+      <div class="modal-section-title">Technologies utilisées</div>
+      <div class="modal-tags">
+        <span class="tag tag-blue">Windows Server 2022</span><span class="tag tag-green">Active Directory</span><span class="tag tag-green">DNS / DHCP</span><span class="tag tag-orange">PowerShell</span><span class="tag tag-blue">GPO</span><span class="tag tag-blue">DFS</span><span class="tag tag-green">NTFS / Partages</span>
+      </div>
+      <div class="modal-results">
+        <div class="modal-results-title">Résultats & Compétences validées</div>
+        <div class="modal-result-item">100% des postes intégrés au domaine avec politiques appliquées automatiquement</div>
+        <div class="modal-result-item">Provisioning de 30+ comptes en moins de 2 minutes via le script PowerShell</div>
+        <div class="modal-result-item">Compétences B2.1 (exploitation serveurs) et B1.1 (patrimoine informatique) validées</div>
+        <div class="modal-result-item">Documentation : schéma d'architecture, procédure d'intégration poste, script commenté</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Audit Sécurité -->
+<div class="modal-overlay" id="modal-audit" onclick="closeModalOutside(event, 'modal-audit')">
+  <div class="modal-box">
+    <div class="modal-header">
+      <div>
+        <div class="modal-title">Audit sécurité & Hardening</div>
+        <div class="modal-subtitle">E4 — AP · Debian 12 / iptables / Fail2ban / Zabbix</div>
+      </div>
+      <button class="modal-close" onclick="closeModal('modal-audit')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-section-title">Contexte & Objectifs</div>
+      <p class="modal-text">Audit de sécurité complet d'un serveur Linux Debian 12 dans le cadre d'une activité professionnelle. L'objectif était d'<strong style="color:var(--white)">identifier les vulnérabilités</strong> de la configuration existante, d'appliquer les correctifs (hardening) et de mettre en place une supervision proactive pour détecter les tentatives d'intrusion.</p>
+      <div class="modal-section-title">Visuels du projet</div>
+      <div class="modal-imgs">
+        <div class="modal-img-placeholder">🔒<span>Rapport d'audit — vulnérabilités</span></div>
+        <div class="modal-img-placeholder">🛡️<span>Règles iptables — pare-feu</span></div>
+        <div class="modal-img-placeholder">📊<span>Dashboard Zabbix — monitoring</span></div>
+      </div>
+      <div class="modal-section-title">Étapes de réalisation</div>
+      <div class="modal-steps">
+        <div class="modal-step"><div class="modal-step-num">1</div><div class="modal-step-text"><strong>Audit initial</strong> — Utilisation de Lynis pour l'audit automatisé, identification des services inutiles, des ports ouverts non nécessaires et des CVE connues sur les paquets installés.</div></div>
+        <div class="modal-step"><div class="modal-step-num">2</div><div class="modal-step-text"><strong>Hardening système</strong> — Désactivation des services non utilisés, mise à jour des paquets vulnérables, durcissement SSH (clés RSA, désactivation root, port non standard), configuration du PAM.</div></div>
+        <div class="modal-step"><div class="modal-step-num">3</div><div class="modal-step-text"><strong>Pare-feu iptables</strong> — Mise en place d'une politique "deny all" par défaut avec ouverture des seuls ports nécessaires (SSH, HTTP/S, DNS), règles anti-spoofing.</div></div>
+        <div class="modal-step"><div class="modal-step-num">4</div><div class="modal-step-text"><strong>Fail2ban</strong> — Configuration de la protection contre les attaques bruteforce SSH, HTTP et FTP avec bannissement automatique des IPs malveillantes.</div></div>
+        <div class="modal-step"><div class="modal-step-num">5</div><div class="modal-step-text"><strong>Supervision Zabbix</strong> — Déploiement de l'agent Zabbix, création de triggers d'alerte (charge CPU, tentatives de connexion, espace disque), tableaux de bord de supervision.</div></div>
+      </div>
+      <div class="modal-section-title">Technologies utilisées</div>
+      <div class="modal-tags">
+        <span class="tag tag-orange">Debian 12</span><span class="tag tag-orange">iptables / nftables</span><span class="tag tag-green">Fail2ban</span><span class="tag tag-blue">Zabbix</span><span class="tag tag-green">Bash</span><span class="tag tag-orange">Lynis</span><span class="tag tag-blue">OpenSSH</span>
+      </div>
+      <div class="modal-results">
+        <div class="modal-results-title">Résultats & Compétences validées</div>
+        <div class="modal-result-item">Score Lynis amélioré de 47% à 82% après hardening</div>
+        <div class="modal-result-item">Zéro tentative de connexion SSH non bloquée après déploiement Fail2ban</div>
+        <div class="modal-result-item">Compétences B2.3 (sécurisation infrastructures) validées</div>
+        <div class="modal-result-item">Rapport d'audit remis avec recommandations priorisées et plan d'action</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Proxmox -->
+<div class="modal-overlay" id="modal-proxmox" onclick="closeModalOutside(event, 'modal-proxmox')">
+  <div class="modal-box">
+    <div class="modal-header">
+      <div>
+        <div class="modal-title">Virtualisation Proxmox VE</div>
+        <div class="modal-subtitle">Projet scolaire · Proxmox / LXC / ZFS / PBS</div>
+      </div>
+      <button class="modal-close" onclick="closeModal('modal-proxmox')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-section-title">Contexte & Objectifs</div>
+      <p class="modal-text">Projet de virtualisation réalisé en autonomie : déploiement d'un <strong style="color:var(--white)">hyperviseur Proxmox VE</strong> sur un serveur physique dédié pour créer un environnement de lab complet. L'objectif était de maîtriser la virtualisation de type 1, la gestion du stockage avancée avec ZFS et la mise en place d'une stratégie de sauvegarde robuste.</p>
+      <div class="modal-section-title">Visuels du projet</div>
+      <div class="modal-imgs">
+        <div class="modal-img-placeholder">☁️<span>Interface Proxmox — VMs & LXC</span></div>
+        <div class="modal-img-placeholder">💾<span>Pool ZFS — stockage</span></div>
+        <div class="modal-img-placeholder">🔄<span>PBS — planning sauvegardes</span></div>
+      </div>
+      <div class="modal-section-title">Étapes de réalisation</div>
+      <div class="modal-steps">
+        <div class="modal-step"><div class="modal-step-num">1</div><div class="modal-step-text"><strong>Installation & configuration Proxmox VE</strong> — Installation de Proxmox 8.x, configuration du réseau (bridge vmbr0, VLAN tagging), ajout au cluster et mise à jour des dépôts.</div></div>
+        <div class="modal-step"><div class="modal-step-num">2</div><div class="modal-step-text"><strong>Stockage ZFS</strong> — Création d'un pool ZFS RAID-Z1 avec compression lz4 et déduplication, configuration des datasets pour VMs, conteneurs et ISO.</div></div>
+        <div class="modal-step"><div class="modal-step-num">3</div><div class="modal-step-text"><strong>Machines virtuelles</strong> — Déploiement de VMs (Windows Server, Debian, pfSense) avec templates, snapshots et migration à chaud entre nodes.</div></div>
+        <div class="modal-step"><div class="modal-step-num">4</div><div class="modal-step-text"><strong>Conteneurs LXC</strong> — Création de conteneurs légers pour les services (Nginx, MariaDB, Pi-hole, Zabbix) avec isolation réseau et quotas de ressources.</div></div>
+        <div class="modal-step"><div class="modal-step-num">5</div><div class="modal-step-text"><strong>Proxmox Backup Server</strong> — Déploiement de PBS sur un second serveur, planification des sauvegardes incrémentales quotidiennes, tests de restauration et rétention 30 jours.</div></div>
+      </div>
+      <div class="modal-section-title">Technologies utilisées</div>
+      <div class="modal-tags">
+        <span class="tag tag-green">Proxmox VE 8</span><span class="tag tag-blue">LXC</span><span class="tag tag-blue">ZFS RAID-Z1</span><span class="tag tag-orange">PBS</span><span class="tag tag-green">KVM</span><span class="tag tag-blue">VLAN</span><span class="tag tag-orange">Ansible</span>
+      </div>
+      <div class="modal-results">
+        <div class="modal-results-title">Résultats & Compétences validées</div>
+        <div class="modal-result-item">12 VMs et 8 conteneurs LXC en production simultanée sur le lab</div>
+        <div class="modal-result-item">RTO (Recovery Time Objective) inférieur à 15 minutes grâce aux sauvegardes PBS</div>
+        <div class="modal-result-item">Compétences B4.1 (virtualisation) et B3.1 (mode projet) validées</div>
+        <div class="modal-result-item">Documentation complète : guide d'installation, plan de capacité, procédures de restauration</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Solo Leveling Arise DB -->
+<div class="modal-overlay" id="modal-sla" onclick="closeModalOutside(event, 'modal-sla')">
+  <div class="modal-box">
+    <div class="modal-header">
+      <div>
+        <div class="modal-title">Solo Leveling Arise — Database</div>
+        <div class="modal-subtitle">Projet personnel · HTML / CSS / JavaScript</div>
+      </div>
+      <button class="modal-close" onclick="closeModal('modal-sla')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-section-title">Présentation du projet</div>
+      <p class="modal-text">Site web communautaire développé entièrement en autodidacte, servant de <strong style="color:var(--white)">base de données interactive</strong> pour le jeu mobile Solo Leveling: Arise. Le projet recense l'ensemble des personnages, armes et équipements avec leurs statistiques complètes, guides de progression et recommandations de builds.</p>
+      <div class="modal-section-title">Visuels du projet</div>
+      <div class="modal-imgs">
+        <div class="modal-img-placeholder">⚔️<span>Page d'accueil — catalogue</span></div>
+        <div class="modal-img-placeholder">🎮<span>Fiche personnage — stats</span></div>
+        <div class="modal-img-placeholder">🗡️<span>Base d'armes — filtres</span></div>
+      </div>
+      <div class="modal-section-title">Fonctionnalités développées</div>
+      <div class="modal-steps">
+        <div class="modal-step"><div class="modal-step-num">1</div><div class="modal-step-text"><strong>Catalogue complet</strong> — Répertoire de tous les personnages et armes avec fiches détaillées (stats, niveaux, éveils, compétences actives/passives).</div></div>
+        <div class="modal-step"><div class="modal-step-num">2</div><div class="modal-step-text"><strong>Système de filtres</strong> — Filtrage dynamique par rareté, type, élément et rôle. Recherche en temps réel sans rechargement de page.</div></div>
+        <div class="modal-step"><div class="modal-step-num">3</div><div class="modal-step-text"><strong>Design UI thématisé</strong> — Interface inspirée de l'univers graphique du jeu avec animations CSS, effets de particules et design responsive mobile-first.</div></div>
+        <div class="modal-step"><div class="modal-step-num">4</div><div class="modal-step-text"><strong>Gestion des données</strong> — Stockage des données en JSON structuré, mise à jour manuelle lors des patches du jeu, architecture modulaire pour faciliter les ajouts.</div></div>
+      </div>
+      <div class="modal-section-title">Stack technique</div>
+      <div class="modal-tags">
+        <span class="tag tag-green">HTML5</span><span class="tag tag-green">CSS3 / Animations</span><span class="tag tag-blue">JavaScript ES6+</span><span class="tag tag-blue">JSON</span><span class="tag tag-orange">Design UI</span><span class="tag tag-green">Responsive</span>
+      </div>
+      <div class="modal-results">
+        <div class="modal-results-title">Apports & Apprentissages</div>
+        <div class="modal-result-item">Maîtrise des animations CSS complexes et effets visuels avancés</div>
+        <div class="modal-result-item">Gestion d'une base de données JSON volumineuse côté client</div>
+        <div class="modal-result-item">Expérience complète de conception UI/UX en partant de zéro</div>
+        <div class="modal-result-item">Projet personnel qui démontre la capacité à apprendre en autonomie</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Extension Chrome Price Tracker -->
+<div class="modal-overlay" id="modal-chrome" onclick="closeModalOutside(event, 'modal-chrome')">
+  <div class="modal-box">
+    <div class="modal-header">
+      <div>
+        <div class="modal-title">Extension Chrome — Price Tracker</div>
+        <div class="modal-subtitle">Projet personnel · Chrome Extension API / JavaScript / Web Scraping</div>
+      </div>
+      <button class="modal-close" onclick="closeModal('modal-chrome')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-section-title">Présentation du projet</div>
+      <p class="modal-text">Extension Google Chrome développée pour <strong style="color:var(--white)">automatiser la veille de prix</strong> sur les sites e-commerce. L'extension scrape automatiquement le nom, le prix et l'image des produits depuis n'importe quelle fiche produit, et les centralise dans un dashboard dédié pour suivre l'évolution des prix dans le temps.</p>
+      <div class="modal-section-title">Visuels du projet</div>
+      <div class="modal-imgs">
+        <div class="modal-img-placeholder">🧩<span>Popup extension — scraping</span></div>
+        <div class="modal-img-placeholder">📊<span>Dashboard — suivi des prix</span></div>
+        <div class="modal-img-placeholder">📈<span>Graphique évolution — historique</span></div>
+      </div>
+      <div class="modal-section-title">Fonctionnalités développées</div>
+      <div class="modal-steps">
+        <div class="modal-step"><div class="modal-step-num">1</div><div class="modal-step-text"><strong>Web Scraping automatisé</strong> — Content script injecté dans les pages produits pour extraire dynamiquement le nom, prix et image via sélecteurs CSS adaptatifs.</div></div>
+        <div class="modal-step"><div class="modal-step-num">2</div><div class="modal-step-text"><strong>Stockage persistant</strong> — Utilisation de l'API chrome.storage pour conserver l'historique des prix entre les sessions, avec horodatage de chaque collecte.</div></div>
+        <div class="modal-step"><div class="modal-step-num">3</div><div class="modal-step-text"><strong>Dashboard interactif</strong> — Page dédiée affichant tous les produits suivis avec graphiques d'évolution de prix, alertes de baisse et comparaison multi-produits.</div></div>
+        <div class="modal-step"><div class="modal-step-num">4</div><div class="modal-step-text"><strong>Popup extension</strong> — Interface compacte dans la barre d'outils pour ajouter un produit en un clic, voir le prix actuel et accéder au dashboard.</div></div>
+      </div>
+      <div class="modal-section-title">Stack technique</div>
+      <div class="modal-tags">
+        <span class="tag tag-green">Chrome Extension API v3</span><span class="tag tag-blue">JavaScript</span><span class="tag tag-orange">Web Scraping</span><span class="tag tag-green">chrome.storage</span><span class="tag tag-blue">Chart.js</span><span class="tag tag-orange">Content Scripts</span>
+      </div>
+      <div class="modal-results">
+        <div class="modal-results-title">Apports & Apprentissages</div>
+        <div class="modal-result-item">Maîtrise de l'architecture Manifest V3 des extensions Chrome</div>
+        <div class="modal-result-item">Techniques de web scraping robuste avec gestion des sites dynamiques</div>
+        <div class="modal-result-item">Développement d'une UI compacte contrainte par le format popup (400×600px)</div>
+        <div class="modal-result-item">Projet publié et utilisé personnellement au quotidien</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Modal functions
+  function openModal(id) {
+    document.getElementById(id).classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal(id) {
+    document.getElementById(id).classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  function closeModalOutside(event, id) {
+    if (event.target === document.getElementById(id)) closeModal(id);
+  }
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.modal-overlay.active').forEach(m => {
+        m.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+    }
+  });
+
   // Animated background (network nodes)
   const canvas = document.getElementById('bg-canvas');
   const ctx = canvas.getContext('2d');
@@ -1755,7 +2331,6 @@
 
   function draw() {
     ctx.clearRect(0, 0, W, H);
-    // connections
     for (let i = 0; i < nodes.length; i++) {
       for (let j = i+1; j < nodes.length; j++) {
         const dx = nodes[i].x - nodes[j].x, dy = nodes[i].y - nodes[j].y;
@@ -1770,7 +2345,6 @@
         }
       }
     }
-    // nodes
     nodes.forEach(n => {
       ctx.beginPath();
       ctx.arc(n.x, n.y, n.r, 0, Math.PI*2);
@@ -1789,19 +2363,88 @@
     card.classList.toggle('open');
   }
 
+  // ── Formulaire de contact (Formspree) ──────────────────────────────────────
+  // ÉTAPE : Crée un compte gratuit sur https://formspree.io
+  // puis remplace YOUR_FORM_ID ci-dessous par ton vrai ID (ex: xpwzgkdo)
+  const FORMSPREE_ID = 'xkopyvrd';
+
+  async function sendContact() {
+    const prenom     = document.getElementById('cf-prenom').value.trim();
+    const nom        = document.getElementById('cf-nom').value.trim();
+    const entreprise = document.getElementById('cf-entreprise').value.trim();
+    const email      = document.getElementById('cf-email').value.trim();
+    const message    = document.getElementById('cf-message').value.trim();
+    const btn        = document.getElementById('cf-btn');
+
+    if (!prenom || !email || !message) {
+      showStatus('⚠ Merci de remplir au moins : Prénom, Email et Message.', '#ff7b35', 'rgba(255,123,53,0.1)', 'rgba(255,123,53,0.25)');
+      return;
+    }
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
+      showStatus('⚠ Adresse email invalide.', '#ff7b35', 'rgba(255,123,53,0.1)', 'rgba(255,123,53,0.25)');
+      return;
+    }
+    if (FORMSPREE_ID === 'YOUR_FORM_ID') {
+      showStatus('⚙ Formspree non configuré — remplace YOUR_FORM_ID dans le code.', '#0090ff', 'rgba(0,144,255,0.1)', 'rgba(0,144,255,0.25)');
+      return;
+    }
+
+    btn.textContent = 'Envoi en cours...';
+    btn.disabled = true;
+
+    try {
+      const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({ prenom, nom, entreprise, _replyto: email, message })
+      });
+      if (res.ok) {
+        showStatus('✓ Message envoyé ! Je vous répondrai dans les plus brefs délais.', '#00d296', 'rgba(0,210,150,0.1)', 'rgba(0,210,150,0.25)');
+        document.getElementById('cf-prenom').value = '';
+        document.getElementById('cf-nom').value = '';
+        document.getElementById('cf-entreprise').value = '';
+        document.getElementById('cf-email').value = '';
+        document.getElementById('cf-message').value = '';
+        btn.textContent = 'Message envoyé ✓';
+      } else {
+        throw new Error();
+      }
+    } catch {
+      showStatus('✗ Erreur lors de l\'envoi. Contactez-moi directement par email.', '#ff4d6d', 'rgba(255,77,109,0.1)', 'rgba(255,77,109,0.25)');
+      btn.textContent = 'Envoyer le message →';
+      btn.disabled = false;
+    }
+  }
+
+  function showStatus(msg, color, bg, border) {
+    const s = document.getElementById('cf-status');
+    s.textContent = msg;
+    s.style.display = 'block';
+    s.style.color = color;
+    s.style.background = bg;
+    s.style.border = '1px solid ' + border;
+    s.style.borderRadius = '4px';
+  }
+
   // Scroll reveal
   const reveals = document.querySelectorAll('.reveal');
   const obs = new IntersectionObserver(entries => {
     entries.forEach(e => {
       if (e.isIntersecting) {
         e.target.classList.add('visible');
-        // animate skill bars
-        e.target.querySelectorAll('.skill-bar-fill').forEach(b => b.classList.add('animated'));
-        obs.unobserve(e.target);
       }
     });
   }, { threshold: 0.1 });
-  reveals.forEach(el => obs.observe(el));
-</script>
-</body>
-</html>
+  reveals.forEach(r => obs.observe(r));
+
+  // Skill bars animation
+  const skillFills = document.querySelectorAll('.skill-bar-fill');
+  const skillObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('animated');
+      }
+    });
+  }, { threshold: 0.5 });
+  skillFills.forEach(f => skillObs.observe(f));
+</script>        

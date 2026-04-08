@@ -1,0 +1,29 @@
+        <div class="cv-link">
+          <span class="cv-link-icon">✉️</span>
+          amadodavid17@gmail.com
+        </div>
+
+
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(r => obs.observe(r));
+
+  // Skill bars animation
+  const skillFills = document.querySelectorAll('.skill-bar-fill');
+  const skillObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('animated');
+      }
+    });
+  }, { threshold: 0.5 });
+  skillFills.forEach(f => skillObs.observe(f));
+</script>        
