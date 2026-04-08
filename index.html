@@ -344,6 +344,9 @@
       grid-template-columns: repeat(2, 1fr);
       gap: 24px;
     }
+    #projets .projets-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
     .projet-card {
       background: var(--bg2);
       border: 1px solid var(--border);
@@ -820,7 +823,8 @@
     .certif-badge-orange{ color: var(--orange); background: rgba(255,123,53,0.1); border: 1px solid rgba(255,123,53,0.25); }
     .certif-card-body { padding: 20px 22px; }
     .certif-desc { font-size: 0.78rem; color: var(--text-mid); line-height: 1.75; margin-bottom: 16px; }
-    .certif-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .certif-tags { display: flex; flex-wrap: wrap; gap: 6px; align-content: flex-start; align-items: flex-start; }
+    .certif-tags .tag { flex-shrink: 0; flex-grow: 0; align-self: flex-start; }
     .certif-btn {
       display: inline-flex; align-items: center; gap: 8px;
       font-family: 'JetBrains Mono', monospace; font-size: 0.65rem;
@@ -1056,7 +1060,7 @@
       <div class="about-card reveal reveal-d1">
         <div class="card-icon">🎓</div>
         <div class="card-title">BTS SIO SISR — 2024–2026</div>
-        <div class="card-desc">Formation en 2 ans aux solutions d'infrastructure systèmes et réseaux. Épreuves E4, E5, E6 incluses.</div>
+        <div class="card-desc">Formation en 2 ans aux solutions d'infrastructure systèmes et réseaux. Épreuves E5 et E6 (session 2026).</div>
         <span class="card-tag">UTEC Marne-la-Vallée, Émerainville</span>
       </div>
       <div class="about-card reveal reveal-d2">
@@ -1075,12 +1079,14 @@
   </div>
 </section>
 
+
+
 <!-- ══════════════════════════════════════════════════════════
      SECTION DOCUMENTS OBLIGATOIRES
 ════════════════════════════════════════════════════════════ -->
-<section id="documents" class="documents-section" style="padding:100px;">
+<section id="documents" class="documents-section" style="padding:100px; background:var(--bg2);">
   <div class="section-header reveal">
-    <p class="section-eyebrow">06 — Documents obligatoires</p>
+    <p class="section-eyebrow">02 — Documents obligatoires</p>
     <h2 class="section-title">Pièces requises pour les épreuves</h2>
   </div>
 
@@ -1113,7 +1119,7 @@
         <span class="doc-required">OBLIGATOIRE</span>
       </div>
       <div class="doc-card-body">
-        <p class="doc-card-desc">CV à jour avec expériences, formations, certifications et lien LinkedIn. Accessible en téléchargement direct depuis le portfolio pour le jury le jour de l'épreuve E4/E5/E6.</p>
+        <p class="doc-card-desc">CV à jour avec expériences, formations, certifications et lien LinkedIn. Accessible en téléchargement direct depuis le portfolio pour le jury le jour de l'épreuve E5/E6.</p>
         <a href="CV_david.pdf" class="doc-card-btn" target="_blank" rel="noopener">↗ Voir CV_david.pdf</a>
         <a href="https://www.linkedin.com/in/david-amado-962856279" target="_blank" class="doc-card-btn-sec">💼 LinkedIn →</a>
       </div>
@@ -1123,11 +1129,204 @@
 </section>
 
 <!-- ══════════════════════════════════════════════════════════
-     SECTION CV / IDENTITÉ PROFESSIONNELLE
+     SECTION TABLEAU DE SYNTHÈSE DES COMPÉTENCES
 ════════════════════════════════════════════════════════════ -->
+<section style="padding:100px; background:var(--bg);">
+  <div class="section-header reveal">
+    <p class="section-eyebrow">03 — Tableau de synthèse</p>
+    <h2 class="section-title">Tableau de synthèse des réalisations professionnelles</h2>
+  </div>
+  <div class="reveal" style="overflow-x:auto;">
+  <table class="bilan-table" style="font-size:0.75rem; border:1px solid var(--border);">
+    <!-- En-tête officiel -->
+    <thead>
+      <tr>
+        <th colspan="8" style="text-align:center; font-size:0.85rem; font-weight:800; color:var(--white); background:var(--bg3); padding:16px; letter-spacing:0.08em;">
+          BTS SERVICES INFORMATIQUES AUX ORGANISATIONS
+          <span style="float:right; color:var(--green);">SESSION 2025</span>
+        </th>
+      </tr>
+      <tr>
+        <th colspan="8" style="text-align:center; font-size:0.8rem; color:var(--text); background:var(--bg2); padding:12px;">
+          Tableau de synthèse des réalisations professionnelles
+        </th>
+      </tr>
+      <tr style="background:var(--bg3);">
+        <td colspan="5" style="padding:10px 14px; color:var(--text-mid); font-size:0.72rem; border-bottom:1px solid var(--border);">
+          <strong style="color:var(--white);">NOM et prénom :</strong> Amado David &nbsp;&nbsp;&nbsp;
+          <strong style="color:var(--white);">Centre de formation :</strong> CFA UTEC &nbsp;&nbsp;&nbsp;
+          <strong style="color:var(--white);">Adresse URL du portfolio :</strong> portfolio en ligne
+        </td>
+        <td colspan="3" style="padding:10px 14px; color:var(--text-mid); font-size:0.72rem; border-bottom:1px solid var(--border);">
+          <strong style="color:var(--white);">N° candidat :</strong> &nbsp;&nbsp;&nbsp;
+          <strong style="color:var(--white);">Option :</strong> <span style="color:var(--green);">▣ SISR</span> &nbsp; ▢ SLAM
+        </td>
+      </tr>
+      <!-- Colonnes compétences -->
+      <tr style="background:var(--bg2);">
+        <th rowspan="2" style="min-width:240px; vertical-align:middle; text-align:center; border-right:1px solid var(--border); font-size:0.65rem;">
+          Compétences mises en œuvre<br><br>
+          <span style="color:var(--text-dim); font-weight:400;">Réalisations professionnelles<br>(intitulé et liste des documents<br>et productions associés)</span>
+        </th>
+        <th rowspan="2" style="min-width:110px; vertical-align:middle; text-align:center; border-right:1px solid var(--border); font-size:0.62rem;">
+          Période<br>(JJ/MM/AA au JJ/MM/AA)
+        </th>
+        <th style="text-align:center; border-right:1px solid var(--border); font-size:0.62rem; color:var(--green);">Gérer le patrimoine informatique</th>
+        <th style="text-align:center; border-right:1px solid var(--border); font-size:0.62rem; color:var(--blue);">Répondre aux incidents et aux demandes d'assistance et d'évolution</th>
+        <th style="text-align:center; border-right:1px solid var(--border); font-size:0.62rem; color:var(--orange);">Développer la présence en ligne de l'organisation</th>
+        <th style="text-align:center; border-right:1px solid var(--border); font-size:0.62rem; color:var(--green);">Travailler en mode projet</th>
+        <th style="text-align:center; border-right:1px solid var(--border); font-size:0.62rem; color:var(--blue);">Mettre à disposition des utilisateurs un service informatique</th>
+        <th style="text-align:center; font-size:0.62rem; color:var(--orange);">Organiser son développement professionnel</th>
+      </tr>
+      <tr style="background:var(--bg3); font-size:0.6rem; color:var(--text-dim); font-weight:400;">
+        <td style="padding:8px 10px; border-right:1px solid var(--border); vertical-align:top; line-height:1.6;">
+          ▸ Recenser et identifier les ressources numériques<br>
+          ▸ Exploiter des référentiels, normes et standards<br>
+          ▸ Mettre en place et vérifier les niveaux d'habilitation<br>
+          ▸ Vérifier les conditions de la continuité d'un service<br>
+          ▸ Gérer des sauvegardes<br>
+          ▸ Vérifier le respect des règles d'utilisation
+        </td>
+        <td style="padding:8px 10px; border-right:1px solid var(--border); vertical-align:top; line-height:1.6;">
+          ▸ Collecter, suivre et orienter des demandes<br>
+          ▸ Traiter des demandes concernant les services réseau et système<br>
+          ▸ Traiter des demandes concernant les applications
+        </td>
+        <td style="padding:8px 10px; border-right:1px solid var(--border); vertical-align:top; line-height:1.6;">
+          ▸ Participer à la valorisation de l'image de l'organisation<br>
+          ▸ Référencer les services en ligne et mesurer leur visibilité<br>
+          ▸ Participer à l'évolution d'un site Web
+        </td>
+        <td style="padding:8px 10px; border-right:1px solid var(--border); vertical-align:top; line-height:1.6;">
+          ▸ Analyser les objectifs et les modalités d'organisation d'un projet<br>
+          ▸ Planifier les activités<br>
+          ▸ Évaluer les indicateurs de suivi d'un projet
+        </td>
+        <td style="padding:8px 10px; border-right:1px solid var(--border); vertical-align:top; line-height:1.6;">
+          ▸ Réaliser les tests d'intégration et d'acceptation d'un service<br>
+          ▸ Déployer un service<br>
+          ▸ Accompagner les utilisateurs dans la mise en place d'un service
+        </td>
+        <td style="padding:8px 10px; vertical-align:top; line-height:1.6;">
+          ▸ Mettre en place son environnement d'apprentissage personnel<br>
+          ▸ Mettre en œuvre des outils et stratégies de veille<br>
+          ▸ Gérer son identité professionnelle<br>
+          ▸ Développer son projet professionnel
+        </td>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Groupe : Réalisations en cours de formation -->
+      <tr>
+        <td colspan="8" style="background:rgba(0,210,150,0.07); color:var(--green); font-family:'JetBrains Mono',monospace; font-size:0.65rem; letter-spacing:0.12em; padding:10px 14px; border-top:1px solid var(--border);">
+          RÉALISATIONS EN COURS DE FORMATION
+        </td>
+      </tr>
+      <tr>
+        <td style="border-right:1px solid var(--border);">Infrastructure Proxmox — Épreuve E6<br><span style="font-family:'JetBrains Mono',monospace; font-size:0.6rem; color:var(--text-dim);">Projet scolaire · BTS SIO · UTEC</span></td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--text-dim); font-size:0.68rem;">01/09/25<br>au<br>01/04/26</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--green);">✓</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--green);">✓</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--text-dim);">—</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--green);">✓</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--green);">✓</td>
+        <td style="text-align:center; color:var(--text-dim);">—</td>
+      </tr>
+      <tr>
+        <td style="border-right:1px solid var(--border);">Mise en place d'une caméra de surveillance WiFi (E6 — Fiche 1)<br><span style="font-family:'JetBrains Mono',monospace; font-size:0.6rem; color:var(--text-dim);">Épreuve E6 · Baie D BTS SIO</span></td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--text-dim); font-size:0.68rem;">Avr. 2026</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--green);">✓</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--green);">✓</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--text-dim);">—</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--text-dim);">—</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--green);">✓</td>
+        <td style="text-align:center; color:var(--text-dim);">—</td>
+      </tr>
+      <tr>
+        <td style="border-right:1px solid var(--border);">Déploiement site web sur réseau local (E6 — Fiche 2)<br><span style="font-family:'JetBrains Mono',monospace; font-size:0.6rem; color:var(--text-dim);">Épreuve E6 · Baie D BTS SIO</span></td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--text-dim); font-size:0.68rem;">Avr. 2026</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--green);">✓</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--green);">✓</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--text-dim);">—</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--text-dim);">—</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--green);">✓</td>
+        <td style="text-align:center; color:var(--text-dim);">—</td>
+      </tr>
+      <!-- Groupe : Réalisations en milieu professionnel — 1ère année -->
+      <tr>
+        <td colspan="8" style="background:rgba(0,144,255,0.07); color:var(--blue); font-family:'JetBrains Mono',monospace; font-size:0.65rem; letter-spacing:0.12em; padding:10px 14px; border-top:1px solid var(--border);">
+          RÉALISATIONS EN MILIEU PROFESSIONNEL — PREMIÈRE ANNÉE
+        </td>
+      </tr>
+      <tr>
+        <td style="border-right:1px solid var(--border);">Refonte interface support Freshdesk → Gespage (Cartadis)<br><span style="font-family:'JetBrains Mono',monospace; font-size:0.6rem; color:var(--text-dim);">Alternance · Cartadis · Fontenay-sous-Bois</span></td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--text-dim); font-size:0.68rem;">01/09/24<br>au<br>30/06/25</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--green);">✓</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--green);">✓</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--green);">✓</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--green);">✓</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--green);">✓</td>
+        <td style="text-align:center; color:var(--green);">✓</td>
+      </tr>
+      <!-- Groupe : Réalisations en milieu professionnel — 2ème année -->
+      <tr>
+        <td colspan="8" style="background:rgba(255,123,53,0.07); color:var(--orange); font-family:'JetBrains Mono',monospace; font-size:0.65rem; letter-spacing:0.12em; padding:10px 14px; border-top:1px solid var(--border);">
+          RÉALISATIONS EN MILIEU PROFESSIONNEL — SECONDE ANNÉE
+        </td>
+      </tr>
+      <tr>
+        <td style="border-right:1px solid var(--border);">Logiciel SSH — Automatisation bornes de lavage<br><span style="font-family:'JetBrains Mono',monospace; font-size:0.6rem; color:var(--text-dim);">Alternance · Cartadis · Fontenay-sous-Bois</span></td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--text-dim); font-size:0.68rem;">01/09/25<br>au<br>01/04/26</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--text-dim);">—</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--green);">✓</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--text-dim);">—</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--green);">✓</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--green);">✓</td>
+        <td style="text-align:center; color:var(--green);">✓</td>
+      </tr>
+      <!-- Certifications -->
+      <tr>
+        <td colspan="8" style="background:rgba(0,210,150,0.04); color:var(--text-dim); font-family:'JetBrains Mono',monospace; font-size:0.65rem; letter-spacing:0.12em; padding:10px 14px; border-top:1px solid var(--border);">
+          CERTIFICATIONS
+        </td>
+      </tr>
+      <tr>
+        <td style="border-right:1px solid var(--border);">Certification PIX<br><span style="font-family:'JetBrains Mono',monospace; font-size:0.6rem; color:var(--text-dim);">Formation BTS SIO</span></td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--text-dim); font-size:0.68rem;">2025</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--green);">✓</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--text-dim);">—</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--text-dim);">—</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--text-dim);">—</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--text-dim);">—</td>
+        <td style="text-align:center; color:var(--green);">✓</td>
+      </tr>
+      <tr>
+        <td style="border-right:1px solid var(--border);">Certification RGPD — L'Atelier CNIL<br><span style="font-family:'JetBrains Mono',monospace; font-size:0.6rem; color:var(--text-dim);">Formation BTS SIO</span></td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--text-dim); font-size:0.68rem;">2025</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--green);">✓</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--text-dim);">—</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--text-dim);">—</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--text-dim);">—</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--text-dim);">—</td>
+        <td style="text-align:center; color:var(--green);">✓</td>
+      </tr>
+      <tr>
+        <td style="border-right:1px solid var(--border);">Certification Cisco — Introduction to Cybersecurity<br><span style="font-family:'JetBrains Mono',monospace; font-size:0.6rem; color:var(--text-dim);">Cisco Networking Academy · Credly</span></td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--text-dim); font-size:0.68rem;">2025</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--text-dim);">—</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--text-dim);">—</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--text-dim);">—</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--text-dim);">—</td>
+        <td style="text-align:center; border-right:1px solid var(--border); color:var(--green);">✓</td>
+        <td style="text-align:center; color:var(--green);">✓</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</section>
 <section class="cv-section" style="padding:100px; background:var(--bg2);">
   <div class="section-header reveal">
-    <p class="section-eyebrow">06b — Identité professionnelle</p>
+    <p class="section-eyebrow">04 — Identité professionnelle</p>
     <h2 class="section-title">CV & Profil en ligne</h2>
   </div>
   <div class="cv-grid reveal">
@@ -1230,48 +1429,59 @@
 ════════════════════════════════════════════════════════════ -->
 <section class="certif-section" style="padding:100px; background:var(--bg);">
   <div class="section-header reveal">
-    <p class="section-eyebrow">06c — Certifications</p>
+    <p class="section-eyebrow">05 — Certifications</p>
     <h2 class="section-title">Certifications obtenues</h2>
   </div>
   <p style="font-size:0.82rem;color:var(--text-mid);line-height:1.8;margin-bottom:48px;max-width:700px;" class="reveal">
     Certifications professionnelles et académiques obtenues dans le cadre de ma formation BTS SIO et de mon développement personnel.
   </p>
 
-  <div class="certif-grid reveal">
+  <div class="certif-grid reveal" style="align-items:stretch;">
 
     <!-- PIX -->
-    <div class="certif-card">
-      <div class="certif-card-header">
-        <div class="certif-icon">🎓</div>
-        <div class="certif-meta">
-          <div class="certif-label">Certification numérique</div>
-          <div class="certif-title">Certification PIX</div>
+    <div class="certif-card" style="display:flex; flex-direction:column;">
+      <div style="padding:0; border-bottom:1px solid var(--border); overflow:hidden; border-radius:8px 8px 0 0;">
+        <div style="width:100%; height:160px; background:#000; display:flex; align-items:center; justify-content:center;">
+          <img src="pix.png" alt="PIX" style="height:110px; width:auto; object-fit:contain;"/>
         </div>
-        <span class="certif-badge certif-badge-green">OBTENUE</span>
       </div>
-      <div class="certif-card-body">
-        <p class="certif-desc">Certification officielle des compétences numériques validée par la plateforme PIX. Évalue les compétences informatiques sur 5 domaines : information & données, communication & collaboration, création de contenu, protection & sécurité, environnement numérique.</p>
-        <div class="certif-tags">
+      <div class="certif-card-body" style="padding-top:20px; flex:1; display:flex; flex-direction:column;">
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:12px;">
+          <div>
+            <div class="certif-label" style="margin-bottom:4px;">Certification numérique</div>
+            <div class="certif-title">Certification PIX</div>
+          </div>
+          <span class="certif-badge certif-badge-green">OBTENUE</span>
+        </div>
+        <p class="certif-desc">Certification officielle des compétences numériques validée par la plateforme PIX. Évalue les compétences sur 5 domaines : information & données, communication & collaboration, création de contenu, protection & sécurité, environnement numérique.</p>
+        <div class="certif-tags" style="flex:1;">
           <span class="tag tag-green">Compétences numériques</span>
           <span class="tag tag-blue">PIX</span>
-          <span class="tag tag-green">Officiel Éducation Nationale</span>
+          <span class="tag tag-green">Éducation Nationale</span>
+        </div>
+        <div style="margin-top:18px; visibility:hidden;">
+          <a class="certif-btn">placeholder</a>
         </div>
       </div>
     </div>
 
-    <!-- RGPD CNIL -->
-    <div class="certif-card">
-      <div class="certif-card-header">
-        <div class="certif-icon">🔐</div>
-        <div class="certif-meta">
-          <div class="certif-label">Protection des données · CNIL</div>
-          <div class="certif-title">Certification RGPD</div>
+    <!-- RGPD -->
+    <div class="certif-card" style="display:flex; flex-direction:column;">
+      <div style="padding:0; border-bottom:1px solid var(--border); overflow:hidden; border-radius:8px 8px 0 0;">
+        <div style="width:100%; height:160px; background:#fff; display:flex; align-items:center; justify-content:center;">
+          <img src="rgpd.png" alt="RGPD L'Atelier" style="height:130px; width:auto; object-fit:contain;"/>
         </div>
-        <span class="certif-badge certif-badge-orange">OBTENUE</span>
       </div>
-      <div class="certif-card-body">
-        <p class="certif-desc">Certification délivrée par la CNIL attestant de la maîtrise du Règlement Général sur la Protection des Données (RGPD). Couvre les droits des personnes, les obligations des organisations, la gestion des données personnelles et les mesures de conformité.</p>
-        <div class="certif-tags">
+      <div class="certif-card-body" style="padding-top:20px; flex:1; display:flex; flex-direction:column;">
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:12px;">
+          <div>
+            <div class="certif-label" style="margin-bottom:4px;">Protection des données · CNIL</div>
+            <div class="certif-title">Certification RGPD</div>
+          </div>
+          <span class="certif-badge certif-badge-orange">OBTENUE</span>
+        </div>
+        <p class="certif-desc">Certification délivrée par la CNIL attestant de la maîtrise du Règlement Général sur la Protection des Données. Couvre les droits des personnes, les obligations des organisations, la gestion des données personnelles et les mesures de conformité.</p>
+        <div class="certif-tags" style="flex:1;">
           <span class="tag tag-orange">RGPD</span>
           <span class="tag tag-orange">CNIL</span>
           <span class="tag tag-blue">Protection des données</span>
@@ -1284,29 +1494,29 @@
     </div>
 
     <!-- CISCO -->
-    <div class="certif-card certif-card-cisco">
-      <div class="certif-card-header">
-        <div class="certif-icon">🌐</div>
-        <div class="certif-meta">
-          <div class="certif-label">Réseau & Infrastructure · Credly</div>
-          <div class="certif-title">Certification Cisco</div>
+    <div class="certif-card certif-card-cisco" style="display:flex; flex-direction:column;">
+      <div style="padding:0; border-bottom:1px solid var(--border); overflow:hidden; border-radius:8px 8px 0 0;">
+        <div style="width:100%; height:160px; background:#6ab04c; display:flex; align-items:center; justify-content:center;">
+          <img src="cisco.png" alt="Cisco Networking Academy" style="height:150px; width:auto; object-fit:contain;"/>
         </div>
-        <span class="certif-badge certif-badge-blue">OBTENUE</span>
       </div>
-      <div class="certif-card-body">
-        <p class="certif-desc">Certification Cisco attestant des compétences en administration réseau, configuration des équipements Cisco (routeurs, switchs), protocoles de routage et technologies réseau fondamentales.</p>
-        <div class="certif-tags">
+      <div class="certif-card-body" style="padding-top:20px; flex:1; display:flex; flex-direction:column;">
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:12px;">
+          <div>
+            <div class="certif-label" style="margin-bottom:4px;">Réseau & Infrastructure · Credly</div>
+            <div class="certif-title">Cisco — Introduction to Cybersecurity</div>
+          </div>
+          <span class="certif-badge certif-badge-blue">OBTENUE</span>
+        </div>
+        <p class="certif-desc">Certification Cisco Networking Academy — Introduction to Cybersecurity. Atteste des compétences fondamentales en cybersécurité : menaces, vulnérabilités, protection des données, sécurité des réseaux et bonnes pratiques.</p>
+        <div class="certif-tags" style="flex:1;">
           <span class="tag tag-blue">Cisco</span>
-          <span class="tag tag-green">Réseau</span>
-          <span class="tag tag-blue">Routing & Switching</span>
+          <span class="tag tag-green">Cybersécurité</span>
+          <span class="tag tag-blue">Networking Academy</span>
           <span class="tag tag-orange">Credly</span>
         </div>
-        <div style="margin-top:18px; display:flex; align-items:center; gap:24px; flex-wrap:wrap;">
+        <div style="margin-top:18px;">
           <a href="certification_cisco.pdf" class="certif-btn" target="_blank" rel="noopener">↗ Voir la certification Cisco</a>
-        </div>
-        <div style="margin-top:20px; display:flex; justify-content:flex-start;">
-          <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="016f8e24-f9fd-416a-9856-4418bef2515f" data-share-badge-host="https://www.credly.com"></div>
-          <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
         </div>
       </div>
     </div>
@@ -1317,7 +1527,7 @@
 <!-- COMPETENCES -->
 <section id="competences" class="competences-section">
   <div class="section-header reveal">
-    <p class="section-eyebrow">02 — Compétences</p>
+    <p class="section-eyebrow">06 — Compétences</p>
     <h2 class="section-title">Bloc de compétences SISR</h2>
   </div>
   <div class="comp-grid">
@@ -1390,10 +1600,11 @@
 <!-- PROJETS -->
 <section id="projets" class="projets-section">
   <div class="section-header reveal">
-    <p class="section-eyebrow">03 — Projets & Réalisations</p>
+    <p class="section-eyebrow">07 — Projets & Réalisations</p>
     <h2 class="section-title">Travaux & Études de cas</h2>
   </div>
   <div class="projets-grid">
+    <!-- PROJET 1 : Refonte interface Gespage -->
     <div class="projet-card reveal reveal-d1">
       <div class="projet-card-img proj-bg-1">
         <div class="projet-card-img-grid"></div>
@@ -1401,20 +1612,22 @@
       </div>
       <div class="projet-card-body">
         <div class="projet-card-header">
-          <h3 class="projet-title">Infrastructure réseau multi-site</h3>
-          <span class="projet-badge">E4 — SITech</span>
+          <h3 class="projet-title">Refonte interface support Gespage</h3>
+          <span class="projet-badge">Alternance · Cartadis</span>
         </div>
-        <p class="projet-desc">Mise en place d'une infrastructure WAN reliant 3 sites avec routage OSPF, VLAN segmentés, tunnel VPN site-à-site et redondance HSRP sur équipements Cisco.</p>
+        <p class="projet-desc">Création de la nouvelle interface du site de support client de Cartadis, migrant depuis Freshdesk vers la plateforme Gespage. Refonte complète de l'UX, organisation des articles, gestion des tickets et navigation multi-langue.</p>
         <div class="projet-stack">
-          <span class="tag tag-green">Cisco IOS</span>
-          <span class="tag tag-blue">OSPF</span>
-          <span class="tag tag-blue">VLAN</span>
-          <span class="tag tag-orange">VPN IPSec</span>
-          <span class="tag tag-green">HSRP</span>
+          <span class="tag tag-green">Freshdesk</span>
+          <span class="tag tag-blue">Gespage</span>
+          <span class="tag tag-blue">HTML / CSS</span>
+          <span class="tag tag-orange">Support client</span>
+          <span class="tag tag-green">Multi-langue</span>
         </div>
-        <button class="btn-readmore" onclick="openModal('modal-infra')">Lire plus →</button>
+        <a href="https://support.gespage.com/fr/support/home" target="_blank" rel="noopener" class="btn-readmore" style="display:inline-flex; text-decoration:none; margin-top:14px;">Voir le site →</a>
       </div>
     </div>
+
+    <!-- PROJET 2 : Logiciel SSH bornes lavage -->
     <div class="projet-card reveal reveal-d2">
       <div class="projet-card-img proj-bg-2">
         <div class="projet-card-img-grid"></div>
@@ -1422,56 +1635,41 @@
       </div>
       <div class="projet-card-body">
         <div class="projet-card-header">
-          <h3 class="projet-title">Déploiement Active Directory</h3>
-          <span class="projet-badge">E5 — Entreprise</span>
+          <h3 class="projet-title">Logiciel SSH — Automatisation bornes</h3>
+          <span class="projet-badge">Alternance · Cartadis</span>
         </div>
-        <p class="projet-desc">Mise en place d'un domaine Active Directory avec GPO, gestion des OUs, DHCP/DNS intégré, serveur de fichiers DFS et scripts PowerShell de provisioning automatique.</p>
+        <p class="projet-desc">Développement d'un logiciel permettant la connexion SSH sur les bornes de lavage Cartadis. Automatisation des tâches de maintenance (mises à jour firmware, scripts de diagnostic) et analyse des codes d'erreur remontés par les bornes.</p>
         <div class="projet-stack">
-          <span class="tag tag-blue">Windows Server 2022</span>
-          <span class="tag tag-green">Active Directory</span>
-          <span class="tag tag-orange">PowerShell</span>
-          <span class="tag tag-green">DNS / DHCP</span>
+          <span class="tag tag-green">SSH</span>
+          <span class="tag tag-blue">Python</span>
+          <span class="tag tag-orange">Automatisation</span>
+          <span class="tag tag-green">Diagnostic</span>
+          <span class="tag tag-blue">Firmware</span>
         </div>
-        <button class="btn-readmore" onclick="openModal('modal-ad')">Lire plus →</button>
+        <button class="btn-readmore" onclick="openModal('modal-ssh')">Lire plus →</button>
       </div>
     </div>
+
+    <!-- PROJET 3 : Infrastructure Proxmox E6 -->
     <div class="projet-card reveal reveal-d3">
-      <div class="projet-card-img proj-bg-3">
-        <div class="projet-card-img-grid"></div>
-        <span style="font-size:2.8rem;z-index:2;">🔒</span>
-      </div>
-      <div class="projet-card-body">
-        <div class="projet-card-header">
-          <h3 class="projet-title">Audit sécurité & Hardening</h3>
-          <span class="projet-badge">E4 — AP</span>
-        </div>
-        <p class="projet-desc">Audit de sécurité d'un serveur Linux Debian, correction des vulnérabilités (CVE), mise en place de règles iptables, fail2ban et monitoring avec Zabbix.</p>
-        <div class="projet-stack">
-          <span class="tag tag-orange">Debian 12</span>
-          <span class="tag tag-orange">iptables</span>
-          <span class="tag tag-green">Fail2ban</span>
-          <span class="tag tag-blue">Zabbix</span>
-          <span class="tag tag-green">Bash</span>
-        </div>
-        <button class="btn-readmore" onclick="openModal('modal-audit')">Lire plus →</button>
-      </div>
-    </div>
-    <div class="projet-card reveal reveal-d4">
       <div class="projet-card-img proj-bg-4">
         <div class="projet-card-img-grid"></div>
         <span style="font-size:2.8rem;z-index:2;">☁️</span>
       </div>
       <div class="projet-card-body">
         <div class="projet-card-header">
-          <h3 class="projet-title">Virtualisation Proxmox</h3>
-          <span class="projet-badge">Projet scolaire</span>
+          <h3 class="projet-title">Infrastructure Proxmox — Épreuve E6</h3>
+          <span class="projet-badge">Projet E6 · BTS SIO</span>
         </div>
-        <p class="projet-desc">Déploiement d'un hyperviseur Proxmox VE avec création de VMs et conteneurs LXC, configuration du stockage ZFS, VLAN réseau et sauvegarde Proxmox Backup Server.</p>
+        <p class="projet-desc">Mise en place d'une infrastructure de virtualisation complète sous Proxmox VE. Déploiement de machines virtuelles Windows Server, Debian, ainsi que des services Zabbix (supervision), TrueNAS (stockage) et Nextcloud (cloud privé). Infrastructure utilisée comme support pour les réalisations professionnelles de l'épreuve E6.</p>
         <div class="projet-stack">
           <span class="tag tag-green">Proxmox VE</span>
-          <span class="tag tag-blue">LXC</span>
-          <span class="tag tag-blue">ZFS</span>
-          <span class="tag tag-orange">PBS</span>
+          <span class="tag tag-blue">Windows Server</span>
+          <span class="tag tag-blue">Debian</span>
+          <span class="tag tag-orange">Zabbix</span>
+          <span class="tag tag-green">TrueNAS</span>
+          <span class="tag tag-green">Nextcloud</span>
+          <span class="tag tag-blue">VLAN</span>
         </div>
         <button class="btn-readmore" onclick="openModal('modal-proxmox')">Lire plus →</button>
       </div>
@@ -1483,7 +1681,7 @@
 <!-- PROJETS PERSONNELS -->
 <section id="projets-perso" class="projets-section" style="background:var(--bg2);">
   <div class="section-header reveal">
-    <p class="section-eyebrow">03b — Projets personnels</p>
+    <p class="section-eyebrow">08 — Projets personnels</p>
     <h2 class="section-title">Créations & Développements perso</h2>
   </div>
   <p style="font-size:0.82rem;color:var(--text-mid);line-height:1.8;margin-bottom:36px;max-width:700px;" class="reveal">
@@ -1542,130 +1740,45 @@
 <!-- ÉPREUVES -->
 <section id="epreuves" class="epreuves-section">
   <div class="section-header reveal">
-    <p class="section-eyebrow">04 — Épreuves de certification</p>
-    <h2 class="section-title">Structure des épreuves BTS SIO</h2>
+    <p class="section-eyebrow">09 — Épreuves de certification</p>
+    <h2 class="section-title">Structure des épreuves BTS SIO — Session 2026</h2>
   </div>
-  <div class="epreuves-grid reveal">
-    <div class="epreuve-block">
-      <div class="epreuve-label">E4 · Coeff. 4</div>
-      <div class="epreuve-title">Support et Mise à disposition de services informatiques</div>
-      <div class="epreuve-items">
-        <div class="epreuve-item"><div class="epreuve-item-dot"></div>Présentation de 2 situations professionnelles (SITech)</div>
-        <div class="epreuve-item"><div class="epreuve-item-dot"></div>Dossier de compétences complétées en entreprise et en formation</div>
-        <div class="epreuve-item"><div class="epreuve-item-dot"></div>Épreuve orale avec questionnement du jury (30 min)</div>
-        <div class="epreuve-item"><div class="epreuve-item-dot"></div>Mise en valeur du portfolio numérique</div>
-      </div>
-    </div>
+  <div class="epreuves-grid reveal" style="grid-template-columns: 1fr 1fr;">
     <div class="epreuve-block">
       <div class="epreuve-label">E5 · Coeff. 4</div>
-      <div class="epreuve-title">Administration des systèmes et des réseaux</div>
+      <div class="epreuve-title">Administration des systèmes et des réseaux (option SISR)</div>
       <div class="epreuve-items">
-        <div class="epreuve-item"><div class="epreuve-item-dot"></div>Épreuve pratique sur poste (3h)</div>
-        <div class="epreuve-item"><div class="epreuve-item-dot"></div>Configuration d'une infrastructure réseau ou système</div>
-        <div class="epreuve-item"><div class="epreuve-item-dot"></div>Rédaction d'un compte-rendu technique</div>
-        <div class="epreuve-item"><div class="epreuve-item-dot"></div>Entretien oral de 10 minutes avec le jury</div>
+        <div class="epreuve-item"><div class="epreuve-item-dot"></div>Épreuve pratique sur poste (durée fixée par la circulaire nationale)</div>
+        <div class="epreuve-item"><div class="epreuve-item-dot"></div>Configuration d'une infrastructure réseau ou système en conditions réelles</div>
+        <div class="epreuve-item"><div class="epreuve-item-dot"></div>Rédaction d'un compte-rendu technique à remettre au jury</div>
+        <div class="epreuve-item"><div class="epreuve-item-dot"></div>Entretien oral avec le jury sur les travaux réalisés</div>
+        <div class="epreuve-item"><div class="epreuve-item-dot"></div>Le candidat doit apporter ses propres outils et ressources techniques</div>
       </div>
     </div>
     <div class="epreuve-block">
       <div class="epreuve-label">E6 · Coeff. 4</div>
-      <div class="epreuve-title">Parcours de professionnalisation</div>
+      <div class="epreuve-title">Administration des systèmes et des réseaux — Parcours de professionnalisation</div>
       <div class="epreuve-items">
-        <div class="epreuve-item"><div class="epreuve-item-dot"></div>Rapport de stage ou d'alternance (20–30 pages)</div>
-        <div class="epreuve-item"><div class="epreuve-item-dot"></div>Présentation orale des activités réalisées en entreprise</div>
-        <div class="epreuve-item"><div class="epreuve-item-dot"></div>Mise en avant du développement professionnel</div>
-        <div class="epreuve-item"><div class="epreuve-item-dot"></div>Questionnaire du jury sur les missions effectuées</div>
-      </div>
-    </div>
-    <div class="epreuve-block">
-      <div class="epreuve-label">Veille techno · Obligatoire</div>
-      <div class="epreuve-title">Tableau de synthèse des compétences</div>
-      <div class="epreuve-items">
-        <div class="epreuve-item"><div class="epreuve-item-dot"></div>Tableau récapitulatif de toutes les compétences couvertes</div>
-        <div class="epreuve-item"><div class="epreuve-item-dot"></div>Lien entre les réalisations et les blocs de compétences du référentiel</div>
-        <div class="epreuve-item"><div class="epreuve-item-dot"></div>Preuves documentaires (captures, comptes-rendus, schémas réseau)</div>
-        <div class="epreuve-item"><div class="epreuve-item-dot"></div>Attestations de stage et certifications obtenues</div>
+        <div class="epreuve-item"><div class="epreuve-item-dot"></div>Présentation de réalisations professionnelles via des fiches descriptives officielles</div>
+        <div class="epreuve-item"><div class="epreuve-item-dot"></div>Fiches établies selon le modèle imposé par la circulaire nationale BTS SIO</div>
+        <div class="epreuve-item"><div class="epreuve-item-dot"></div>Chaque fiche couvre : contexte, compétences mobilisées, ressources, résultats obtenus</div>
+        <div class="epreuve-item"><div class="epreuve-item-dot"></div>Les productions réalisées (maquettes, configurations, scripts) doivent être accessibles le jour J</div>
+        <div class="epreuve-item"><div class="epreuve-item-dot"></div>Entretien oral avec le jury — questionnement sur les activités professionnelles et les compétences</div>
+        <div class="epreuve-item"><div class="epreuve-item-dot"></div>Le candidat est seul responsable de la disponibilité de ses ressources et outils le jour de l'épreuve</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- TABLEAU BILAN -->
-<section class="bilan-section" style="padding:100px;">
-  <div class="section-header reveal">
-    <p class="section-eyebrow">05 — Tableau de bord</p>
-    <h2 class="section-title">Suivi des compétences SISR</h2>
-  </div>
-  <div class="reveal">
-  <table class="bilan-table">
-    <thead>
-      <tr>
-        <th>Compétence</th>
-        <th>Contexte de réalisation</th>
-        <th>Outils / Technologies</th>
-        <th>Statut</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>B1.1 — Gérer le patrimoine informatique</td>
-        <td>Inventaire parc entreprise avec GLPI</td>
-        <td>GLPI, OCS Inventory</td>
-        <td><span class="status"><span class="status-dot status-ok"></span> Validé</span></td>
-      </tr>
-      <tr>
-        <td>B1.2 — Répondre aux incidents</td>
-        <td>Support technique utilisateurs N1/N2</td>
-        <td>OTRS, TeamViewer</td>
-        <td><span class="status"><span class="status-dot status-ok"></span> Validé</span></td>
-      </tr>
-      <tr>
-        <td>B2.1 — Exploiter les serveurs</td>
-        <td>Administration Windows Server 2022</td>
-        <td>Active Directory, GPO, DHCP/DNS</td>
-        <td><span class="status"><span class="status-dot status-ok"></span> Validé</span></td>
-      </tr>
-      <tr>
-        <td>B2.2 — Gestion des infrastructures réseau</td>
-        <td>Infrastructure multi-site OSPF/VLAN</td>
-        <td>Cisco IOS, Packet Tracer, GNS3</td>
-        <td><span class="status"><span class="status-dot status-ok"></span> Validé</span></td>
-      </tr>
-      <tr>
-        <td>B2.3 — Sécuriser les infrastructures</td>
-        <td>Audit sécurité Debian, pare-feu pfSense</td>
-        <td>pfSense, iptables, Fail2ban</td>
-        <td><span class="status"><span class="status-dot status-ok"></span> Validé</span></td>
-      </tr>
-      <tr>
-        <td>B3.1 — Travailler en mode projet</td>
-        <td>Projet virtualisation Proxmox</td>
-        <td>Gantt, Trello, GitLab</td>
-        <td><span class="status"><span class="status-dot status-ok"></span> Validé</span></td>
-      </tr>
-      <tr>
-        <td>B3.2 — Veille technologique</td>
-        <td>Dossier veille SIEM et SOC</td>
-        <td>Wazuh, Elastic SIEM</td>
-        <td><span class="status"><span class="status-dot status-wip"></span> En cours</span></td>
-      </tr>
-      <tr>
-        <td>B4.1 — Virtualisation</td>
-        <td>Déploiement Proxmox VE + LXC</td>
-        <td>Proxmox, VMware ESXi, Ansible</td>
-        <td><span class="status"><span class="status-dot status-ok"></span> Validé</span></td>
-      </tr>
-    </tbody>
-  </table>
-  </div>
-</section>
+
 
 <!-- ══════════════════════════════════════════════════════════
      SECTION FICHES RÉALISATIONS PROFESSIONNELLES
 ════════════════════════════════════════════════════════════ -->
 <section class="fiches-section" style="padding:100px;">
   <div class="section-header reveal">
-    <p class="section-eyebrow">07 — Fiches descriptives de réalisations</p>
-    <h2 class="section-title">Réalisations professionnelles — Format E4/E5</h2>
+    <p class="section-eyebrow">10 — Fiches descriptives de réalisations</p>
+    <h2 class="section-title">Réalisations professionnelles — E6</h2>
   </div>
   <p style="font-size:0.82rem;color:var(--text-mid);line-height:1.8;margin-bottom:36px;max-width:700px;" class="reveal">
     Ces fiches suivent le modèle imposé par la circulaire nationale BTS SIO. Cliquez sur une fiche pour la déployer et consulter le détail complet de chaque réalisation professionnelle.
@@ -1673,18 +1786,19 @@
 
   <div class="fiche-list">
 
-    <!-- FICHE 1 -->
+    <!-- FICHE 1 : Caméra de surveillance WiFi -->
     <div class="fiche-card reveal" onclick="toggleFiche(this)">
       <div class="fiche-header">
         <div class="fiche-accent fiche-accent-blue"></div>
         <div class="fiche-header-inner">
           <div class="fiche-header-left">
-            <div class="fiche-num">FICHE N°1 · Épreuve E4</div>
-            <div class="fiche-title">Déploiement d'un domaine Active Directory avec GPO</div>
+            <div class="fiche-num">FICHE N°1 · Épreuve E6 — Session 2026</div>
+            <div class="fiche-title">Mise en place d'une caméra de surveillance WiFi accessible depuis mobile</div>
             <div class="fiche-tags">
-              <span class="tag tag-blue">Windows Server 2022</span>
-              <span class="tag tag-green">Active Directory</span>
-              <span class="tag tag-orange">PowerShell</span>
+              <span class="tag tag-blue">Switch L3 Cisco</span>
+              <span class="tag tag-green">Fortinet 300D</span>
+              <span class="tag tag-orange">Application TAPO</span>
+              <span class="tag tag-green">WiFi / DHCP</span>
             </div>
           </div>
           <div class="fiche-toggle">▶</div>
@@ -1692,40 +1806,46 @@
       </div>
       <div class="fiche-body">
         <table class="fiche-table">
-          <tr><td>Intitulé</td><td>Déploiement d'un domaine Active Directory avec stratégies GPO et scripts PowerShell de provisioning</td></tr>
-          <tr><td>Contexte</td><td>Mission réalisée chez TechSol Informatique dans le cadre de l'alternance. L'entreprise cliente (PME de 45 personnes) souhaitait centraliser l'authentification et la gestion des postes de travail.</td></tr>
-          <tr><td>Période</td><td>Novembre – Décembre 2024 (3 semaines)</td></tr>
-          <tr><td>Lieu</td><td>TechSol Informatique — Bordeaux (en alternance)</td></tr>
-          <tr><td>Environnement technique</td><td>Windows Server 2022, Active Directory DS, DNS, DHCP, DFS, PowerShell 7, VMware ESXi</td></tr>
-          <tr><td>Ma mission</td><td>Installation du serveur, création du domaine, mise en place des OUs et GPO de sécurité, création d'un script PowerShell de création automatique des comptes utilisateurs depuis un fichier CSV, configuration du DFS pour les partages.</td></tr>
-          <tr><td>Résultats obtenus</td><td>45 postes joints au domaine, 45 comptes utilisateurs créés en automatique, 12 GPO appliquées (fond d'écran, restrictions USB, désactivation PowerShell utilisateur, déploiement logiciels). Réduction du temps de provisioning de 4h à 15 min par utilisateur.</td></tr>
-          <tr><td>Difficultés rencontrées</td><td>Conflit DNS entre l'ancien serveur DHCP et le nouveau. Résolu en migrant progressivement les baux et en désactivant le DHCP historique après validation de la continuité de service.</td></tr>
-          <tr><td>Compétences couvertes</td><td>
+          <tr><td>Intitulé</td><td>Installation et configuration d'une caméra de surveillance WiFi avec accès distant depuis un smartphone via l'application TAPO</td></tr>
+          <tr><td>Contexte</td><td>Réalisation effectuée dans le cadre de l'épreuve E6 — Administration des systèmes et des réseaux (option SISR). Date : 15/04/2026.</td></tr>
+          <tr><td>Période</td><td>15 / 04 / 2026</td></tr>
+          <tr><td>Lieu</td><td>Infrastructure Baie D — BTS SIO SISR</td></tr>
+          <tr><td>Résultat attendu</td><td>Avoir accès à la vidéo surveillance depuis un appareil mobile via application TAPO en WiFi</td></tr>
+          <tr><td>Ressources matérielles</td><td>Switch L3 Cisco, Fortinet 300D, Infrastructure Baie D, Application mobile TAPO, Téléphone portable</td></tr>
+          <tr><td>Ressources logicielles</td><td>Putty</td></tr>
+          <tr><td>Modalités d'accès</td><td>La production réalisée (caméra de surveillance) est disponible dans la Baie D et dans l'application TAPO via le portable du candidat en modalité d'accès WiFi. Fichiers présents : commandes_switch.txt (configuration du SW-L3-BTS), commandes_fortigate.txt (vérifications et autorisations sur l'interface port4). Connexion au TP-Link possible depuis le portable du candidat.</td></tr>
+          <tr><td>Architecture réseau</td><td>
             <div class="fiche-competences">
-              <span class="tag tag-green">B1.1 — Patrimoine informatique</span>
-              <span class="tag tag-blue">B2.1 — Exploitation serveurs</span>
-              <span class="tag tag-blue">B2.3 — Sécurisation</span>
-              <span class="tag tag-orange">B3.1 — Mode projet</span>
+              <span class="tag tag-green">Caméra WiFi</span>
+              <span class="tag tag-blue">Smartphone WiFi</span>
+              <span class="tag tag-blue">TP-Link WiFi</span>
+              <span class="tag tag-orange">DHCP</span>
             </div>
           </td></tr>
-          <tr><td>Preuves disponibles</td><td>Captures d'écran ADUC, schéma de l'infrastructure, script PowerShell commenté, rapport de recette — voir Comptes-rendus ci-dessous</td></tr>
+          <tr><td>Compétences couvertes</td><td>
+            <div class="fiche-competences">
+              <span class="tag tag-green">Concevoir une solution d'infrastructure réseau</span>
+              <span class="tag tag-blue">Installer, tester et déployer une solution d'infrastructure réseau</span>
+              <span class="tag tag-orange">Exploiter, dépanner et superviser une solution d'infrastructure réseau</span>
+            </div>
+          </td></tr>
         </table>
       </div>
     </div>
 
-    <!-- FICHE 2 -->
+    <!-- FICHE 2 : Site web accessible depuis le réseau -->
     <div class="fiche-card reveal" onclick="toggleFiche(this)">
       <div class="fiche-header">
         <div class="fiche-accent fiche-accent-green"></div>
         <div class="fiche-header-inner">
           <div class="fiche-header-left">
-            <div class="fiche-num">FICHE N°2 · Épreuve E5</div>
-            <div class="fiche-title">Infrastructure réseau multi-site avec routage OSPF et VPN IPSec</div>
+            <div class="fiche-num">FICHE N°2 · Épreuve E6 — Session 2026</div>
+            <div class="fiche-title">Déploiement d'un site web accessible depuis le réseau Ethernet et WiFi de la baie</div>
             <div class="fiche-tags">
-              <span class="tag tag-green">Cisco IOS</span>
-              <span class="tag tag-blue">OSPF</span>
-              <span class="tag tag-blue">VLAN</span>
-              <span class="tag tag-orange">VPN IPSec</span>
+              <span class="tag tag-green">Serveur Debian Web</span>
+              <span class="tag tag-blue">Windows Server</span>
+              <span class="tag tag-orange">VS Code</span>
+              <span class="tag tag-green">Switch L3 Cisco</span>
             </div>
           </div>
           <div class="fiche-toggle">▶</div>
@@ -1733,22 +1853,31 @@
       </div>
       <div class="fiche-body">
         <table class="fiche-table">
-          <tr><td>Intitulé</td><td>Conception et déploiement d'une infrastructure WAN reliant 3 sites avec routage OSPF, segmentation VLAN et VPN IPSec site-à-site</td></tr>
-          <tr><td>Contexte</td><td>Projet réalisé en cours de BTS SIO (bloc B2.2) simulant un déploiement réseau pour une PME disposant de 3 sites géographiques (siège + 2 agences).</td></tr>
-          <tr><td>Période</td><td>Janvier – Février 2025 (4 semaines)</td></tr>
-          <tr><td>Lieu</td><td>UTEC Marne-la-Vallée, Émerainville</td></tr>
-          <tr><td>Environnement technique</td><td>Cisco IOS (routeurs 2911, switchs 2960), GNS3, protocole OSPF aire 0, VLAN 802.1Q, VPN IPSec, HSRP pour la redondance</td></tr>
-          <tr><td>Ma mission</td><td>Conception du plan d'adressage IP, configuration des VLAN et trunk 802.1Q, mise en place du routage OSPF inter-sites, configuration du tunnel VPN IPSec entre le siège et les agences, activation HSRP pour la redondance de passerelle sur le site principal.</td></tr>
-          <tr><td>Résultats obtenus</td><td>Connectivité totale entre les 3 sites, segmentation effective par VLAN (RH, Prod, IT, VoIP), bascule HSRP testée et validée en moins de 3 secondes, tunnel VPN IPSec chiffré AES-256 opérationnel.</td></tr>
-          <tr><td>Difficultés rencontrées</td><td>Problème de redistribution de routes entre OSPF et une route statique sur le routeur de bordure. Résolu en ajoutant une métrique explicite et une access-list pour éviter les boucles.</td></tr>
-          <tr><td>Compétences couvertes</td><td>
+          <tr><td>Intitulé</td><td>Déploiement et mise en ligne d'un site web accessible depuis n'importe quel appareil du réseau (Ethernet ou WiFi de la baie)</td></tr>
+          <tr><td>Contexte</td><td>Réalisation effectuée dans le cadre de l'épreuve E6 — Administration des systèmes et des réseaux (option SISR). Date : 15/04/2026.</td></tr>
+          <tr><td>Période</td><td>15 / 04 / 2026</td></tr>
+          <tr><td>Lieu</td><td>Infrastructure Baie D — BTS SIO SISR</td></tr>
+          <tr><td>Résultat attendu</td><td>Avoir accès au site web depuis le réseau Ethernet ou WiFi de la baie</td></tr>
+          <tr><td>Ressources matérielles</td><td>Switch L3 Cisco, Fortinet 300D, Infrastructure Baie D, Serveur DebianWeb, Windows Server, PC1 et PC2, Téléphone</td></tr>
+          <tr><td>Ressources logicielles</td><td>VS Code, Asset Studio</td></tr>
+          <tr><td>Modalités d'accès</td><td>La production réalisée (site web) est disponible depuis n'importe quel appareil du réseau. Fichiers présents : commandes_switch.txt (configuration du SW-L3-BTS), commandes_fortigate.txt (vérifications et autorisations sur l'interface port4). La connexion au site web est possible depuis le portable s'il est connecté sur le WiFi de la baie. Aperçu du site web : <a href="https://docs.google.com/document/d/1PJs_XhHKfH7GH6XIDAe1QVX6jYkEpcnnn0EW4E4OOWg/edit?usp=sharing" target="_blank" style="color:var(--green);">Voir aperçu →</a></td></tr>
+          <tr><td>Architecture réseau</td><td>
             <div class="fiche-competences">
-              <span class="tag tag-green">B2.2 — Infrastructure réseau</span>
-              <span class="tag tag-blue">B2.3 — Sécurisation</span>
-              <span class="tag tag-orange">B3.1 — Mode projet</span>
+              <span class="tag tag-green">PC1 et PC2</span>
+              <span class="tag tag-blue">Windows Server</span>
+              <span class="tag tag-blue">Serveur Web Debian</span>
+              <span class="tag tag-orange">Smartphone WiFi</span>
+              <span class="tag tag-green">TP-Link WiFi</span>
+              <span class="tag tag-orange">DHCP</span>
             </div>
           </td></tr>
-          <tr><td>Preuves disponibles</td><td>Schéma réseau Packet Tracer, captures show ip route / show crypto isakmp sa, rapport technique complet — voir Comptes-rendus ci-dessous</td></tr>
+          <tr><td>Compétences couvertes</td><td>
+            <div class="fiche-competences">
+              <span class="tag tag-green">Concevoir une solution d'infrastructure réseau</span>
+              <span class="tag tag-blue">Installer, tester et déployer une solution d'infrastructure réseau</span>
+              <span class="tag tag-orange">Exploiter, dépanner et superviser une solution d'infrastructure réseau</span>
+            </div>
+          </td></tr>
         </table>
       </div>
     </div>
@@ -1756,129 +1885,14 @@
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════════════════════
-     SECTION COMPTES-RENDUS TECHNIQUES (PREUVES)
-════════════════════════════════════════════════════════════ -->
-<section class="cr-section" style="padding:100px;">
-  <div class="section-header reveal">
-    <p class="section-eyebrow">08 — Comptes-rendus techniques</p>
-    <h2 class="section-title">Preuves documentées des réalisations</h2>
-  </div>
-  <p style="font-size:0.82rem;color:var(--text-mid);line-height:1.8;margin-bottom:40px;max-width:700px;" class="reveal">
-    Chaque réalisation est accompagnée d'un compte-rendu illustré avec captures d'écran, schémas réseau et procédures détaillées. Ces documents constituent les preuves exigibles par le jury lors des épreuves E4 et E5.
-  </p>
 
-  <div class="cr-grid">
-
-    <div class="cr-card reveal reveal-d1">
-      <div class="cr-card-img cr-bg-2">
-        <div class="cr-grid-overlay"></div>
-        <span style="z-index:2;">🖥️</span>
-      </div>
-      <div class="cr-card-body">
-        <div class="cr-card-top">
-          <div class="cr-card-title">Déploiement Active Directory & GPO</div>
-          <span class="cr-badge">Fiche N°1</span>
-        </div>
-        <p class="cr-card-desc">Compte-rendu complet du déploiement du domaine AD chez TechSol. Inclut le schéma d'infrastructure, les captures ADUC, le script PowerShell commenté et le rapport de recette client.</p>
-        <div class="cr-card-pills">
-          <span class="cr-pill tag-green">Windows Server 2022</span>
-          <span class="cr-pill tag-blue">Active Directory</span>
-          <span class="cr-pill tag-orange">PowerShell</span>
-        </div>
-        <div class="cr-proof-row"><div class="cr-proof-dot"></div>Schéma d'infrastructure (Visio/Draw.io)</div>
-        <div class="cr-proof-row"><div class="cr-proof-dot"></div>15 captures d'écran annotées (ADUC, GPO, DFS)</div>
-        <div class="cr-proof-row"><div class="cr-proof-dot"></div>Script PowerShell — provisioning_ad.ps1</div>
-        <div class="cr-proof-row"><div class="cr-proof-dot"></div>Rapport de recette signé client</div>
-        <br>
-        <a href="#" class="cr-card-link">📎 Consulter le compte-rendu (PDF) →</a>
-      </div>
-    </div>
-
-    <div class="cr-card reveal reveal-d2">
-      <div class="cr-card-img cr-bg-1">
-        <div class="cr-grid-overlay"></div>
-        <span style="z-index:2;">🌐</span>
-      </div>
-      <div class="cr-card-body">
-        <div class="cr-card-top">
-          <div class="cr-card-title">Infrastructure réseau multi-site OSPF / VPN</div>
-          <span class="cr-badge">Fiche N°2</span>
-        </div>
-        <p class="cr-card-desc">Documentation complète de l'infrastructure réseau 3 sites. Plan d'adressage, configuration complète des équipements Cisco, captures de validation et analyse des résultats obtenus.</p>
-        <div class="cr-card-pills">
-          <span class="cr-pill tag-green">Cisco IOS</span>
-          <span class="cr-pill tag-blue">OSPF</span>
-          <span class="cr-pill tag-blue">VPN IPSec</span>
-        </div>
-        <div class="cr-proof-row"><div class="cr-proof-dot"></div>Schéma réseau logique & physique (Packet Tracer)</div>
-        <div class="cr-proof-row"><div class="cr-proof-dot"></div>Plan d'adressage IP complet</div>
-        <div class="cr-proof-row"><div class="cr-proof-dot"></div>Captures show commands (routes, VPN, HSRP)</div>
-        <div class="cr-proof-row"><div class="cr-proof-dot"></div>Tests de bascule HSRP documentés</div>
-        <br>
-        <a href="#" class="cr-card-link">📎 Consulter le compte-rendu (PDF) →</a>
-      </div>
-    </div>
-
-    <div class="cr-card reveal reveal-d3">
-      <div class="cr-card-img cr-bg-3">
-        <div class="cr-grid-overlay"></div>
-        <span style="z-index:2;">🔒</span>
-      </div>
-      <div class="cr-card-body">
-        <div class="cr-card-top">
-          <div class="cr-card-title">Audit sécurité & Hardening Debian</div>
-          <span class="cr-badge">Projet AP</span>
-        </div>
-        <p class="cr-card-desc">Rapport d'audit de sécurité complet sur un serveur Debian 12 : analyse des vulnérabilités CVE, mise en place des contre-mesures, configuration iptables et supervision Zabbix.</p>
-        <div class="cr-card-pills">
-          <span class="cr-pill tag-orange">Debian 12</span>
-          <span class="cr-pill tag-orange">iptables</span>
-          <span class="cr-pill tag-green">Zabbix</span>
-        </div>
-        <div class="cr-proof-row"><div class="cr-proof-dot"></div>Rapport d'audit initial (OpenVAS)</div>
-        <div class="cr-proof-row"><div class="cr-proof-dot"></div>Tableau CVE avec niveaux de criticité</div>
-        <div class="cr-proof-row"><div class="cr-proof-dot"></div>Captures avant / après hardening</div>
-        <div class="cr-proof-row"><div class="cr-proof-dot"></div>Dashboard Zabbix — supervision réseau</div>
-        <br>
-        <a href="#" class="cr-card-link">📎 Consulter le compte-rendu (PDF) →</a>
-      </div>
-    </div>
-
-    <div class="cr-card reveal reveal-d4">
-      <div class="cr-card-img cr-bg-4">
-        <div class="cr-grid-overlay"></div>
-        <span style="z-index:2;">☁️</span>
-      </div>
-      <div class="cr-card-body">
-        <div class="cr-card-top">
-          <div class="cr-card-title">Virtualisation Proxmox VE</div>
-          <span class="cr-badge">Projet scolaire</span>
-        </div>
-        <p class="cr-card-desc">Documentation du déploiement de l'hyperviseur Proxmox VE avec VMs et conteneurs LXC, stockage ZFS, réseaux VLAN et sauvegarde automatique sur Proxmox Backup Server.</p>
-        <div class="cr-card-pills">
-          <span class="cr-pill tag-green">Proxmox VE</span>
-          <span class="cr-pill tag-blue">LXC</span>
-          <span class="cr-pill tag-blue">ZFS</span>
-        </div>
-        <div class="cr-proof-row"><div class="cr-proof-dot"></div>Schéma architecture de virtualisation</div>
-        <div class="cr-proof-row"><div class="cr-proof-dot"></div>Captures interface Proxmox (VMs, stockage)</div>
-        <div class="cr-proof-row"><div class="cr-proof-dot"></div>Configuration ZFS et politique de sauvegarde</div>
-        <div class="cr-proof-row"><div class="cr-proof-dot"></div>Tests de restauration documentés</div>
-        <br>
-        <a href="#" class="cr-card-link">📎 Consulter le compte-rendu (PDF) →</a>
-      </div>
-    </div>
-
-  </div>
-</section>
 
 <!-- ══════════════════════════════════════════════════════════
      SECTION VEILLE TECHNOLOGIQUE
 ════════════════════════════════════════════════════════════ -->
 <section id="veille" class="veille-section" style="padding:100px;">
   <div class="section-header reveal">
-    <p class="section-eyebrow">09 — Veille Technologique</p>
+    <p class="section-eyebrow">11 — Veille Technologique</p>
     <h2 class="section-title">Suivi de l'actualité IT</h2>
   </div>
 
@@ -1971,7 +1985,7 @@
 <!-- CONTACT -->
 <section id="contact" class="contact-section">
   <div class="section-header reveal">
-    <p class="section-eyebrow">10 — Contact</p>
+    <p class="section-eyebrow">12 — Contact</p>
     <h2 class="section-title">Me rejoindre</h2>
   </div>
   <div class="contact-grid">
@@ -2028,7 +2042,7 @@
 <!-- FOOTER -->
 <footer>
   <span class="footer-brand">David.Amado ~ BTS SIO SISR 2026</span>
-  <span class="footer-info">Portfolio d'épreuve E4/E5/E6 · Promotion 2024–2026</span>
+  <span class="footer-info">© 2026 David Amado — Tous droits réservés</span>
   <a href="#home" class="footer-back">↑ retour en haut</a>
 </footer>
 
@@ -2036,169 +2050,73 @@
      MODALS PROJETS & RÉALISATIONS
 ═══════════════════════════════════════════════ -->
 
-<!-- Modal Infra réseau -->
-<div class="modal-overlay" id="modal-infra" onclick="closeModalOutside(event, 'modal-infra')">
+<!-- Modal SSH Bornes Lavage -->
+<div class="modal-overlay" id="modal-ssh" onclick="closeModalOutside(event, 'modal-ssh')">
   <div class="modal-box">
     <div class="modal-header">
       <div>
-        <div class="modal-title">Infrastructure réseau multi-site</div>
-        <div class="modal-subtitle">E4 — SITech · Cisco IOS / OSPF / VPN IPSec</div>
+        <div class="modal-title">Logiciel SSH — Automatisation bornes</div>
+        <div class="modal-subtitle">Alternance Cartadis · Python / SSH / Automatisation</div>
       </div>
-      <button class="modal-close" onclick="closeModal('modal-infra')">✕</button>
+      <button class="modal-close" onclick="closeModal('modal-ssh')">✕</button>
     </div>
     <div class="modal-body">
       <div class="modal-section-title">Contexte & Objectifs</div>
-      <p class="modal-text">Dans le cadre de l'épreuve E4, j'ai conçu et déployé une infrastructure WAN complète reliant <strong style="color:var(--white)">3 sites géographiques distincts</strong> pour une entreprise fictive. L'objectif était de garantir une connectivité sécurisée, redondante et performante entre le siège social et deux agences distantes, avec une segmentation stricte du réseau par rôle métier.</p>
-      <div class="modal-section-title">Visuels du projet</div>
-      <div class="modal-imgs">
-        <div class="modal-img-placeholder">🌐<span>Topologie réseau — Packet Tracer</span></div>
-        <div class="modal-img-placeholder">🔀<span>Table de routage OSPF</span></div>
-        <div class="modal-img-placeholder">🔐<span>Tunnel VPN IPSec — config</span></div>
-      </div>
-      <div class="modal-section-title">Étapes de réalisation</div>
+      <p class="modal-text">Dans le cadre de mon alternance chez <strong style="color:var(--white)">Cartadis</strong>, j'ai développé un logiciel permettant de se connecter en SSH sur les bornes de lavage déployées chez les clients. L'objectif était d'<strong style="color:var(--white)">automatiser les tâches de maintenance</strong> (mises à jour, scripts de diagnostic) et de faciliter l'analyse des codes d'erreur remontés par les bornes sans intervention physique sur site.</p>
+      <div class="modal-section-title">Fonctionnalités</div>
       <div class="modal-steps">
-        <div class="modal-step"><div class="modal-step-num">1</div><div class="modal-step-text"><strong>Conception de la topologie</strong> — Schéma réseau Packet Tracer avec 3 routeurs Cisco, 6 switchs Layer 2/3 et segmentation par VLAN (Administration, Production, Serveurs, DMZ).</div></div>
-        <div class="modal-step"><div class="modal-step-num">2</div><div class="modal-step-text"><strong>Routage dynamique OSPF</strong> — Configuration d'OSPF multi-area (Area 0 backbone + Areas 1 et 2), redistribution des routes statiques, authentification MD5 des voisins OSPF.</div></div>
-        <div class="modal-step"><div class="modal-step-num">3</div><div class="modal-step-text"><strong>Tunnel VPN IPSec site-à-site</strong> — Mise en place du tunnel chiffré AES-256 entre les 3 sites pour sécuriser les flux inter-sites sur internet.</div></div>
-        <div class="modal-step"><div class="modal-step-num">4</div><div class="modal-step-text"><strong>Redondance HSRP</strong> — Configuration du protocole HSRP sur les switchs L3 pour assurer la haute disponibilité de la passerelle par défaut en cas de panne.</div></div>
-        <div class="modal-step"><div class="modal-step-num">5</div><div class="modal-step-text"><strong>ACL & Sécurisation</strong> — Listes de contrôle d'accès pour filtrer les flux inter-VLAN, interdire les accès non autorisés et protéger les équipements.</div></div>
+        <div class="modal-step"><div class="modal-step-num">1</div><div class="modal-step-text"><strong>Connexion SSH automatisée</strong> — Interface permettant de sélectionner une borne parmi la liste des équipements et d'établir une session SSH sans saisie manuelle des identifiants.</div></div>
+        <div class="modal-step"><div class="modal-step-num">2</div><div class="modal-step-text"><strong>Automatisation des mises à jour</strong> — Scripts d'automatisation permettant le déploiement de mises à jour firmware sur une ou plusieurs bornes simultanément.</div></div>
+        <div class="modal-step"><div class="modal-step-num">3</div><div class="modal-step-text"><strong>Analyse des codes d'erreur</strong> — Module de lecture et d'interprétation des logs remontés par les bornes, avec classification des erreurs et suggestions de résolution.</div></div>
+        <div class="modal-step"><div class="modal-step-num">4</div><div class="modal-step-text"><strong>Interface utilisateur</strong> — Interface graphique simple permettant aux techniciens support de lancer les opérations sans ligne de commande.</div></div>
       </div>
       <div class="modal-section-title">Technologies utilisées</div>
       <div class="modal-tags">
-        <span class="tag tag-green">Cisco IOS</span><span class="tag tag-blue">OSPF Multi-Area</span><span class="tag tag-blue">VLAN / 802.1Q</span><span class="tag tag-orange">VPN IPSec AES-256</span><span class="tag tag-green">HSRP</span><span class="tag tag-blue">ACL étendues</span><span class="tag tag-orange">Packet Tracer</span>
+        <span class="tag tag-green">Python</span><span class="tag tag-blue">Paramiko (SSH)</span><span class="tag tag-blue">Tkinter / GUI</span><span class="tag tag-orange">Scripts Bash</span><span class="tag tag-green">Automatisation</span><span class="tag tag-orange">Logs & Diagnostic</span>
       </div>
       <div class="modal-results">
-        <div class="modal-results-title">Résultats & Compétences validées</div>
-        <div class="modal-result-item">Infrastructure opérationnelle avec 0 point de défaillance unique (SPOF éliminé)</div>
-        <div class="modal-result-item">Temps de convergence OSPF inférieur à 10 secondes en cas de panne de lien</div>
-        <div class="modal-result-item">Compétences B2.2 (gestion infrastructures) et B2.3 (sécurisation) validées</div>
-        <div class="modal-result-item">Documentation technique complète (schéma, plan d'adressage, configurations)</div>
+        <div class="modal-results-title">Résultats & Apports</div>
+        <div class="modal-result-item">Réduction du temps d'intervention à distance sur les bornes</div>
+        <div class="modal-result-item">Déploiement de mises à jour sans déplacement physique sur site</div>
+        <div class="modal-result-item">Identification et résolution plus rapide des pannes grâce à l'analyse automatisée des logs</div>
+        <div class="modal-result-item">Compétences B2.1, B2.3 et B3.1 validées</div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- Modal Active Directory -->
-<div class="modal-overlay" id="modal-ad" onclick="closeModalOutside(event, 'modal-ad')">
-  <div class="modal-box">
-    <div class="modal-header">
-      <div>
-        <div class="modal-title">Déploiement Active Directory</div>
-        <div class="modal-subtitle">E5 — Entreprise · Windows Server 2022 / GPO / PowerShell</div>
-      </div>
-      <button class="modal-close" onclick="closeModal('modal-ad')">✕</button>
-    </div>
-    <div class="modal-body">
-      <div class="modal-section-title">Contexte & Objectifs</div>
-      <p class="modal-text">Mission réalisée en entreprise chez Cartadis : déploiement d'un <strong style="color:var(--white)">domaine Active Directory complet</strong> pour centraliser l'authentification, la gestion des postes et les droits d'accès de l'ensemble des collaborateurs. L'objectif était d'automatiser le provisioning des comptes et d'uniformiser la configuration des postes de travail via les GPO.</p>
-      <div class="modal-section-title">Visuels du projet</div>
-      <div class="modal-imgs">
-        <div class="modal-img-placeholder">🖥️<span>Structure des OUs — AD</span></div>
-        <div class="modal-img-placeholder">📋<span>Éditeur GPO — stratégies</span></div>
-        <div class="modal-img-placeholder">⚡<span>Script PowerShell — provisioning</span></div>
-      </div>
-      <div class="modal-section-title">Étapes de réalisation</div>
-      <div class="modal-steps">
-        <div class="modal-step"><div class="modal-step-num">1</div><div class="modal-step-text"><strong>Installation & promotion DC</strong> — Installation de Windows Server 2022, promotion en contrôleur de domaine avec DNS intégré, configuration de la zone de recherche directe/inverse.</div></div>
-        <div class="modal-step"><div class="modal-step-num">2</div><div class="modal-step-text"><strong>Structuration des OUs</strong> — Création de l'arborescence organisationnelle (Directions, Services, Postes, Serveurs) reflétant la hiérarchie de l'entreprise.</div></div>
-        <div class="modal-step"><div class="modal-step-num">3</div><div class="modal-step-text"><strong>Déploiement des GPO</strong> — Stratégies de groupe pour sécuriser les postes (écran de veille, pare-feu, restrictions logicielles), déployer des imprimantes et mapper les lecteurs réseau.</div></div>
-        <div class="modal-step"><div class="modal-step-num">4</div><div class="modal-step-text"><strong>Serveur de fichiers DFS</strong> — Mise en place d'un espace de noms DFS avec réplication entre deux serveurs pour la haute disponibilité des partages.</div></div>
-        <div class="modal-step"><div class="modal-step-num">5</div><div class="modal-step-text"><strong>Automatisation PowerShell</strong> — Script de provisioning automatique des comptes utilisateurs depuis un fichier CSV, avec création des boîtes mail et attribution des groupes.</div></div>
-      </div>
-      <div class="modal-section-title">Technologies utilisées</div>
-      <div class="modal-tags">
-        <span class="tag tag-blue">Windows Server 2022</span><span class="tag tag-green">Active Directory</span><span class="tag tag-green">DNS / DHCP</span><span class="tag tag-orange">PowerShell</span><span class="tag tag-blue">GPO</span><span class="tag tag-blue">DFS</span><span class="tag tag-green">NTFS / Partages</span>
-      </div>
-      <div class="modal-results">
-        <div class="modal-results-title">Résultats & Compétences validées</div>
-        <div class="modal-result-item">100% des postes intégrés au domaine avec politiques appliquées automatiquement</div>
-        <div class="modal-result-item">Provisioning de 30+ comptes en moins de 2 minutes via le script PowerShell</div>
-        <div class="modal-result-item">Compétences B2.1 (exploitation serveurs) et B1.1 (patrimoine informatique) validées</div>
-        <div class="modal-result-item">Documentation : schéma d'architecture, procédure d'intégration poste, script commenté</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Modal Audit Sécurité -->
-<div class="modal-overlay" id="modal-audit" onclick="closeModalOutside(event, 'modal-audit')">
-  <div class="modal-box">
-    <div class="modal-header">
-      <div>
-        <div class="modal-title">Audit sécurité & Hardening</div>
-        <div class="modal-subtitle">E4 — AP · Debian 12 / iptables / Fail2ban / Zabbix</div>
-      </div>
-      <button class="modal-close" onclick="closeModal('modal-audit')">✕</button>
-    </div>
-    <div class="modal-body">
-      <div class="modal-section-title">Contexte & Objectifs</div>
-      <p class="modal-text">Audit de sécurité complet d'un serveur Linux Debian 12 dans le cadre d'une activité professionnelle. L'objectif était d'<strong style="color:var(--white)">identifier les vulnérabilités</strong> de la configuration existante, d'appliquer les correctifs (hardening) et de mettre en place une supervision proactive pour détecter les tentatives d'intrusion.</p>
-      <div class="modal-section-title">Visuels du projet</div>
-      <div class="modal-imgs">
-        <div class="modal-img-placeholder">🔒<span>Rapport d'audit — vulnérabilités</span></div>
-        <div class="modal-img-placeholder">🛡️<span>Règles iptables — pare-feu</span></div>
-        <div class="modal-img-placeholder">📊<span>Dashboard Zabbix — monitoring</span></div>
-      </div>
-      <div class="modal-section-title">Étapes de réalisation</div>
-      <div class="modal-steps">
-        <div class="modal-step"><div class="modal-step-num">1</div><div class="modal-step-text"><strong>Audit initial</strong> — Utilisation de Lynis pour l'audit automatisé, identification des services inutiles, des ports ouverts non nécessaires et des CVE connues sur les paquets installés.</div></div>
-        <div class="modal-step"><div class="modal-step-num">2</div><div class="modal-step-text"><strong>Hardening système</strong> — Désactivation des services non utilisés, mise à jour des paquets vulnérables, durcissement SSH (clés RSA, désactivation root, port non standard), configuration du PAM.</div></div>
-        <div class="modal-step"><div class="modal-step-num">3</div><div class="modal-step-text"><strong>Pare-feu iptables</strong> — Mise en place d'une politique "deny all" par défaut avec ouverture des seuls ports nécessaires (SSH, HTTP/S, DNS), règles anti-spoofing.</div></div>
-        <div class="modal-step"><div class="modal-step-num">4</div><div class="modal-step-text"><strong>Fail2ban</strong> — Configuration de la protection contre les attaques bruteforce SSH, HTTP et FTP avec bannissement automatique des IPs malveillantes.</div></div>
-        <div class="modal-step"><div class="modal-step-num">5</div><div class="modal-step-text"><strong>Supervision Zabbix</strong> — Déploiement de l'agent Zabbix, création de triggers d'alerte (charge CPU, tentatives de connexion, espace disque), tableaux de bord de supervision.</div></div>
-      </div>
-      <div class="modal-section-title">Technologies utilisées</div>
-      <div class="modal-tags">
-        <span class="tag tag-orange">Debian 12</span><span class="tag tag-orange">iptables / nftables</span><span class="tag tag-green">Fail2ban</span><span class="tag tag-blue">Zabbix</span><span class="tag tag-green">Bash</span><span class="tag tag-orange">Lynis</span><span class="tag tag-blue">OpenSSH</span>
-      </div>
-      <div class="modal-results">
-        <div class="modal-results-title">Résultats & Compétences validées</div>
-        <div class="modal-result-item">Score Lynis amélioré de 47% à 82% après hardening</div>
-        <div class="modal-result-item">Zéro tentative de connexion SSH non bloquée après déploiement Fail2ban</div>
-        <div class="modal-result-item">Compétences B2.3 (sécurisation infrastructures) validées</div>
-        <div class="modal-result-item">Rapport d'audit remis avec recommandations priorisées et plan d'action</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Modal Proxmox -->
+<!-- Modal Proxmox E6 -->
 <div class="modal-overlay" id="modal-proxmox" onclick="closeModalOutside(event, 'modal-proxmox')">
   <div class="modal-box">
     <div class="modal-header">
       <div>
-        <div class="modal-title">Virtualisation Proxmox VE</div>
-        <div class="modal-subtitle">Projet scolaire · Proxmox / LXC / ZFS / PBS</div>
+        <div class="modal-title">Infrastructure Proxmox — Épreuve E6</div>
+        <div class="modal-subtitle">Projet E6 · Proxmox / Windows Server / Debian / Zabbix / TrueNAS / Nextcloud</div>
       </div>
       <button class="modal-close" onclick="closeModal('modal-proxmox')">✕</button>
     </div>
     <div class="modal-body">
       <div class="modal-section-title">Contexte & Objectifs</div>
-      <p class="modal-text">Projet de virtualisation réalisé en autonomie : déploiement d'un <strong style="color:var(--white)">hyperviseur Proxmox VE</strong> sur un serveur physique dédié pour créer un environnement de lab complet. L'objectif était de maîtriser la virtualisation de type 1, la gestion du stockage avancée avec ZFS et la mise en place d'une stratégie de sauvegarde robuste.</p>
-      <div class="modal-section-title">Visuels du projet</div>
-      <div class="modal-imgs">
-        <div class="modal-img-placeholder">☁️<span>Interface Proxmox — VMs & LXC</span></div>
-        <div class="modal-img-placeholder">💾<span>Pool ZFS — stockage</span></div>
-        <div class="modal-img-placeholder">🔄<span>PBS — planning sauvegardes</span></div>
-      </div>
-      <div class="modal-section-title">Étapes de réalisation</div>
+      <p class="modal-text">Mise en place d'une <strong style="color:var(--white)">infrastructure de virtualisation complète sous Proxmox VE</strong> dans le cadre de l'épreuve E6. L'objectif était de déployer un environnement multi-services hébergeant des VMs Windows Server, des serveurs Debian, et des solutions métier telles que Zabbix pour la supervision, TrueNAS pour le stockage et Nextcloud pour le cloud privé.</p>
+      <div class="modal-section-title">Machines déployées</div>
       <div class="modal-steps">
-        <div class="modal-step"><div class="modal-step-num">1</div><div class="modal-step-text"><strong>Installation & configuration Proxmox VE</strong> — Installation de Proxmox 8.x, configuration du réseau (bridge vmbr0, VLAN tagging), ajout au cluster et mise à jour des dépôts.</div></div>
-        <div class="modal-step"><div class="modal-step-num">2</div><div class="modal-step-text"><strong>Stockage ZFS</strong> — Création d'un pool ZFS RAID-Z1 avec compression lz4 et déduplication, configuration des datasets pour VMs, conteneurs et ISO.</div></div>
-        <div class="modal-step"><div class="modal-step-num">3</div><div class="modal-step-text"><strong>Machines virtuelles</strong> — Déploiement de VMs (Windows Server, Debian, pfSense) avec templates, snapshots et migration à chaud entre nodes.</div></div>
-        <div class="modal-step"><div class="modal-step-num">4</div><div class="modal-step-text"><strong>Conteneurs LXC</strong> — Création de conteneurs légers pour les services (Nginx, MariaDB, Pi-hole, Zabbix) avec isolation réseau et quotas de ressources.</div></div>
-        <div class="modal-step"><div class="modal-step-num">5</div><div class="modal-step-text"><strong>Proxmox Backup Server</strong> — Déploiement de PBS sur un second serveur, planification des sauvegardes incrémentales quotidiennes, tests de restauration et rétention 30 jours.</div></div>
+        <div class="modal-step"><div class="modal-step-num">1</div><div class="modal-step-text"><strong>Hyperviseur Proxmox VE</strong> — Installation et configuration de Proxmox, réseau VLAN, stockage ZFS, gestion des snapshots et sauvegardes.</div></div>
+        <div class="modal-step"><div class="modal-step-num">2</div><div class="modal-step-text"><strong>Windows Server</strong> — VM Windows Server pour Active Directory, DNS, DHCP et gestion des utilisateurs du domaine.</div></div>
+        <div class="modal-step"><div class="modal-step-num">3</div><div class="modal-step-text"><strong>Serveur Debian</strong> — Serveur Linux pour hébergement web, services réseau et tests de configuration.</div></div>
+        <div class="modal-step"><div class="modal-step-num">4</div><div class="modal-step-text"><strong>Zabbix</strong> — Plateforme de supervision réseau et système : monitoring des VMs, alertes CPU/RAM/disque, tableaux de bord.</div></div>
+        <div class="modal-step"><div class="modal-step-num">5</div><div class="modal-step-text"><strong>TrueNAS</strong> — Serveur NAS pour le stockage centralisé des données avec partages SMB/NFS et snapshots ZFS.</div></div>
+        <div class="modal-step"><div class="modal-step-num">6</div><div class="modal-step-text"><strong>Nextcloud</strong> — Solution de cloud privé auto-hébergé pour le partage de fichiers, agenda et collaboration.</div></div>
       </div>
       <div class="modal-section-title">Technologies utilisées</div>
       <div class="modal-tags">
-        <span class="tag tag-green">Proxmox VE 8</span><span class="tag tag-blue">LXC</span><span class="tag tag-blue">ZFS RAID-Z1</span><span class="tag tag-orange">PBS</span><span class="tag tag-green">KVM</span><span class="tag tag-blue">VLAN</span><span class="tag tag-orange">Ansible</span>
+        <span class="tag tag-green">Proxmox VE</span><span class="tag tag-blue">Windows Server</span><span class="tag tag-blue">Debian</span><span class="tag tag-orange">Zabbix</span><span class="tag tag-green">TrueNAS</span><span class="tag tag-green">Nextcloud</span><span class="tag tag-blue">ZFS</span><span class="tag tag-orange">VLAN</span>
       </div>
       <div class="modal-results">
         <div class="modal-results-title">Résultats & Compétences validées</div>
-        <div class="modal-result-item">12 VMs et 8 conteneurs LXC en production simultanée sur le lab</div>
-        <div class="modal-result-item">RTO (Recovery Time Objective) inférieur à 15 minutes grâce aux sauvegardes PBS</div>
-        <div class="modal-result-item">Compétences B4.1 (virtualisation) et B3.1 (mode projet) validées</div>
-        <div class="modal-result-item">Documentation complète : guide d'installation, plan de capacité, procédures de restauration</div>
+        <div class="modal-result-item">Infrastructure multi-VMs opérationnelle, utilisée comme support pour l'épreuve E6</div>
+        <div class="modal-result-item">Supervision centralisée de tous les services via Zabbix</div>
+        <div class="modal-result-item">Stockage unifié et sauvegarde automatique via TrueNAS + ZFS</div>
+        <div class="modal-result-item">Compétences B2.1, B2.2, B2.3, B3.1 et B4.1 validées</div>
       </div>
     </div>
   </div>
