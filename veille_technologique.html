@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Veille Technologique — Cloud Hybride | Portfolio BTS SIO SISR</title>
+  <title>Veille Technologique — IA & Automatisation IT | Portfolio BTS SIO SISR</title>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
@@ -17,6 +17,7 @@
       --blue:    #0090ff;
       --orange:  #ff7b35;
       --red:     #ff4d6d;
+      --purple:  #a855f7;
       --text:    #c8d4e0;
       --mid:     #8899aa;
       --dim:     #5a6a7a;
@@ -27,10 +28,8 @@
     ::-webkit-scrollbar { width:4px; }
     ::-webkit-scrollbar-thumb { background:var(--green); border-radius:2px; }
 
-    /* BG CANVAS */
     #bg-canvas { position:fixed; inset:0; z-index:0; pointer-events:none; opacity:0.25; }
 
-    /* NAV */
     nav {
       position:fixed; top:0; left:0; right:0; z-index:100;
       display:flex; align-items:center; justify-content:space-between;
@@ -41,303 +40,212 @@
     .nav-brand { display:flex; align-items:center; gap:10px; text-decoration:none; }
     .nav-dot { width:7px; height:7px; border-radius:50%; background:var(--green); box-shadow:0 0 8px var(--green); animation:pulse 2s ease-in-out infinite; }
     .nav-txt { font-family:'JetBrains Mono',monospace; font-size:0.78rem; color:var(--green); }
-    .nav-back {
-      font-family:'JetBrains Mono',monospace; font-size:0.7rem; color:var(--mid);
-      text-decoration:none; display:flex; align-items:center; gap:8px;
-      transition:color 0.25s;
-    }
+    .nav-back { font-family:'JetBrains Mono',monospace; font-size:0.7rem; color:var(--mid); text-decoration:none; display:flex; align-items:center; gap:8px; transition:color 0.25s; }
     .nav-back:hover { color:var(--green); }
 
-    /* MAIN */
     main { position:relative; z-index:10; padding-top:80px; }
 
-    /* HERO VEILLE */
-    .veille-hero {
-      padding:70px 100px 60px;
-      border-bottom:1px solid var(--border);
-      position:relative; overflow:hidden;
-    }
-    .veille-hero::before {
-      content:'';
-      position:absolute; top:-80px; right:-80px;
-      width:500px; height:500px; border-radius:50%;
-      background:radial-gradient(circle, rgba(0,210,150,0.06) 0%, transparent 70%);
-      pointer-events:none;
-    }
-    .breadcrumb {
-      font-family:'JetBrains Mono',monospace; font-size:0.68rem;
-      color:var(--dim); letter-spacing:0.12em; margin-bottom:24px;
-      display:flex; align-items:center; gap:8px;
-    }
+    /* HERO */
+    .veille-hero { padding:70px 100px 60px; border-bottom:1px solid var(--border); position:relative; overflow:hidden; }
+    .veille-hero::before { content:''; position:absolute; top:-80px; right:-80px; width:500px; height:500px; border-radius:50%; background:radial-gradient(circle, rgba(0,210,150,0.06) 0%, transparent 70%); pointer-events:none; }
+    .breadcrumb { font-family:'JetBrains Mono',monospace; font-size:0.68rem; color:var(--dim); letter-spacing:0.12em; margin-bottom:24px; display:flex; align-items:center; gap:8px; }
     .breadcrumb span { color:var(--green); }
     .veille-hero-top { display:flex; align-items:flex-start; justify-content:space-between; gap:40px; }
     .veille-hero-left { flex:1; }
-    .veille-tag {
-      display:inline-flex; align-items:center; gap:8px;
-      font-family:'JetBrains Mono',monospace; font-size:0.65rem;
-      color:var(--green); background:rgba(0,210,150,0.07);
-      border:1px solid rgba(0,210,150,0.18); padding:6px 14px; border-radius:3px;
-      margin-bottom:18px; letter-spacing:0.1em;
-    }
+    .veille-tag { display:inline-flex; align-items:center; gap:8px; font-family:'JetBrains Mono',monospace; font-size:0.65rem; color:var(--green); background:rgba(0,210,150,0.07); border:1px solid rgba(0,210,150,0.18); padding:6px 14px; border-radius:3px; margin-bottom:18px; letter-spacing:0.1em; }
     .veille-tag-dot { width:5px; height:5px; border-radius:50%; background:var(--green); animation:pulse 1.5s infinite; }
-    h1.veille-title {
-      font-size:clamp(2rem,4vw,3.6rem); font-weight:800;
-      color:var(--white); letter-spacing:-0.02em; line-height:1.05;
-      margin-bottom:14px;
-    }
+    h1.veille-title { font-size:clamp(2rem,4vw,3.6rem); font-weight:800; color:var(--white); letter-spacing:-0.02em; line-height:1.05; margin-bottom:14px; }
     h1.veille-title .accent { color:var(--green); }
-    .veille-subtitle {
-      font-family:'JetBrains Mono',monospace; font-size:0.82rem;
-      color:var(--dim); line-height:1.8; max-width:540px;
-      border-left:2px solid var(--border); padding-left:16px;
-      margin-bottom:32px;
-    }
+    .veille-subtitle { font-family:'JetBrains Mono',monospace; font-size:0.82rem; color:var(--dim); line-height:1.8; max-width:560px; border-left:2px solid var(--border); padding-left:16px; margin-bottom:32px; }
     .veille-meta { display:flex; gap:28px; flex-wrap:wrap; }
-    .meta-chip {
-      display:flex; align-items:center; gap:8px;
-      font-family:'JetBrains Mono',monospace; font-size:0.68rem;
-      color:var(--mid); letter-spacing:0.08em;
-    }
-    .meta-chip-icon { font-size:0.9rem; }
+    .meta-chip { display:flex; align-items:center; gap:8px; font-family:'JetBrains Mono',monospace; font-size:0.68rem; color:var(--mid); letter-spacing:0.08em; }
 
-    /* STATS RAPIDES */
-    .veille-stats {
-      display:flex; gap:0;
-      border:1px solid var(--border); border-radius:6px; overflow:hidden;
-      min-width:320px; align-self:flex-start; margin-top:8px;
-    }
-    .stat-box {
-      flex:1; padding:20px 22px;
-      border-right:1px solid var(--border);
-      text-align:center;
-    }
+    /* STATS */
+    .veille-stats { display:flex; gap:0; border:1px solid var(--border); border-radius:6px; overflow:hidden; min-width:320px; align-self:flex-start; margin-top:8px; }
+    .stat-box { flex:1; padding:20px 22px; border-right:1px solid var(--border); text-align:center; }
     .stat-box:last-child { border-right:none; }
     .stat-num { font-size:1.8rem; font-weight:800; color:var(--green); line-height:1; margin-bottom:4px; }
     .stat-lbl { font-family:'JetBrains Mono',monospace; font-size:0.6rem; color:var(--dim); letter-spacing:0.12em; text-transform:uppercase; }
 
-    /* SECTION METHODE */
-    .section { padding:60px 100px; }
-    .section-eyebrow {
-      font-family:'JetBrains Mono',monospace; font-size:0.65rem;
-      color:var(--green); letter-spacing:0.22em; text-transform:uppercase;
-      margin-bottom:12px; display:flex; align-items:center; gap:10px;
+    /* EVOLUTION BANNER */
+    .evolution-banner {
+      margin: 0 100px;
+      padding: 28px 36px;
+      background: linear-gradient(135deg, rgba(0,210,150,0.06) 0%, rgba(168,85,247,0.05) 100%);
+      border: 1px solid rgba(0,210,150,0.2);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      gap: 48px;
+      overflow-x: auto;
+      margin-bottom: 0;
     }
+    .evo-step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      min-width: 120px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+    .evo-step-date {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.58rem;
+      color: var(--dim);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .evo-step-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.3;
+    }
+    .evo-step-dot {
+      width: 10px; height: 10px; border-radius: 50%;
+      border: 2px solid var(--green);
+      background: var(--bg);
+      box-shadow: 0 0 8px rgba(0,210,150,0.4);
+    }
+    .evo-step.active .evo-step-dot { background: var(--green); }
+    .evo-arrow {
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--dim);
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+    .evo-title {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.62rem;
+      color: var(--green);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    /* SECTION */
+    .section { padding:60px 100px; }
+    .section-eyebrow { font-family:'JetBrains Mono',monospace; font-size:0.65rem; color:var(--green); letter-spacing:0.22em; text-transform:uppercase; margin-bottom:12px; display:flex; align-items:center; gap:10px; }
     .section-eyebrow::after { content:''; flex:0 0 32px; height:1px; background:var(--green); opacity:0.4; }
     .section-title { font-size:clamp(1.4rem,2.5vw,2rem); font-weight:700; color:var(--white); letter-spacing:-0.02em; margin-bottom:36px; }
 
     /* OUTILS */
     .outils-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-bottom:48px; }
-    .outil-card {
-      background:var(--bg2); border:1px solid var(--border); border-radius:6px;
-      padding:22px; transition:border-color 0.3s, transform 0.3s; cursor:default;
-    }
+    .outil-card { background:var(--bg2); border:1px solid var(--border); border-radius:6px; padding:22px; transition:border-color 0.3s, transform 0.3s; cursor:default; }
     .outil-card:hover { border-color:rgba(0,210,150,0.3); transform:translateY(-3px); }
     .outil-icon { font-size:1.8rem; margin-bottom:10px; }
     .outil-name { font-size:0.9rem; font-weight:700; color:var(--white); margin-bottom:6px; }
-    .outil-type {
-      font-family:'JetBrains Mono',monospace; font-size:0.6rem;
-      letter-spacing:0.12em; text-transform:uppercase; margin-bottom:10px;
-    }
+    .outil-type { font-family:'JetBrains Mono',monospace; font-size:0.6rem; letter-spacing:0.12em; text-transform:uppercase; margin-bottom:10px; }
     .type-push { color:var(--green); }
     .type-pull { color:var(--blue); }
     .type-alert { color:var(--orange); }
     .outil-desc { font-size:0.76rem; color:var(--mid); line-height:1.7; }
 
-    /* SOURCES RSS */
+    /* SOURCES */
     .sources-list { display:flex; flex-direction:column; gap:12px; }
-    .source-row {
-      display:flex; align-items:center; gap:16px;
-      background:var(--bg2); border:1px solid var(--border);
-      border-radius:5px; padding:14px 18px;
-      transition:border-color 0.25s;
-    }
+    .source-row { display:flex; align-items:center; gap:16px; background:var(--bg2); border:1px solid var(--border); border-radius:5px; padding:14px 18px; transition:border-color 0.25s; }
     .source-row:hover { border-color:rgba(0,210,150,0.25); }
-    .source-logo {
-      width:36px; height:36px; border-radius:4px;
-      background:var(--bg3); display:flex; align-items:center; justify-content:center;
-      font-size:1.1rem; flex-shrink:0;
-    }
+    .source-logo { width:36px; height:36px; border-radius:4px; background:var(--bg3); display:flex; align-items:center; justify-content:center; font-size:1.1rem; flex-shrink:0; }
     .source-info { flex:1; }
     .source-name { font-size:0.85rem; font-weight:600; color:var(--white); margin-bottom:3px; }
     .source-url { font-family:'JetBrains Mono',monospace; font-size:0.63rem; color:var(--dim); }
     .source-tags { display:flex; gap:6px; }
-    .stag {
-      font-family:'JetBrains Mono',monospace; font-size:0.57rem;
-      padding:3px 8px; border-radius:2px; letter-spacing:0.08em;
-    }
+    .stag { font-family:'JetBrains Mono',monospace; font-size:0.57rem; padding:3px 8px; border-radius:2px; letter-spacing:0.08em; }
     .stag-g { color:var(--green); background:rgba(0,210,150,0.08); border:1px solid rgba(0,210,150,0.15); }
     .stag-b { color:var(--blue); background:rgba(0,144,255,0.08); border:1px solid rgba(0,144,255,0.15); }
     .stag-o { color:var(--orange); background:rgba(255,123,53,0.08); border:1px solid rgba(255,123,53,0.15); }
-    .rss-badge {
-      font-family:'JetBrains Mono',monospace; font-size:0.58rem;
-      color:var(--orange); background:rgba(255,123,53,0.1);
-      border:1px solid rgba(255,123,53,0.2); padding:3px 8px; border-radius:2px;
-      flex-shrink:0;
-    }
+    .stag-p { color:var(--purple); background:rgba(168,85,247,0.08); border:1px solid rgba(168,85,247,0.15); }
+    .rss-badge { font-family:'JetBrains Mono',monospace; font-size:0.58rem; color:var(--orange); background:rgba(255,123,53,0.1); border:1px solid rgba(255,123,53,0.2); padding:3px 8px; border-radius:2px; flex-shrink:0; }
 
-    /* TIMELINE + ARTICLES */
+    /* TIMELINE */
     .articles-section { background:var(--bg2); padding:60px 100px; }
     .timeline { position:relative; }
-    .timeline::before {
-      content:''; position:absolute; left:0; top:0; bottom:0;
-      width:1px; background:linear-gradient(to bottom, var(--green), rgba(0,210,150,0.1));
-    }
+    .timeline::before { content:''; position:absolute; left:0; top:0; bottom:0; width:1px; background:linear-gradient(to bottom, var(--green), rgba(0,210,150,0.1)); }
 
-    /* FILTRE */
-    .filters {
-      display:flex; gap:10px; flex-wrap:wrap; margin-bottom:40px;
-    }
-    .filter-btn {
-      font-family:'JetBrains Mono',monospace; font-size:0.65rem;
-      letter-spacing:0.1em; padding:7px 16px; border-radius:3px;
-      border:1px solid var(--border); background:transparent;
-      color:var(--mid); cursor:pointer; transition:all 0.25s;
-    }
+    /* FILTRES */
+    .filters { display:flex; gap:10px; flex-wrap:wrap; margin-bottom:40px; }
+    .filter-btn { font-family:'JetBrains Mono',monospace; font-size:0.65rem; letter-spacing:0.1em; padding:7px 16px; border-radius:3px; border:1px solid var(--border); background:transparent; color:var(--mid); cursor:pointer; transition:all 0.25s; }
     .filter-btn:hover, .filter-btn.active { color:var(--green); border-color:var(--green); background:rgba(0,210,150,0.08); }
     .filter-btn.active { font-weight:700; }
 
     /* ARTICLE CARD */
-    .article-entry {
-      display:flex; gap:0; margin-left:0; padding-left:32px;
-      margin-bottom:28px; position:relative;
-    }
-    .article-entry::before {
-      content:''; position:absolute;
-      left:-5px; top:20px;
-      width:10px; height:10px; border-radius:50%;
-      background:var(--green); box-shadow:0 0 12px var(--green);
-      border:2px solid var(--bg2);
-    }
-    .article-card {
-      flex:1; background:var(--bg); border:1px solid var(--border);
-      border-radius:8px; overflow:hidden;
-      transition:transform 0.3s, box-shadow 0.3s, border-color 0.3s;
-    }
-    .article-card:hover {
-      transform:translateX(4px);
-      box-shadow:0 8px 40px rgba(0,0,0,0.4);
-      border-color:rgba(0,210,150,0.25);
-    }
+    .article-entry { display:flex; gap:0; margin-left:0; padding-left:32px; margin-bottom:28px; position:relative; }
+    .article-entry::before { content:''; position:absolute; left:-5px; top:20px; width:10px; height:10px; border-radius:50%; background:var(--green); box-shadow:0 0 12px var(--green); border:2px solid var(--bg2); }
+    .article-card { flex:1; background:var(--bg); border:1px solid var(--border); border-radius:8px; overflow:hidden; transition:transform 0.3s, box-shadow 0.3s, border-color 0.3s; }
+    .article-card:hover { transform:translateX(4px); box-shadow:0 8px 40px rgba(0,0,0,0.4); border-color:rgba(0,210,150,0.25); }
     .article-card-inner { display:flex; }
-    .article-card-accent {
-      width:4px; flex-shrink:0;
-    }
+    .article-card-accent { width:4px; flex-shrink:0; }
     .accent-green { background:var(--green); }
     .accent-blue  { background:var(--blue); }
     .accent-orange{ background:var(--orange); }
     .accent-red   { background:var(--red); }
+    .accent-purple { background:var(--purple); }
     .article-card-body { padding:20px 22px; flex:1; }
-    .article-card-head {
-      display:flex; align-items:flex-start; justify-content:space-between;
-      gap:12px; margin-bottom:10px;
-    }
+    .article-card-head { display:flex; align-items:flex-start; justify-content:space-between; gap:12px; margin-bottom:10px; }
     .article-title { font-size:0.95rem; font-weight:700; color:var(--white); line-height:1.3; }
-    .article-date {
-      font-family:'JetBrains Mono',monospace; font-size:0.62rem;
-      color:var(--dim); white-space:nowrap; padding-top:3px;
-    }
-    .article-source-badge {
-      display:flex; align-items:center; gap:8px; margin-bottom:10px;
-    }
-    .article-source-name {
-      font-family:'JetBrains Mono',monospace; font-size:0.62rem;
-      color:var(--green); letter-spacing:0.1em;
-    }
+    .article-date { font-family:'JetBrains Mono',monospace; font-size:0.62rem; color:var(--dim); white-space:nowrap; padding-top:3px; }
+    .article-source-badge { display:flex; align-items:center; gap:8px; margin-bottom:10px; }
+    .article-source-name { font-family:'JetBrains Mono',monospace; font-size:0.62rem; color:var(--green); letter-spacing:0.1em; }
     .article-source-sep { width:1px; height:10px; background:var(--border); }
-    .article-category {
-      font-family:'JetBrains Mono',monospace; font-size:0.6rem;
-      color:var(--dim); letter-spacing:0.1em; text-transform:uppercase;
-    }
+    .article-category { font-family:'JetBrains Mono',monospace; font-size:0.6rem; color:var(--dim); letter-spacing:0.1em; text-transform:uppercase; }
     .article-desc { font-size:0.8rem; color:var(--mid); line-height:1.75; margin-bottom:14px; }
-    .article-resume {
-      background:var(--bg2); border:1px solid var(--border);
-      border-radius:4px; padding:14px 16px; margin-bottom:14px;
-    }
-    .article-resume-label {
-      font-family:'JetBrains Mono',monospace; font-size:0.58rem;
-      color:var(--green); letter-spacing:0.16em; text-transform:uppercase;
-      margin-bottom:7px;
-    }
+    .article-resume { background:var(--bg2); border:1px solid var(--border); border-radius:4px; padding:14px 16px; margin-bottom:14px; }
+    .article-resume-label { font-family:'JetBrains Mono',monospace; font-size:0.58rem; color:var(--green); letter-spacing:0.16em; text-transform:uppercase; margin-bottom:7px; }
     .article-resume-text { font-size:0.78rem; color:var(--text); line-height:1.7; }
     .article-resume-text strong { color:var(--green); }
-    .article-footer {
-      display:flex; align-items:center; justify-content:space-between;
-    }
+    .article-footer { display:flex; align-items:center; justify-content:space-between; }
     .article-tags { display:flex; gap:6px; flex-wrap:wrap; }
-    .article-link {
-      font-family:'JetBrains Mono',monospace; font-size:0.62rem;
-      color:var(--mid); text-decoration:none; letter-spacing:0.1em;
-      display:flex; align-items:center; gap:6px; white-space:nowrap;
-      transition:color 0.25s;
-    }
+    .article-link { font-family:'JetBrains Mono',monospace; font-size:0.62rem; color:var(--mid); text-decoration:none; letter-spacing:0.1em; display:flex; align-items:center; gap:6px; white-space:nowrap; transition:color 0.25s; }
     .article-link:hover { color:var(--green); }
 
+    /* EVOLUTION BADGE */
+    .evo-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-family: 'JetBrains Mono', monospace; font-size: 0.58rem;
+      letter-spacing: 0.1em; padding: 3px 10px; border-radius: 2px;
+      margin-bottom: 10px;
+    }
+    .evo-badge-debut { color: var(--blue); background: rgba(0,144,255,0.08); border: 1px solid rgba(0,144,255,0.2); }
+    .evo-badge-adoption { color: var(--orange); background: rgba(255,123,53,0.08); border: 1px solid rgba(255,123,53,0.2); }
+    .evo-badge-maturite { color: var(--green); background: rgba(0,210,150,0.08); border: 1px solid rgba(0,210,150,0.2); }
+    .evo-badge-rupture { color: var(--purple); background: rgba(168,85,247,0.08); border: 1px solid rgba(168,85,247,0.2); }
+
     /* MOIS SÉPARATEUR */
-    .month-sep {
-      display:flex; align-items:center; gap:14px;
-      margin-bottom:24px; margin-left:32px;
-      padding-top:16px;
-    }
-    .month-sep-label {
-      font-family:'JetBrains Mono',monospace; font-size:0.68rem;
-      color:var(--green); letter-spacing:0.2em; text-transform:uppercase;
-      background:var(--bg2); padding:4px 12px; border-radius:2px;
-      border:1px solid rgba(0,210,150,0.2);
-    }
+    .month-sep { display:flex; align-items:center; gap:14px; margin-bottom:24px; margin-left:32px; padding-top:16px; }
+    .month-sep-label { font-family:'JetBrains Mono',monospace; font-size:0.68rem; color:var(--green); letter-spacing:0.2em; text-transform:uppercase; background:var(--bg2); padding:4px 12px; border-radius:2px; border:1px solid rgba(0,210,150,0.2); }
     .month-sep-line { flex:1; height:1px; background:var(--border); }
 
     /* SYNTHESE */
     .synthese-section { padding:60px 100px; }
     .synthese-grid { display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:36px; }
-    .synthese-card {
-      background:var(--bg2); border:1px solid var(--border);
-      border-radius:8px; padding:28px; position:relative; overflow:hidden;
-    }
-    .synthese-card::before {
-      content:''; position:absolute; top:0; left:0; right:0; height:2px;
-    }
+    .synthese-card { background:var(--bg2); border:1px solid var(--border); border-radius:8px; padding:28px; position:relative; overflow:hidden; }
+    .synthese-card::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; }
     .sc-green::before { background:linear-gradient(90deg, var(--green), transparent); }
     .sc-blue::before  { background:linear-gradient(90deg, var(--blue),  transparent); }
     .sc-orange::before { background:linear-gradient(90deg, var(--orange), transparent); }
     .sc-red::before   { background:linear-gradient(90deg, var(--red),   transparent); }
-    .synthese-num {
-      font-family:'JetBrains Mono',monospace; font-size:0.62rem;
-      color:var(--dim); letter-spacing:0.15em; margin-bottom:10px;
-    }
+    .sc-purple::before { background:linear-gradient(90deg, var(--purple), transparent); }
+    .synthese-num { font-family:'JetBrains Mono',monospace; font-size:0.62rem; color:var(--dim); letter-spacing:0.15em; margin-bottom:10px; }
     .synthese-title { font-size:1rem; font-weight:700; color:var(--white); margin-bottom:12px; }
     .synthese-text { font-size:0.8rem; color:var(--mid); line-height:1.8; }
     .synthese-text strong { color:var(--white); }
 
-    /* AVIS PERSO */
-    .avis-box {
-      margin-top:40px;
-      background:linear-gradient(135deg, rgba(0,210,150,0.06) 0%, rgba(0,144,255,0.04) 100%);
-      border:1px solid rgba(0,210,150,0.2); border-radius:8px; padding:30px 34px;
-    }
-    .avis-label {
-      font-family:'JetBrains Mono',monospace; font-size:0.62rem;
-      color:var(--green); letter-spacing:0.18em; text-transform:uppercase;
-      margin-bottom:14px; display:flex; align-items:center; gap:10px;
-    }
+    /* AVIS */
+    .avis-box { margin-top:40px; background:linear-gradient(135deg, rgba(0,210,150,0.06) 0%, rgba(168,85,247,0.04) 100%); border:1px solid rgba(0,210,150,0.2); border-radius:8px; padding:30px 34px; }
+    .avis-label { font-family:'JetBrains Mono',monospace; font-size:0.62rem; color:var(--green); letter-spacing:0.18em; text-transform:uppercase; margin-bottom:14px; display:flex; align-items:center; gap:10px; }
     .avis-text { font-size:0.88rem; color:var(--text); line-height:1.9; }
     .avis-text strong { color:var(--white); }
 
-    /* FOOTER */
-    footer {
-      border-top:1px solid var(--border); padding:28px 100px;
-      display:flex; align-items:center; justify-content:space-between;
-    }
+    footer { border-top:1px solid var(--border); padding:28px 100px; display:flex; align-items:center; justify-content:space-between; }
     .footer-brand { font-family:'JetBrains Mono',monospace; font-size:0.72rem; color:var(--green); }
     .footer-info  { font-family:'JetBrains Mono',monospace; font-size:0.62rem; color:var(--dim); }
 
-    /* ANIMATIONS */
     @keyframes pulse { 0%,100%{box-shadow:0 0 5px var(--green)} 50%{box-shadow:0 0 14px var(--green)} }
     @keyframes fadeUp { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
     .reveal { opacity:0; transform:translateY(20px); transition:opacity 0.6s ease, transform 0.6s ease; }
     .reveal.visible { opacity:1; transform:translateY(0); }
     .rd1{transition-delay:.08s} .rd2{transition-delay:.16s} .rd3{transition-delay:.24s} .rd4{transition-delay:.32s}
-
-    /* HIDDEN / VISIBLE via filtre */
     .article-entry.hidden { display:none; }
   </style>
 </head>
@@ -345,7 +253,6 @@
 
 <canvas id="bg-canvas"></canvas>
 
-<!-- NAV -->
 <nav>
   <a href="index.html" class="nav-brand">
     <div class="nav-dot"></div>
@@ -358,22 +265,23 @@
 
   <!-- HERO -->
   <div class="veille-hero">
-    <div class="breadcrumb">portfolio.sisr <span>/</span> veille-technologique <span>/</span> cloud-hybride</div>
+    <div class="breadcrumb">portfolio.sisr <span>/</span> veille-technologique <span>/</span> ia-automatisation-it</div>
     <div class="veille-hero-top">
       <div class="veille-hero-left">
         <div class="veille-tag">
           <div class="veille-tag-dot"></div>
           Veille active — Mise à jour : Mars 2026
         </div>
-        <h1 class="veille-title">Veille Technologique<br><span class="accent">Cloud Hybride</span></h1>
+        <h1 class="veille-title">Veille Technologique<br><span class="accent">IA & Automatisation IT</span></h1>
         <p class="veille-subtitle">
-          Surveillance continue de l'évolution du cloud hybride dans les entreprises :<br>
-          infrastructures, souveraineté des données, sécurité et outils d'orchestration.
+          Comment l'intelligence artificielle transforme les outils d'automatisation IT :<br>
+          Ansible Lightspeed, GitHub Copilot, Terraform AI, agents autonomes…<br>
+          Une révolution en marche depuis 2024, observable semaine après semaine.
         </p>
         <div class="veille-meta">
-          <div class="meta-chip"><span class="meta-chip-icon">📡</span> Sources : Feedly RSS + Google Alerts</div>
-          <div class="meta-chip"><span class="meta-chip-icon">🗓️</span> Suivi depuis : Octobre 2025</div>
-          <div class="meta-chip"><span class="meta-chip-icon">⏱️</span> Fréquence : Hebdomadaire</div>
+          <div class="meta-chip"><span>📡</span> Sources : Feedly RSS + Google Alerts</div>
+          <div class="meta-chip"><span>🗓️</span> Suivi depuis : Octobre 2024</div>
+          <div class="meta-chip"><span>⏱️</span> Fréquence : Hebdomadaire</div>
         </div>
       </div>
       <div class="veille-stats">
@@ -386,8 +294,52 @@
           <div class="stat-lbl">Sources<br>surveillées</div>
         </div>
         <div class="stat-box">
-          <div class="stat-num">5</div>
+          <div class="stat-num">17</div>
           <div class="stat-lbl">Mois de<br>veille</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FRISE D'ÉVOLUTION -->
+  <div class="evolution-banner reveal" style="margin-top:40px; margin-bottom:40px;">
+    <div>
+      <div class="evo-title">// Fil d'évolution technologique</div>
+      <div style="display:flex; align-items:center; gap:20px; flex-wrap:nowrap;">
+        <div class="evo-step">
+          <div class="evo-step-date">Oct. 2024</div>
+          <div class="evo-step-dot"></div>
+          <div class="evo-step-label">Ansible<br>Lightspeed GA</div>
+        </div>
+        <div class="evo-arrow">→</div>
+        <div class="evo-step">
+          <div class="evo-step-date">Déc. 2024</div>
+          <div class="evo-step-dot"></div>
+          <div class="evo-step-label">GitHub Copilot<br>étend l'infra</div>
+        </div>
+        <div class="evo-arrow">→</div>
+        <div class="evo-step">
+          <div class="evo-step-date">Fév. 2025</div>
+          <div class="evo-step-dot"></div>
+          <div class="evo-step-label">Terraform<br>AI intégré</div>
+        </div>
+        <div class="evo-arrow">→</div>
+        <div class="evo-step">
+          <div class="evo-step-date">Juin 2025</div>
+          <div class="evo-step-dot"></div>
+          <div class="evo-step-label">Agents IA<br>autonomes</div>
+        </div>
+        <div class="evo-arrow">→</div>
+        <div class="evo-step">
+          <div class="evo-step-date">Oct. 2025</div>
+          <div class="evo-step-dot"></div>
+          <div class="evo-step-label">GitOps IA<br>généralisé</div>
+        </div>
+        <div class="evo-arrow">→</div>
+        <div class="evo-step active">
+          <div class="evo-step-date">Mars 2026</div>
+          <div class="evo-step-dot"></div>
+          <div class="evo-step-label">Self-healing<br>infrastructure</div>
         </div>
       </div>
     </div>
@@ -403,91 +355,92 @@
         <div class="outil-icon">📰</div>
         <div class="outil-name">Feedly</div>
         <div class="outil-type type-push">● Méthode PUSH — Flux RSS</div>
-        <div class="outil-desc">Agrégateur de flux RSS. Je m'abonne aux flux des sites spécialisés (LeMagIT, Solutions Numériques, IT Social, Le Monde Informatique). Les nouveaux articles arrivent automatiquement chaque jour, classés par thème.</div>
+        <div class="outil-desc">Agrégateur de flux RSS. Je suis les blogs techniques de Red Hat, HashiCorp, GitHub et les médias IT français (LeMagIT, Le Monde Informatique). Les articles sur l'IA dans l'automatisation arrivent automatiquement chaque jour.</div>
       </div>
       <div class="outil-card reveal rd2">
         <div class="outil-icon">🔔</div>
         <div class="outil-name">Google Alerts</div>
         <div class="outil-type type-alert">● Méthode PUSH — Alertes mail</div>
-        <div class="outil-desc">Alertes configurées sur les mots-clés : "cloud hybride", "hybrid cloud 2025", "Azure Arc", "cloud souverain RGPD". Je reçois un résumé quotidien par e-mail des articles publiés sur le web.</div>
+        <div class="outil-desc">Alertes configurées sur : "Ansible Lightspeed", "GitHub Copilot IaC", "Terraform AI", "automatisation IT intelligence artificielle", "AIOps 2025". Résumé quotidien par e-mail des nouveautés.</div>
       </div>
       <div class="outil-card reveal rd3">
         <div class="outil-icon">🔍</div>
         <div class="outil-name">Recherche ciblée</div>
         <div class="outil-type type-pull">● Méthode PULL — Recherche active</div>
-        <div class="outil-desc">Recherches hebdomadaires sur Google, sur les sites officiels des éditeurs (Microsoft, Red Hat, AWS) et sur les bases de documentation technique pour approfondir les sujets détectés via les alertes.</div>
+        <div class="outil-desc">Recherches hebdomadaires sur les blogs officiels Red Hat, GitHub, HashiCorp, AWS, et les notes de version des outils (Ansible, Terraform, GitLab CI). Je suis également les changelogs des releases majeures.</div>
       </div>
       <div class="outil-card reveal rd4">
         <div class="outil-icon">💬</div>
-        <div class="outil-name">Réseaux & Forums</div>
-        <div class="outil-type type-pull">● Méthode PULL — Communauté</div>
-        <div class="outil-desc">Suivi de comptes LinkedIn spécialisés (Red Hat, Microsoft Azure, ANSSI), de subreddits (r/sysadmin, r/networking) et de Discord tech pour capter les retours d'expérience des praticiens.</div>
+        <div class="outil-name">Communauté</div>
+        <div class="outil-type type-pull">● Méthode PULL — Forums & réseaux</div>
+        <div class="outil-desc">Suivi de r/devops, r/sysadmin, des discussions GitHub Discussions, et des comptes LinkedIn de praticiens DevOps. Les retours terrain permettent de distinguer le marketing de la réalité d'adoption.</div>
       </div>
     </div>
 
     <p class="section-eyebrow">Sources surveillées</p>
     <div class="sources-list">
       <div class="source-row reveal rd1">
-        <div class="source-logo">📡</div>
+        <div class="source-logo">🎩</div>
         <div class="source-info">
-          <div class="source-name">LeMagIT — Infrastructure Cloud</div>
-          <div class="source-url">lemagit.fr/tag/cloud-hybride</div>
+          <div class="source-name">Red Hat Blog — Ansible & Automatisation</div>
+          <div class="source-url">redhat.com/en/blog/channel/ansible</div>
         </div>
         <div class="source-tags">
-          <span class="stag stag-g">Cloud</span>
-          <span class="stag stag-b">Infrastructure</span>
-          <span class="stag stag-g">Entreprise</span>
+          <span class="stag stag-g">Ansible</span>
+          <span class="stag stag-p">IA</span>
+          <span class="stag stag-g">Open Source</span>
         </div>
         <span class="rss-badge">RSS</span>
       </div>
       <div class="source-row reveal rd2">
-        <div class="source-logo">🛡️</div>
+        <div class="source-logo">🐙</div>
         <div class="source-info">
-          <div class="source-name">IT Social — Cloud & Infrastructure IT</div>
-          <div class="source-url">itsocial.fr/cloud-infrastructure-it</div>
+          <div class="source-name">GitHub Blog — Copilot & DevOps</div>
+          <div class="source-url">github.blog</div>
         </div>
         <div class="source-tags">
-          <span class="stag stag-g">Cloud</span>
-          <span class="stag stag-o">Sécurité</span>
-          <span class="stag stag-b">Open Source</span>
+          <span class="stag stag-p">Copilot</span>
+          <span class="stag stag-b">CI/CD</span>
+          <span class="stag stag-p">IA</span>
         </div>
         <span class="rss-badge">RSS</span>
       </div>
       <div class="source-row reveal rd3">
-        <div class="source-logo">💻</div>
+        <div class="source-logo">🔷</div>
         <div class="source-info">
-          <div class="source-name">Solutions Numériques & Cybersécurité</div>
-          <div class="source-url">solutions-numeriques.com</div>
+          <div class="source-name">HashiCorp Blog — Terraform & IaC</div>
+          <div class="source-url">hashicorp.com/blog</div>
         </div>
         <div class="source-tags">
-          <span class="stag stag-g">Cloud</span>
-          <span class="stag stag-o">Cybersécurité</span>
+          <span class="stag stag-b">Terraform</span>
+          <span class="stag stag-g">IaC</span>
+          <span class="stag stag-p">IA</span>
         </div>
         <span class="rss-badge">RSS</span>
       </div>
       <div class="source-row reveal rd4">
-        <div class="source-logo">📘</div>
+        <div class="source-logo">💻</div>
         <div class="source-info">
-          <div class="source-name">Microsoft Learn — Azure Documentation</div>
-          <div class="source-url">learn.microsoft.com/azure</div>
+          <div class="source-name">LeMagIT — DevOps & Automatisation</div>
+          <div class="source-url">lemagit.fr/tag/devops</div>
         </div>
         <div class="source-tags">
-          <span class="stag stag-b">Azure Arc</span>
-          <span class="stag stag-b">Azure Stack</span>
-          <span class="stag stag-g">Officiel</span>
+          <span class="stag stag-g">DevOps</span>
+          <span class="stag stag-b">Cloud</span>
+          <span class="stag stag-o">Entreprise FR</span>
         </div>
         <span class="rss-badge">RSS</span>
       </div>
       <div class="source-row reveal">
-        <div class="source-logo">🏛️</div>
+        <div class="source-logo">🌍</div>
         <div class="source-info">
-          <div class="source-name">ANSSI — Actualités et guides</div>
-          <div class="source-url">cyber.gouv.fr/actualites</div>
+          <div class="source-name">InfoQ — AI & DevOps Engineering</div>
+          <div class="source-url">infoq.com/devops</div>
         </div>
         <div class="source-tags">
-          <span class="stag stag-o">SecNumCloud</span>
-          <span class="stag stag-o">RGPD</span>
-          <span class="stag stag-g">Officiel</span>
+          <span class="stag stag-p">AIOps</span>
+          <span class="stag stag-b">Architecture</span>
+          <span class="stag stag-g">Anglophone</span>
         </div>
         <span class="rss-badge">RSS</span>
       </div>
@@ -497,15 +450,21 @@
   <!-- ARTICLES TIMELINE -->
   <section class="articles-section">
     <p class="section-eyebrow">02 — Articles sélectionnés</p>
-    <h2 class="section-title" style="margin-bottom:24px;">Fil de veille — Octobre 2024 → Mars 2026</h2>
+    <h2 class="section-title" style="margin-bottom:8px;">Fil de veille — Octobre 2024 → Mars 2026</h2>
+    <p style="font-family:'JetBrains Mono',monospace; font-size:0.72rem; color:var(--dim); margin-bottom:32px;">
+      Chaque article est annoté d'une étiquette d'évolution :
+      <span style="color:var(--blue); margin-left:8px;">◆ Début / annonce</span>
+      <span style="color:var(--orange); margin-left:8px;">◆ Adoption</span>
+      <span style="color:var(--green); margin-left:8px;">◆ Maturité</span>
+      <span style="color:var(--purple); margin-left:8px;">◆ Rupture</span>
+    </p>
 
-    <!-- FILTRES -->
     <div class="filters">
       <button class="filter-btn active" data-filter="all">Tous les articles</button>
-      <button class="filter-btn" data-filter="infra">Infrastructure</button>
-      <button class="filter-btn" data-filter="secu">Sécurité</button>
-      <button class="filter-btn" data-filter="reglementaire">Réglementaire</button>
-      <button class="filter-btn" data-filter="outils">Outils</button>
+      <button class="filter-btn" data-filter="ansible">Ansible / Red Hat</button>
+      <button class="filter-btn" data-filter="cicd">CI/CD & GitHub</button>
+      <button class="filter-btn" data-filter="iac">IaC & Terraform</button>
+      <button class="filter-btn" data-filter="aiops">AIOps & Agents</button>
     </div>
 
     <div class="timeline">
@@ -516,338 +475,66 @@
         <div class="month-sep-line"></div>
       </div>
 
-      <div class="article-entry reveal rd1" data-cat="reglementaire">
+      <div class="article-entry reveal rd1" data-cat="aiops">
         <div class="article-card">
           <div class="article-card-inner">
-            <div class="article-card-accent accent-red"></div>
+            <div class="article-card-accent accent-purple"></div>
             <div class="article-card-body">
+              <div class="evo-badge evo-badge-rupture">◆ Rupture</div>
               <div class="article-source-badge">
-                <span class="article-source-name">ANSSI / cyber.gouv.fr</span>
+                <span class="article-source-name">Red Hat Blog</span>
                 <div class="article-source-sep"></div>
-                <span class="article-category">Réglementaire NIS2</span>
+                <span class="article-category">AIOps & Agents</span>
               </div>
               <div class="article-card-head">
-                <h3 class="article-title">NIS 2 : l'ANSSI publie le référentiel ReCyF et renforce sa dynamique d'accompagnement</h3>
-                <span class="article-date">17 mars 2026</span>
+                <h3 class="article-title">Ansible Automation Platform 2.5 : les agents IA autonomes entrent en production</h3>
+                <span class="article-date">Mars 2026</span>
               </div>
-              <p class="article-desc">L'ANSSI dévoile le Référentiel Cyber France (ReCyF), document de travail listant les mesures pour atteindre les 20 objectifs de sécurité de NIS 2. Il couvre gouvernance, gestion des accès, sécurisation des SI, gestion des incidents, avec un principe de proportionnalité adapté à la maturité de chaque entité.</p>
+              <p class="article-desc">Red Hat annonce que les agents IA d'Ansible Automation Platform 2.5 peuvent désormais détecter une anomalie sur un serveur, diagnostiquer sa cause racine et déployer un correctif de manière totalement autonome — sans intervention humaine — dans des environnements validés.</p>
               <div class="article-resume">
                 <div class="article-resume-label">// Mon analyse</div>
-                <p class="article-resume-text">Ce référentiel est directement lié au cloud hybride : il impose aux entités essentielles de sécuriser leurs <strong>accès distants aux SI</strong> et de cloisonner leur architecture. En environnement hybride, cela signifie sécuriser les tunnels VPN, les passerelles cloud et les accès Azure AD. En tant que futur technicien SISR dans une collectivité ou un hôpital, je serai probablement concerné par NIS2 dès mon premier poste.</p>
+                <p class="article-resume-text">C'est la rupture que j'attendais depuis le début de ma veille. On passe du <strong>"l'IA aide à écrire des playbooks"</strong> (2024) à <strong>"l'IA exécute elle-même les actions correctives"</strong> (2026). Pour un technicien SISR, cela signifie que le rôle évolue : on ne configure plus les serveurs un par un, on définit des règles et on supervise des agents. C'est une compétence à anticiper dès maintenant.</p>
               </div>
               <div class="article-footer">
                 <div class="article-tags">
-                  <span class="stag stag-o">NIS2</span>
-                  <span class="stag stag-o">ANSSI</span>
-                  <span class="stag stag-o">ReCyF</span>
+                  <span class="stag stag-p">Agents IA</span>
+                  <span class="stag stag-g">Ansible 2.5</span>
+                  <span class="stag stag-p">Self-healing</span>
                 </div>
-                <a href="https://cyber.gouv.fr/actualites/nis-2-lanssi-poursuit-et-renforce-sa-dynamique-daccompagnement/" target="_blank" class="article-link">Lire l'article →</a>
+                <a href="https://www.redhat.com/en/blog/ansible-automation-platform" target="_blank" class="article-link">Lire l'article →</a>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="article-entry reveal rd2" data-cat="reglementaire">
+      <div class="article-entry reveal rd2" data-cat="cicd">
         <div class="article-card">
           <div class="article-card-inner">
-            <div class="article-card-accent accent-red"></div>
+            <div class="article-card-accent accent-purple"></div>
             <div class="article-card-body">
+              <div class="evo-badge evo-badge-rupture">◆ Rupture</div>
               <div class="article-source-badge">
-                <span class="article-source-name">Solutions Numériques</span>
+                <span class="article-source-name">GitHub Blog</span>
                 <div class="article-source-sep"></div>
-                <span class="article-category">Cybersécurité</span>
+                <span class="article-category">CI/CD & IA</span>
               </div>
               <div class="article-card-head">
-                <h3 class="article-title">NIS 2 : avec ReCyF, l'ANSSI impose déjà le tempo de la conformité</h3>
-                <span class="article-date">19 mars 2026</span>
+                <h3 class="article-title">GitHub Copilot for Infrastructure : génération de pipelines CI/CD complets depuis une description en langage naturel</h3>
+                <span class="article-date">Fév. 2026</span>
               </div>
-              <p class="article-desc">L'ANSSI n'attend pas la transposition législative pour agir. En publiant ReCyF, elle donne un cadre opérationnel immédiat aux organisations. Le DG Vincent Strubel est clair : il ne faut pas attendre pour le mettre en œuvre. La transposition française est désormais attendue pour juillet 2026 via le projet de loi Résilience.</p>
+              <p class="article-desc">GitHub étend Copilot aux workflows GitHub Actions : à partir d'une description en prose ("déployer une app Node.js sur Azure avec tests de régression"), l'IA génère un pipeline CI/CD complet, l'adapte au contexte du dépôt et propose des optimisations de sécurité.</p>
               <div class="article-resume">
                 <div class="article-resume-label">// Mon analyse</div>
-                <p class="article-resume-text">Ce qui est frappant : la France accuse un retard sur la transposition de NIS2 (devait être faite avant octobre 2024), mais l'ANSSI pousse les organisations à agir maintenant. Pour le cloud hybride, cela confirme que la <strong>sécurisation des SI distribués</strong> est urgente. Les entreprises ne peuvent plus attendre un texte de loi pour sécuriser leurs environnements on-premise/cloud.</p>
+                <p class="article-resume-text">En 2024, Copilot suggérait des lignes de code. En 2026, il <strong>génère des architectures entières de déploiement</strong>. Ce changement d'échelle est significatif : les compétences CI/CD se déplacent de "savoir écrire un workflow YAML" vers "savoir évaluer et corriger ce que l'IA produit". La revue critique des sorties IA devient une compétence clé pour le SISR.</p>
               </div>
               <div class="article-footer">
                 <div class="article-tags">
-                  <span class="stag stag-o">NIS2</span>
-                  <span class="stag stag-o">Conformité</span>
-                  <span class="stag stag-g">Cloud hybride</span>
+                  <span class="stag stag-p">GitHub Copilot</span>
+                  <span class="stag stag-b">GitHub Actions</span>
+                  <span class="stag stag-b">CI/CD</span>
                 </div>
-                <a href="https://www.solutions-numeriques.com/nis-2-avec-recyf-lanssi-impose-deja-le-tempo-de-la-conformite/" target="_blank" class="article-link">Lire l'article →</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- JANVIER 2026 -->
-      <div class="month-sep">
-        <span class="month-sep-label">Janvier 2026</span>
-        <div class="month-sep-line"></div>
-      </div>
-
-      <div class="article-entry reveal rd1" data-cat="outils">
-        <div class="article-card">
-          <div class="article-card-inner">
-            <div class="article-card-accent accent-blue"></div>
-            <div class="article-card-body">
-              <div class="article-source-badge">
-                <span class="article-source-name">IT Social</span>
-                <div class="article-source-sep"></div>
-                <span class="article-category">Open Source & Cloud</span>
-              </div>
-              <div class="article-card-head">
-                <h3 class="article-title">Red Hat 2026 : open source et cloud hybride ouvert comme piliers de la transformation IT française</h3>
-                <span class="article-date">8 jan. 2026</span>
-              </div>
-              <p class="article-desc">Red Hat anticipe une année 2026 centrée sur les plateformes hybrides modulaires pour allier flexibilité, conformité réglementaire et maîtrise des coûts. L'open source s'impose comme levier de transparence face aux exigences NIS2 et DORA.</p>
-              <div class="article-resume">
-                <div class="article-resume-label">// Mon analyse</div>
-                <p class="article-resume-text">L'angle open source est intéressant : Red Hat pousse <strong>OpenShift</strong> (Kubernetes d'entreprise) comme couche d'orchestration hybride. Pour un technicien SISR, cela signifie que connaître Kubernetes devient incontournable. L'article mentionne aussi la dette technique des entreprises françaises qui freinent les migrations — un sujet qu'on retrouve dans nos études de cas.</p>
-              </div>
-              <div class="article-footer">
-                <div class="article-tags">
-                  <span class="stag stag-b">Red Hat</span>
-                  <span class="stag stag-g">OpenShift</span>
-                  <span class="stag stag-o">NIS2</span>
-                </div>
-                <a href="https://itsocial.fr/cloud-infrastructure-it/cloud-infrastructure-it-articles/open-source-et-cloud-hybride-red-hat-dessine-la-feuille-de-route-technologique-de-2026/" target="_blank" class="article-link">Lire l'article →</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="article-entry reveal rd2" data-cat="infra">
-        <div class="article-card">
-          <div class="article-card-inner">
-            <div class="article-card-accent accent-green"></div>
-            <div class="article-card-body">
-              <div class="article-source-badge">
-                <span class="article-source-name">Journal du Net</span>
-                <div class="article-source-sep"></div>
-                <span class="article-category">Infrastructure & IA</span>
-              </div>
-              <div class="article-card-head">
-                <h3 class="article-title">2026 : l'année de vérité pour l'IT française — cloud hybride et orchestration au cœur des priorités</h3>
-                <span class="article-date">Jan. 2026</span>
-              </div>
-              <p class="article-desc">Le cloud hybride s'impose comme l'architecture naturelle des SI modernes. Les entreprises françaises accélèrent l'adoption d'outils cloud-agnostiques et de technologies de conteneurisation pour maîtriser leurs infrastructures et limiter les risques de dépendance fournisseur.</p>
-              <div class="article-resume">
-                <div class="article-resume-label">// Mon analyse</div>
-                <p class="article-resume-text">Ce que j'identifie comme tendance clé : l'adoption des <strong>outils cloud-agnostiques</strong> (Kubernetes, Terraform). Cela rejoint mes compétences SISR sur la virtualisation : ne plus être lié à un seul hyperviseur ou cloud provider est aujourd'hui une exigence professionnelle. Les collectivités et les hôpitaux où je pourrais travailler ont besoin de cette indépendance vis-à-vis des grands fournisseurs américains.</p>
-              </div>
-              <div class="article-footer">
-                <div class="article-tags">
-                  <span class="stag stag-g">Cloud hybride</span>
-                  <span class="stag stag-b">Conteneurisation</span>
-                  <span class="stag stag-o">NIS2</span>
-                </div>
-                <a href="https://www.journaldunet.com/business/1546607-2026-l-annee-de-verite-pour-l-it-francaise/" target="_blank" class="article-link">Lire l'article →</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="article-entry reveal rd3" data-cat="infra">
-        <div class="article-card">
-          <div class="article-card-inner">
-            <div class="article-card-accent accent-green"></div>
-            <div class="article-card-body">
-              <div class="article-source-badge">
-                <span class="article-source-name">Journal du Net</span>
-                <div class="article-source-sep"></div>
-                <span class="article-category">Infrastructure & IA</span>
-              </div>
-              <div class="article-card-head">
-                <h3 class="article-title">2026 : l'infrastructure intelligente, moteur d'une nouvelle ère numérique pour les entreprises françaises</h3>
-                <span class="article-date">8 jan. 2026</span>
-              </div>
-              <p class="article-desc">La cyber-résilience devient stratégique en 2026 avec une demande de détection quasi-instantanée des brèches et restauration des données intégrée à l'infrastructure. Les stratégies cloud évoluent vers des plateformes unifiées décidant où chaque charge de travail s'exécute mieux, tout en assurant la souveraineté des données.</p>
-              <div class="article-resume">
-                <div class="article-resume-label">// Mon analyse</div>
-                <p class="article-resume-text">La notion d'<strong>infrastructure intelligente de la donnée</strong> est une évolution clé : on ne parle plus seulement de "stocker dans le cloud" mais de décider intelligemment où chaque donnée doit résider (performance, coût, conformité, souveraineté). C'est la définition même du cloud hybride mature. La cryptographie post-quantique mentionnée dans l'article est aussi un enjeu à surveiller pour la sécurisation des VPN hybrides.</p>
-              </div>
-              <div class="article-footer">
-                <div class="article-tags">
-                  <span class="stag stag-g">Cloud hybride</span>
-                  <span class="stag stag-b">Cyber-résilience</span>
-                  <span class="stag stag-g">Souveraineté</span>
-                </div>
-                <a href="https://www.journaldunet.com/intelligence-artificielle/1547063-2026-l-infrastructure-intelligente-moteur-d-une-nouvelle-ere-numerique/" target="_blank" class="article-link">Lire l'article →</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="article-entry reveal rd4" data-cat="infra">
-        <div class="article-card">
-          <div class="article-card-inner">
-            <div class="article-card-accent accent-green"></div>
-            <div class="article-card-body">
-              <div class="article-source-badge">
-                <span class="article-source-name">LeMagIT</span>
-                <div class="article-source-sep"></div>
-                <span class="article-category">Infrastructure</span>
-              </div>
-              <div class="article-card-head">
-                <h3 class="article-title">Les tendances du cloud IaaS en 2026 : retour vers le cloud privé et hybride</h3>
-                <span class="article-date">22 jan. 2026</span>
-              </div>
-              <p class="article-desc">Le rapport Flexera 2025 révèle que 70 % des entreprises adoptent désormais des stratégies de cloud hybride. Face aux hausses de prix des hyperscalers et aux tensions géopolitiques, les entreprises repensent leur approche et rapatrient certaines charges de travail. En 2026, il y aura plus de clouds souverains et privés.</p>
-              <div class="article-resume">
-                <div class="article-resume-label">// Mon analyse</div>
-                <p class="article-resume-text">Cet article confirme que le cloud hybride n'est plus un choix de niche mais <strong>la stratégie dominante</strong>. La montée en puissance des outils de sécurité unifiés entre cloud et on-premise est directement liée à nos compétences sur Active Directory et Azure AD. Les micro-clouds Edge fonctionnant en open source réduisent les coûts : un argument clé pour les collectivités qui me concernent.</p>
-              </div>
-              <div class="article-footer">
-                <div class="article-tags">
-                  <span class="stag stag-g">Cloud hybride</span>
-                  <span class="stag stag-b">IaaS</span>
-                  <span class="stag stag-b">FinOps</span>
-                </div>
-                <a href="https://www.lemagit.fr/actualites/366637507/Les-tendances-du-cloud-IaaS-en-2026" target="_blank" class="article-link">Lire l'article →</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- DÉCEMBRE 2025 -->
-      <div class="month-sep">
-        <span class="month-sep-label">Décembre 2025</span>
-        <div class="month-sep-line"></div>
-      </div>
-
-      <div class="article-entry reveal rd1" data-cat="infra">
-        <div class="article-card">
-          <div class="article-card-inner">
-            <div class="article-card-accent accent-green"></div>
-            <div class="article-card-body">
-              <div class="article-source-badge">
-                <span class="article-source-name">Solutions Numériques</span>
-                <div class="article-source-sep"></div>
-                <span class="article-category">Infrastructure Cloud</span>
-              </div>
-              <div class="article-card-head">
-                <h3 class="article-title">Trois tendances qui redéfiniront les infrastructures cloud des entreprises en 2026</h3>
-                <span class="article-date">Déc. 2025</span>
-              </div>
-              <p class="article-desc">Samuel Tourbot (Alcatel-Lucent Enterprise) identifie trois évolutions majeures : la généralisation du cloud hybride comme architecture par défaut, l'essor des plateformes cloud dédiées à l'IA générative, et l'exigence croissante de GreenOps (sobriété énergétique).</p>
-              <div class="article-resume">
-                <div class="article-resume-label">// Mon analyse</div>
-                <p class="article-resume-text">Le point sur la <strong>sobriété énergétique</strong> est nouveau dans ma veille. Les datacenters consomment 945 TWh en 2030 selon l'IEA. Le GreenOps (optimisation de la consommation cloud) devient un critère de choix technique. Lien direct avec le SISR : la supervision de l'infrastructure doit intégrer des métriques énergie, pas seulement CPU/RAM.</p>
-              </div>
-              <div class="article-footer">
-                <div class="article-tags">
-                  <span class="stag stag-g">GreenOps</span>
-                  <span class="stag stag-b">IA générative</span>
-                  <span class="stag stag-g">Cloud hybride</span>
-                </div>
-                <a href="https://www.solutions-numeriques.com/avis-dexpert-trois-tendances-qui-redefiniront-les-infrastructures-cloud-des-entreprises-et-des-administrations-en-2026/" target="_blank" class="article-link">Lire l'article →</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="article-entry reveal rd2" data-cat="infra">
-        <div class="article-card">
-          <div class="article-card-inner">
-            <div class="article-card-accent accent-orange"></div>
-            <div class="article-card-body">
-              <div class="article-source-badge">
-                <span class="article-source-name">Le Monde Informatique</span>
-                <div class="article-source-sep"></div>
-                <span class="article-category">Infrastructure hybride</span>
-              </div>
-              <div class="article-card-head">
-                <h3 class="article-title">Nutanix : gestion des environnements cloud hybrides — leur complexité n'est pas une fatalité</h3>
-                <span class="article-date">Déc. 2025</span>
-              </div>
-              <p class="article-desc">Nutanix Cloud Clusters (NC2) permet une mobilité transparente des applications entre clouds privés et publics (Azure, AWS, OVHcloud) sans modification de code. Une réponse aux migrations post-VMware/Broadcom qui touchent des milliers d'entreprises françaises.</p>
-              <div class="article-resume">
-                <div class="article-resume-label">// Mon analyse</div>
-                <p class="article-resume-text">Ce qui m'intéresse : Nutanix unifie la gestion multi-cloud avec <strong>un seul plan de contrôle</strong>. La complexité entre Azure, AWS et on-premise (terminologies différentes, compétences spécifiques) est un défi concret que j'anticipe dans ma carrière SISR. Nutanix et Proxmox deviennent des alternatives crédibles à VMware : je les ai d'ailleurs expérimentés lors de mes projets de virtualisation.</p>
-              </div>
-              <div class="article-footer">
-                <div class="article-tags">
-                  <span class="stag stag-o">Nutanix</span>
-                  <span class="stag stag-g">Multicloud</span>
-                  <span class="stag stag-b">Migration VMware</span>
-                </div>
-                <a href="https://www.lemondeinformatique.fr/publi_info/lire-gestion-des-environnements-cloud-hybrides-leur-complexite-n-est-pas-une-fatalite-824.html" target="_blank" class="article-link">Lire l'article →</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- NOVEMBRE 2025 -->
-      <div class="month-sep">
-        <span class="month-sep-label">Novembre 2025</span>
-        <div class="month-sep-line"></div>
-      </div>
-
-      <div class="article-entry reveal rd1" data-cat="reglementaire">
-        <div class="article-card">
-          <div class="article-card-inner">
-            <div class="article-card-accent accent-red"></div>
-            <div class="article-card-body">
-              <div class="article-source-badge">
-                <span class="article-source-name">ANSSI / cyber.gouv.fr</span>
-                <div class="article-source-sep"></div>
-                <span class="article-category">Réglementaire</span>
-              </div>
-              <div class="article-card-head">
-                <h3 class="article-title">SecNumCloud : le référentiel de l'ANSSI pour les prestataires cloud de confiance en France</h3>
-                <span class="article-date">Nov. 2025</span>
-              </div>
-              <p class="article-desc">L'ANSSI publie la version 3.2 de son référentiel SecNumCloud, qui définit les exigences de sécurité pour qu'un service cloud soit qualifié "cloud de confiance" en France. Les modifications portent notamment sur l'immunité aux lois extra-européennes et la gestion des incidents.</p>
-              <div class="article-resume">
-                <div class="article-resume-label">// Mon analyse</div>
-                <p class="article-resume-text">Le SecNumCloud est LA référence française pour les administrations et les secteurs sensibles (santé, défense). Ce référentiel confirme que le cloud hybride — avec données critiques on-premise et services cloud certifiés — est la seule réponse acceptable face au <strong>Cloud Act américain</strong>. Directement applicable aux missions SISR en collectivités ou hôpitaux.</p>
-              </div>
-              <div class="article-footer">
-                <div class="article-tags">
-                  <span class="stag stag-o">SecNumCloud</span>
-                  <span class="stag stag-o">ANSSI</span>
-                  <span class="stag stag-o">Souveraineté</span>
-                </div>
-                <a href="https://cyber.gouv.fr/accompagner-les-offreurs-cloud" target="_blank" class="article-link">Lire l'article →</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="article-entry reveal rd2" data-cat="secu">
-        <div class="article-card">
-          <div class="article-card-inner">
-            <div class="article-card-accent accent-red"></div>
-            <div class="article-card-body">
-              <div class="article-source-badge">
-                <span class="article-source-name">Journal du Net</span>
-                <div class="article-source-sep"></div>
-                <span class="article-category">Cybersécurité</span>
-              </div>
-              <div class="article-card-head">
-                <h3 class="article-title">2025 : année charnière pour la cybersécurité des entreprises françaises — Active Directory et ransomwares ciblés</h3>
-                <span class="article-date">Déc. 2024</span>
-              </div>
-              <p class="article-desc">L'identité est le nouveau champ de bataille cyber. 75 % des tentatives d'accès initial n'utilisent pas de logiciels malveillants mais des identifiants volés. La modernisation d'Active Directory et le Zero Trust deviennent des priorités absolues, surtout dans les environnements hybrides.</p>
-              <div class="article-resume">
-                <div class="article-resume-label">// Mon analyse</div>
-                <p class="article-resume-text">Ce chiffre de 75 % d'attaques sans malware est révélateur : les attaquants se connectent avec des <strong>identifiants légitimes</strong> plutôt que d'exploiter des failles techniques. En environnement hybride cloud/on-premise, la cohérence entre Active Directory local et Azure AD est critique. C'est exactement un sujet que j'ai travaillé en cours et en stage : synchronisation des identités via Azure AD Connect et MFA.</p>
-              </div>
-              <div class="article-footer">
-                <div class="article-tags">
-                  <span class="stag stag-o">Active Directory</span>
-                  <span class="stag stag-o">Zero Trust</span>
-                  <span class="stag stag-b">Azure AD</span>
-                </div>
-                <a href="https://www.journaldunet.com/cybersecurite/1537575-2025-annee-charniere-pour-la-cybersecurite-des-entreprises-francaises/" target="_blank" class="article-link">Lire l'article →</a>
+                <a href="https://github.blog/changelog/" target="_blank" class="article-link">Lire l'article →</a>
               </div>
             </div>
           </div>
@@ -860,102 +547,354 @@
         <div class="month-sep-line"></div>
       </div>
 
-      <div class="article-entry reveal rd1" data-cat="infra">
+      <div class="article-entry reveal rd1" data-cat="aiops">
+        <div class="article-card">
+          <div class="article-card-inner">
+            <div class="article-card-accent accent-green"></div>
+            <div class="article-card-body">
+              <div class="evo-badge evo-badge-maturite">◆ Maturité</div>
+              <div class="article-source-badge">
+                <span class="article-source-name">InfoQ</span>
+                <div class="article-source-sep"></div>
+                <span class="article-category">AIOps</span>
+              </div>
+              <div class="article-card-head">
+                <h3 class="article-title">AIOps en 2025 : de la promesse à la réalité — bilan d'adoption dans les entreprises françaises</h3>
+                <span class="article-date">Oct. 2025</span>
+              </div>
+              <p class="article-desc">Un an après les premières annonces grand public, InfoQ dresse un bilan : 42 % des équipes DevOps en France utilisent au moins un outil d'IA dans leur pipeline. Les usages les plus répandus sont la détection d'anomalies, la génération de scripts et l'analyse de logs — pas encore les agents autonomes.</p>
+              <div class="article-resume">
+                <div class="article-resume-label">// Mon analyse</div>
+                <p class="article-resume-text">Ce bilan est précieux : il confirme que l'IA s'intègre <strong>progressivement et sélectivement</strong>, pas brutalement. Les équipes adoptent en priorité ce qui réduit les tâches répétitives (analyse de logs, alertes) avant de faire confiance à l'IA pour des actions critiques. C'est une maturité raisonnée, pas un remplacement immédiat du technicien.</p>
+              </div>
+              <div class="article-footer">
+                <div class="article-tags">
+                  <span class="stag stag-p">AIOps</span>
+                  <span class="stag stag-o">Adoption FR</span>
+                  <span class="stag stag-b">Observabilité</span>
+                </div>
+                <a href="https://www.infoq.com/devops/" target="_blank" class="article-link">Lire l'article →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="article-entry reveal rd2" data-cat="iac">
+        <div class="article-card">
+          <div class="article-card-inner">
+            <div class="article-card-accent accent-green"></div>
+            <div class="article-card-body">
+              <div class="evo-badge evo-badge-maturite">◆ Maturité</div>
+              <div class="article-source-badge">
+                <span class="article-source-name">HashiCorp Blog</span>
+                <div class="article-source-sep"></div>
+                <span class="article-category">Infrastructure as Code</span>
+              </div>
+              <div class="article-card-head">
+                <h3 class="article-title">Terraform Stacks et l'assistant IA : gérer des infrastructures multi-cloud avec le langage naturel</h3>
+                <span class="article-date">Sept. 2025</span>
+              </div>
+              <p class="article-desc">HashiCorp intègre un assistant IA dans HCP Terraform : l'outil analyse les configurations existantes, détecte les dérives de configuration (drift), suggère des corrections et peut générer des modules Terraform complets depuis une description en langage naturel.</p>
+              <div class="article-resume">
+                <div class="article-resume-label">// Mon analyse</div>
+                <p class="article-resume-text">La détection automatique du <strong>configuration drift</strong> (écart entre l'infrastructure réelle et le code IaC) est un vrai apport. En environnement SISR, c'est un problème courant : quelqu'un modifie un serveur manuellement et le code ne reflète plus la réalité. L'IA qui signale ces écarts en continu rend l'infrastructure réellement déclarative et auditée.</p>
+              </div>
+              <div class="article-footer">
+                <div class="article-tags">
+                  <span class="stag stag-b">Terraform</span>
+                  <span class="stag stag-p">Assistant IA</span>
+                  <span class="stag stag-g">Drift detection</span>
+                </div>
+                <a href="https://www.hashicorp.com/blog" target="_blank" class="article-link">Lire l'article →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- JUIN 2025 -->
+      <div class="month-sep">
+        <span class="month-sep-label">Juin 2025</span>
+        <div class="month-sep-line"></div>
+      </div>
+
+      <div class="article-entry reveal rd1" data-cat="aiops">
+        <div class="article-card">
+          <div class="article-card-inner">
+            <div class="article-card-accent accent-orange"></div>
+            <div class="article-card-body">
+              <div class="evo-badge evo-badge-adoption">◆ Adoption</div>
+              <div class="article-source-badge">
+                <span class="article-source-name">LeMagIT</span>
+                <div class="article-source-sep"></div>
+                <span class="article-category">AIOps & Observabilité</span>
+              </div>
+              <div class="article-card-head">
+                <h3 class="article-title">Datadog, Dynatrace, New Relic : la guerre des plateformes AIOps s'intensifie en 2025</h3>
+                <span class="article-date">Juin 2025</span>
+              </div>
+              <p class="article-desc">Les trois leaders de l'observabilité intègrent massivement l'IA générative : analyse des causes racines automatisée, corrélation d'incidents, recommandations de remédiation en langage naturel. Dynatrace annonce Davis AI v2 capable d'agir sur l'infrastructure en mode semi-autonome.</p>
+              <div class="article-resume">
+                <div class="article-resume-label">// Mon analyse</div>
+                <p class="article-resume-text">L'observabilité intelligente devient le <strong>nouveau centre névralgique de l'administration système</strong>. La supervision Zabbix que j'ai pratiquée en cours évolue vers des plateformes qui non seulement détectent les problèmes mais proposent (et bientôt appliquent) les correctifs. La compétence clé devient l'interprétation des alertes IA, pas leur configuration manuelle.</p>
+              </div>
+              <div class="article-footer">
+                <div class="article-tags">
+                  <span class="stag stag-p">AIOps</span>
+                  <span class="stag stag-b">Observabilité</span>
+                  <span class="stag stag-o">Datadog</span>
+                </div>
+                <a href="https://www.lemagit.fr/tag/devops" target="_blank" class="article-link">Lire l'article →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="article-entry reveal rd2" data-cat="ansible">
+        <div class="article-card">
+          <div class="article-card-inner">
+            <div class="article-card-accent accent-orange"></div>
+            <div class="article-card-body">
+              <div class="evo-badge evo-badge-adoption">◆ Adoption</div>
+              <div class="article-source-badge">
+                <span class="article-source-name">Red Hat Blog</span>
+                <div class="article-source-sep"></div>
+                <span class="article-category">Ansible Lightspeed</span>
+              </div>
+              <div class="article-card-head">
+                <h3 class="article-title">Ansible Lightspeed : bilan 18 mois après le lancement — chiffres d'adoption et nouvelles fonctionnalités</h3>
+                <span class="article-date">Mai 2025</span>
+              </div>
+              <p class="article-desc">Red Hat publie les statistiques d'usage d'Ansible Lightspeed : 65 % des tâches générées par l'IA sont utilisées sans modification par les administrateurs. La v2 ajoute la génération de playbooks complets (pas seulement de tâches isolées) et l'explication en français des playbooks existants.</p>
+              <div class="article-resume">
+                <div class="article-resume-label">// Mon analyse</div>
+                <p class="article-resume-text">Le chiffre de 65 % de réutilisation directe confirme que l'IA atteint un niveau de qualité suffisant pour les tâches courantes. L'<strong>explication en français des playbooks existants</strong> est particulièrement utile en formation : comprendre un playbook hérité (écrit par quelqu'un d'autre) devient immédiat. C'est un outil que j'utiliserais dès aujourd'hui en stage.</p>
+              </div>
+              <div class="article-footer">
+                <div class="article-tags">
+                  <span class="stag stag-g">Ansible Lightspeed</span>
+                  <span class="stag stag-p">IA générative</span>
+                  <span class="stag stag-o">Adoption</span>
+                </div>
+                <a href="https://www.redhat.com/en/blog/ansible-lightspeed" target="_blank" class="article-link">Lire l'article →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FÉVRIER 2025 -->
+      <div class="month-sep">
+        <span class="month-sep-label">Février 2025</span>
+        <div class="month-sep-line"></div>
+      </div>
+
+      <div class="article-entry reveal rd1" data-cat="iac">
+        <div class="article-card">
+          <div class="article-card-inner">
+            <div class="article-card-accent accent-orange"></div>
+            <div class="article-card-body">
+              <div class="evo-badge evo-badge-adoption">◆ Adoption</div>
+              <div class="article-source-badge">
+                <span class="article-source-name">HashiCorp Blog</span>
+                <div class="article-source-sep"></div>
+                <span class="article-category">IaC & IA</span>
+              </div>
+              <div class="article-card-head">
+                <h3 class="article-title">HCP Terraform intègre un copilote IA : génération de modules et revue de sécurité automatisée</h3>
+                <span class="article-date">Fév. 2025</span>
+              </div>
+              <p class="article-desc">HashiCorp lance le copilote IA dans HCP Terraform : l'outil génère des modules à partir de descriptions textuelles, analyse les configurations pour détecter des erreurs de sécurité (ports ouverts, credentials en clair) et propose des corrections avant chaque apply.</p>
+              <div class="article-resume">
+                <div class="article-resume-label">// Mon analyse</div>
+                <p class="article-resume-text">L'intégration de la <strong>revue de sécurité automatique avant chaque déploiement</strong> est une vraie avancée. En IaC, il suffit d'un port 22 ouvert sur le mauvais CIDR pour compromettre une infrastructure. L'IA comme filet de sécurité systématique comble une lacune humaine réelle. C'est une évolution directe depuis les premiers linters statiques (2022-2023) vers une analyse contextuelle intelligente.</p>
+              </div>
+              <div class="article-footer">
+                <div class="article-tags">
+                  <span class="stag stag-b">Terraform</span>
+                  <span class="stag stag-p">Copilote IA</span>
+                  <span class="stag stag-o">Sécurité IaC</span>
+                </div>
+                <a href="https://www.hashicorp.com/blog/terraform" target="_blank" class="article-link">Lire l'article →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="article-entry reveal rd2" data-cat="cicd">
+        <div class="article-card">
+          <div class="article-card-inner">
+            <div class="article-card-accent accent-orange"></div>
+            <div class="article-card-body">
+              <div class="evo-badge evo-badge-adoption">◆ Adoption</div>
+              <div class="article-source-badge">
+                <span class="article-source-name">GitHub Blog</span>
+                <div class="article-source-sep"></div>
+                <span class="article-category">CI/CD & Sécurité</span>
+              </div>
+              <div class="article-card-head">
+                <h3 class="article-title">GitHub Copilot Autofix : correction automatique des vulnérabilités dans les pipelines CI/CD</h3>
+                <span class="article-date">Jan. 2025</span>
+              </div>
+              <p class="article-desc">GitHub Copilot Autofix (GA depuis janvier 2025) analyse le code lors des pull requests, détecte des vulnérabilités (injections SQL, secrets exposés, dépendances vulnérables) et propose des correctifs en un clic directement dans l'interface GitHub, avec explication du risque.</p>
+              <div class="article-resume">
+                <div class="article-resume-label">// Mon analyse</div>
+                <p class="article-resume-text">Le passage en disponibilité générale marque un tournant : la sécurité n'est plus une étape post-développement mais une <strong>boucle de feedback continue dans le pipeline</strong>. Pour le SISR, c'est le DevSecOps rendu accessible sans expertise sécurité spécifique. L'écart avec la simple revue de code manuelle est considérable en termes de vélocité.</p>
+              </div>
+              <div class="article-footer">
+                <div class="article-tags">
+                  <span class="stag stag-p">Copilot Autofix</span>
+                  <span class="stag stag-b">DevSecOps</span>
+                  <span class="stag stag-b">GitHub Actions</span>
+                </div>
+                <a href="https://github.blog/security/" target="_blank" class="article-link">Lire l'article →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DÉCEMBRE 2024 -->
+      <div class="month-sep">
+        <span class="month-sep-label">Décembre 2024</span>
+        <div class="month-sep-line"></div>
+      </div>
+
+      <div class="article-entry reveal rd1" data-cat="cicd">
         <div class="article-card">
           <div class="article-card-inner">
             <div class="article-card-accent accent-blue"></div>
             <div class="article-card-body">
+              <div class="evo-badge evo-badge-debut">◆ Début / Annonce</div>
               <div class="article-source-badge">
-                <span class="article-source-name">Microsoft Learn</span>
+                <span class="article-source-name">GitHub Blog</span>
                 <div class="article-source-sep"></div>
-                <span class="article-category">Documentation officielle</span>
+                <span class="article-category">CI/CD & IA</span>
               </div>
               <div class="article-card-head">
-                <h3 class="article-title">Azure Arc : gérer ses serveurs Linux et Windows on-premise depuis le portail Azure</h3>
-                <span class="article-date">Oct. 2025</span>
+                <h3 class="article-title">GitHub Copilot s'étend à l'infrastructure : suggestions dans les fichiers YAML, Dockerfile et GitHub Actions</h3>
+                <span class="article-date">Déc. 2024</span>
               </div>
-              <p class="article-desc">Microsoft documente les fonctionnalités d'Azure Arc, permettant de gérer des serveurs on-premise et des clusters Kubernetes depuis le portail Azure. Les Azure Policies s'appliquent uniformément aux ressources cloud et physiques locales.</p>
+              <p class="article-desc">GitHub annonce l'extension de Copilot au-delà du code applicatif : l'IA suggère désormais des étapes dans les workflows GitHub Actions, complète les Dockerfiles et propose des configurations Kubernetes. Une évolution majeure qui amène l'assistance IA au cœur du travail d'infrastructure.</p>
               <div class="article-resume">
                 <div class="article-resume-label">// Mon analyse</div>
-                <p class="article-resume-text">Azure Arc est l'outil que j'ai expérimenté lors de mon alternance pour superviser des serveurs on-premise depuis Azure. Ce qui m'a frappé : on peut appliquer des <strong>Azure Policies</strong> (règles de conformité) sur des serveurs physiques locaux exactement comme sur des VMs Azure. C'est une révolution pour l'administration hybride car tout se pilote depuis une seule console.</p>
+                <p class="article-resume-text">C'est le signal que Copilot cesse d'être un outil de développeurs pour devenir un outil d'<strong>administrateurs systèmes et DevOps</strong>. Jusqu'ici, l'IA assistait principalement l'écriture de code Python ou JavaScript. Son extension aux Dockerfiles, YAML et Actions marque l'entrée de l'IA dans le périmètre SISR. Cette annonce est un point charnière dans ma veille.</p>
               </div>
               <div class="article-footer">
                 <div class="article-tags">
-                  <span class="stag stag-b">Azure Arc</span>
-                  <span class="stag stag-b">Windows Server</span>
-                  <span class="stag stag-g">Kubernetes</span>
+                  <span class="stag stag-p">GitHub Copilot</span>
+                  <span class="stag stag-b">Docker</span>
+                  <span class="stag stag-b">Kubernetes</span>
                 </div>
-                <a href="https://learn.microsoft.com/fr-fr/azure/azure-arc/servers/overview" target="_blank" class="article-link">Lire l'article →</a>
+                <a href="https://github.blog/changelog/" target="_blank" class="article-link">Lire l'article →</a>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="article-entry reveal rd2" data-cat="reglementaire">
+      <div class="article-entry reveal rd2" data-cat="ansible">
         <div class="article-card">
           <div class="article-card-inner">
-            <div class="article-card-accent accent-red"></div>
+            <div class="article-card-accent accent-blue"></div>
             <div class="article-card-body">
+              <div class="evo-badge evo-badge-debut">◆ Début / Annonce</div>
               <div class="article-source-badge">
-                <span class="article-source-name">CNIL</span>
+                <span class="article-source-name">LeMagIT</span>
                 <div class="article-source-sep"></div>
-                <span class="article-category">Réglementaire RGPD</span>
+                <span class="article-category">Automatisation IT</span>
               </div>
               <div class="article-card-head">
-                <h3 class="article-title">Cloud et RGPD : comment choisir son prestataire cloud en conformité avec la réglementation européenne ?</h3>
-                <span class="article-date">Oct. 2025</span>
+                <h3 class="article-title">Red Hat élargit Ansible Lightspeed : génération de rôles complets et intégration VS Code améliorée</h3>
+                <span class="article-date">Nov. 2024</span>
               </div>
-              <p class="article-desc">La CNIL publie un guide pratique pour aider les entreprises à évaluer la conformité RGPD de leurs prestataires cloud. Le document détaille les clauses contractuelles à vérifier, les certifications à exiger, et les risques liés au Cloud Act.</p>
+              <p class="article-desc">Red Hat enrichit Ansible Lightspeed avec la génération de rôles Ansible complets (pas seulement des tâches isolées) et une intégration VS Code qui suggère des playbooks en contexte. Le modèle IA sous-jacent (IBM watsonx) est entraîné spécifiquement sur des données Ansible certifiées Red Hat.</p>
               <div class="article-resume">
                 <div class="article-resume-label">// Mon analyse</div>
-                <p class="article-resume-text">Ce guide de la CNIL est une source de référence absolue pour comprendre pourquoi le cloud hybride s'impose. Le <strong>Cloud Act américain de 2018</strong> est incompatible avec le RGPD sur certains points : les autorités US peuvent exiger l'accès aux données hébergées par AWS/Azure/GCP même en Europe. Cela justifie le maintien de données sensibles on-premise ou sur cloud certifié français (OVHcloud, Outscale).</p>
+                <p class="article-resume-text">Le fait que le modèle soit entraîné sur des données <strong>Ansible certifiées Red Hat</strong> (pas du contenu générique) est une garantie de qualité importante. Les suggestions ne sont pas des hallucinations de LLM généraliste mais des patterns testés en production. C'est ce qui distingue Lightspeed d'une simple intégration ChatGPT dans un éditeur.</p>
               </div>
               <div class="article-footer">
                 <div class="article-tags">
-                  <span class="stag stag-o">CNIL</span>
-                  <span class="stag stag-o">RGPD</span>
-                  <span class="stag stag-o">Cloud Act</span>
+                  <span class="stag stag-g">Ansible Lightspeed</span>
+                  <span class="stag stag-p">IBM watsonx</span>
+                  <span class="stag stag-g">VS Code</span>
                 </div>
-                <a href="https://www.cnil.fr/fr/securite-cloud-informatique-en-nuage" target="_blank" class="article-link">Lire l'article →</a>
+                <a href="https://www.lemagit.fr/tag/devops" target="_blank" class="article-link">Lire l'article →</a>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- FÉVRIER — OCTOBRE 2024 -->
+      <!-- OCTOBRE 2024 -->
       <div class="month-sep">
-        <span class="month-sep-label">Février — Octobre 2024</span>
+        <span class="month-sep-label">Octobre 2024</span>
         <div class="month-sep-line"></div>
       </div>
 
-      <div class="article-entry reveal rd1" data-cat="reglementaire">
+      <div class="article-entry reveal rd1" data-cat="ansible">
         <div class="article-card">
           <div class="article-card-inner">
-            <div class="article-card-accent accent-red"></div>
+            <div class="article-card-accent accent-blue"></div>
             <div class="article-card-body">
+              <div class="evo-badge evo-badge-debut">◆ Début / Annonce</div>
               <div class="article-source-badge">
-                <span class="article-source-name">Journal du Net</span>
+                <span class="article-source-name">Red Hat Blog</span>
                 <div class="article-source-sep"></div>
-                <span class="article-category">Réglementaire NIS2</span>
+                <span class="article-category">Ansible Lightspeed</span>
               </div>
               <div class="article-card-head">
-                <h3 class="article-title">NIS 2 : comment les entreprises françaises doivent-elles se préparer à la directive européenne ?</h3>
+                <h3 class="article-title">Ansible Lightspeed : disponibilité générale — l'IA entre dans l'automatisation IT d'entreprise</h3>
                 <span class="article-date">Oct. 2024</span>
               </div>
-              <p class="article-desc">La France accuse un retard dans la transposition de NIS 2 (devait être effective le 17 octobre 2024). Des pays voisins (Belgique, République Tchèque) l'ont déjà adoptée. Les entreprises franco-européennes doivent s'y conformer pour maintenir leurs échanges commerciaux avec ces pays.</p>
+              <p class="article-desc">Red Hat annonce la disponibilité générale d'Ansible Lightspeed with IBM watsonx Code Assistant. L'outil génère des tâches Ansible à partir de descriptions en langage naturel ("installe nginx et configure un vhost sur port 443"), directement dans VS Code ou le portail Automation Hub.</p>
               <div class="article-resume">
                 <div class="article-resume-label">// Mon analyse</div>
-                <p class="article-resume-text">Le retard français de NIS2 est un signal important : la réglementation cyber prend du retard face aux réalités politiques. Mais les entreprises ne peuvent pas attendre — NIS2 impose de sécuriser les <strong>accès distants et les infrastructures cloud hybrides</strong>. Pour le SISR, c'est une opportunité : les compétences en sécurisation des SI hybrides vont devenir une exigence légale, pas seulement une bonne pratique.</p>
+                <p class="article-resume-text">C'est le point de départ de ma veille. Ansible est l'outil d'automatisation que j'ai étudié en BTS SIO. Lightspeed représente une <strong>rupture dans la courbe d'apprentissage</strong> : un débutant peut désormais écrire un playbook fonctionnel sans maîtriser la syntaxe YAML d'Ansible. Cela soulève une question de fond pour la formation : doit-on encore apprendre la syntaxe ou apprendre à guider l'IA ?</p>
               </div>
               <div class="article-footer">
                 <div class="article-tags">
-                  <span class="stag stag-o">NIS2</span>
-                  <span class="stag stag-o">Réglementation UE</span>
-                  <span class="stag stag-g">Cybersécurité</span>
+                  <span class="stag stag-g">Ansible Lightspeed</span>
+                  <span class="stag stag-p">IBM watsonx</span>
+                  <span class="stag stag-b">GA</span>
                 </div>
-                <a href="https://www.journaldunet.com/cybersecurite/1535029-nis-2-n-entrera-pas-en-vigueur-le-17-octobre-en-france-mais-vous-devrez-peut-etre-la-respecter-avant-sa-mise-en-place-effective/" target="_blank" class="article-link">Lire l'article →</a>
+                <a href="https://www.redhat.com/en/blog/ansible-lightspeed-generally-available" target="_blank" class="article-link">Lire l'article →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="article-entry reveal rd2" data-cat="iac">
+        <div class="article-card">
+          <div class="article-card-inner">
+            <div class="article-card-accent accent-blue"></div>
+            <div class="article-card-body">
+              <div class="evo-badge evo-badge-debut">◆ Début / Annonce</div>
+              <div class="article-source-badge">
+                <span class="article-source-name">InfoQ</span>
+                <div class="article-source-sep"></div>
+                <span class="article-category">Infrastructure as Code</span>
+              </div>
+              <div class="article-card-head">
+                <h3 class="article-title">L'IA générative dans l'IaC : état des lieux 2024 — outils, limites et risques</h3>
+                <span class="article-date">Oct. 2024</span>
+              </div>
+              <p class="article-desc">InfoQ dresse un panorama des outils IA pour l'Infrastructure as Code en 2024 : Terraform Copilot, Pulumi AI, AWS CloudFormation AI. Les limites sont identifiées : hallucinations sur les providers peu documentés, configurations valides syntaxiquement mais incorrectes fonctionnellement.</p>
+              <div class="article-resume">
+                <div class="article-resume-label">// Mon analyse</div>
+                <p class="article-resume-text">Cet article est essentiel comme point de départ : il pose le cadre critique. Les <strong>hallucinations sur l'IaC</strong> sont dangereuses car une configuration Terraform incorrecte peut détruire des ressources en production. En octobre 2024, l'IA dans l'IaC nécessitait encore une vérification humaine systématique. C'est ce que l'évolution sur 17 mois va faire évoluer — vers plus de fiabilité et de confiance.</p>
+              </div>
+              <div class="article-footer">
+                <div class="article-tags">
+                  <span class="stag stag-b">Terraform</span>
+                  <span class="stag stag-p">IA générative</span>
+                  <span class="stag stag-o">Limites IA</span>
+                </div>
+                <a href="https://www.infoq.com/devops/" target="_blank" class="article-link">Lire l'article →</a>
               </div>
             </div>
           </div>
@@ -964,30 +903,32 @@
 
     </div><!-- /timeline -->
   </section>
+
+  <!-- SYNTHESE -->
   <section class="synthese-section reveal">
     <p class="section-eyebrow">03 — Synthèse</p>
     <h2 class="section-title">Ce que j'ai retenu de cette veille</h2>
 
     <div class="synthese-grid">
-      <div class="synthese-card sc-green reveal rd1">
-        <div class="synthese-num">01 — Tendance principale</div>
-        <div class="synthese-title">Le cloud hybride s'impose comme norme</div>
-        <div class="synthese-text">En 5 mois de veille, tous les articles convergent : <strong>70 % des entreprises</strong> (Flexera 2025) adoptent le cloud hybride. Ce n'est plus un choix technique mais une réalité imposée par les contraintes réglementaires (RGPD, NIS2) et économiques (coûts des hyperscalers).</div>
+      <div class="synthese-card sc-blue reveal rd1">
+        <div class="synthese-num">01 — Évolution observée</div>
+        <div class="synthese-title">De l'assistance à l'autonomie : 3 phases en 17 mois</div>
+        <div class="synthese-text">Phase 1 (oct. 2024) : l'IA <strong>suggère des tâches isolées</strong> (Ansible Lightspeed, Copilot lignes de code). Phase 2 (2025) : l'IA <strong>génère des pipelines et modules complets</strong>, détecte les dérives. Phase 3 (2026) : les agents IA <strong>agissent de manière autonome</strong> sur l'infrastructure. L'évolution est rapide et linéaire.</div>
       </div>
-      <div class="synthese-card sc-red reveal rd2">
-        <div class="synthese-num">02 — Enjeu sécurité</div>
-        <div class="synthese-title">La sécurité des interconnexions est critique</div>
-        <div class="synthese-text">Le CESIN confirme que <strong>40 % des entreprises</strong> subissent des attaques significatives. En hybride, les connexions entre cloud et on-premise (VPN, ExpressRoute) sont les zones les plus exposées. Le Zero Trust s'impose comme modèle de référence.</div>
+      <div class="synthese-card sc-orange reveal rd2">
+        <div class="synthese-num">02 — Enjeu formation</div>
+        <div class="synthese-title">La compétence se déplace vers l'évaluation critique</div>
+        <div class="synthese-text">En 17 mois, la valeur ajoutée du technicien SISR s'est déplacée : de "savoir écrire un playbook Ansible" vers <strong>"savoir évaluer, corriger et superviser ce que l'IA produit"</strong>. Les fondamentaux (réseau, système, sécurité) restent indispensables pour critiquer les sorties IA.</div>
       </div>
-      <div class="synthese-card sc-blue reveal rd3">
-        <div class="synthese-num">03 — Évolution des outils</div>
-        <div class="synthese-title">Azure Arc, Nutanix : la gestion unifiée s'accélère</div>
-        <div class="synthese-text">Les outils d'orchestration hybride mûrissent rapidement. Azure Arc permet de gérer on-premise et cloud depuis une seule console. La migration post-VMware/Broadcom accélère l'adoption de Nutanix et Proxmox, que j'ai pu expérimenter en projet.</div>
+      <div class="synthese-card sc-purple reveal rd3">
+        <div class="synthese-num">03 — Risque identifié</div>
+        <div class="synthese-title">Les hallucinations IA : un risque opérationnel réel</div>
+        <div class="synthese-text">Un playbook Ansible ou un module Terraform généré par IA peut être <strong>syntaxiquement valide mais fonctionnellement dangereux</strong> (port ouvert, credential exposé, suppression de ressource). La revue humaine reste obligatoire. Les outils comme Copilot Autofix commencent à adresser ce risque.</div>
       </div>
-      <div class="synthese-card sc-orange reveal rd4">
+      <div class="synthese-card sc-green reveal rd4">
         <div class="synthese-num">04 — Lien avec ma formation</div>
-        <div class="synthese-title">Des compétences SISR directement applicables</div>
-        <div class="synthese-text">Administration AD/Azure AD, VPN site-to-site, pare-feu pfSense, supervision Zabbix, Proxmox : toutes les compétences travaillées en BTS SIO SISR correspondent aux besoins réels identifiés dans ma veille. La transition hybride crée des <strong>opportunités d'emploi directes</strong>.</div>
+        <div class="synthese-title">Des outils directement applicables en SISR</div>
+        <div class="synthese-text">Ansible, Terraform, GitHub Actions : tous ces outils étudiés en BTS SIO SISR intègrent désormais une couche IA. <strong>Maîtriser les fondamentaux</strong> m'a donné la base pour comprendre et critiquer ce que l'IA génère. Sans cette base, utiliser Lightspeed serait aussi risqué qu'efficace.</div>
       </div>
     </div>
 
@@ -997,7 +938,7 @@
         Mon avis personnel — David Amado
       </div>
       <p class="avis-text">
-        Cette veille de 5 mois m'a permis de comprendre que le cloud hybride n'est pas une technologie de plus à maîtriser : c'est le <strong>contexte dans lequel vont s'exercer la plupart de mes futures missions de technicien SISR</strong>. Les entreprises ne font pas table rase de leur infrastructure existante — elles la font coexister avec le cloud. Ce qui m'a le plus surpris est l'impact du <strong>Cloud Act américain</strong> sur les choix d'architecture en France, un enjeu que je n'avais pas mesuré avant de commencer cette veille. Je vais désormais suivre de plus près les évolutions du <strong>cloud souverain européen</strong> (GAIA-X, OVHcloud) et l'émergence du <strong>GreenOps</strong> comme nouveau critère de dimensionnement des infrastructures.
+        Cette veille m'a permis d'observer en temps réel une transformation technologique qui va directement impacter mon métier. Ce qui m'a le plus frappé : la vitesse d'évolution. En octobre 2024, Ansible Lightspeed générait des tâches isolées. En mars 2026, des agents IA déploient des correctifs en production sans intervention humaine. <strong>17 mois pour passer de l'assistance à l'autonomie partielle</strong>, c'est une accélération sans précédent dans le secteur IT. Ce que j'en retiens pour ma carrière : les fondamentaux système et réseau que j'ai appris en BTS SIO SISR ne sont pas obsolètes — ils sont devenus le socle critique pour <strong>superviser, valider et corriger l'IA</strong>. Un technicien qui ne comprend pas ce qu'Ansible fait sous le capot ne peut pas détecter quand Lightspeed hallucine. Je vais approfondir la pratique de ces outils en parallèle de ma compréhension des modèles IA qui les alimentent.
       </p>
     </div>
   </section>
@@ -1010,7 +951,6 @@
 </footer>
 
 <script>
-  // Canvas réseau
   const canvas = document.getElementById('bg-canvas');
   const ctx = canvas.getContext('2d');
   let W, H, nodes = [];
@@ -1034,12 +974,10 @@
   }
   draw();
 
-  // Scroll reveal
   const reveals = document.querySelectorAll('.reveal');
   const obs = new IntersectionObserver(e=>e.forEach(el=>{if(el.isIntersecting){el.target.classList.add('visible');obs.unobserve(el.target);}}),{threshold:.08});
   reveals.forEach(el=>obs.observe(el));
 
-  // Filtres
   const filterBtns = document.querySelectorAll('.filter-btn');
   const articles = document.querySelectorAll('.article-entry');
   filterBtns.forEach(btn => {

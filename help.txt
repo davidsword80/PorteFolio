@@ -3,7 +3,10 @@
           amadodavid17@gmail.com
         </div>
 
-
+        <div class="contact-link">
+          <span class="contact-link-icon">✉️</span>
+          amadodavid17@gmail.com
+        </div>
 
   // Scroll reveal
   const reveals = document.querySelectorAll('.reveal');
